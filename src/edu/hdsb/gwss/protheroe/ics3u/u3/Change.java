@@ -9,14 +9,21 @@ package edu.hdsb.gwss.protheroe.ics3u.u3;
  *
  * @author 1protheroery
  */
-public class DoubleJeopardy {
+public class Change {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
-        double value = 3200000;
-        System.out.println("A double: " +  value);
-  }
+        int change = 48;
+        int quarter = 25;
+        int dime = 10;
+        int nickel = 5;
+        int penny = 1;
+        int quartersNeeded = change/quarter;
+       
+        System.out.println("You require " + quartersNeeded + " quarter");
+        
+    }
+    
 }

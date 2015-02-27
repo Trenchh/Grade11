@@ -9,14 +9,19 @@ package edu.hdsb.gwss.protheroe.ics3u.u3;
  *
  * @author 1protheroery
  */
-public class DoubleJeopardy {
+public class Perimeter {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
-        double value = 3200000;
-        System.out.println("A double: " +  value);
-  }
+        int length = 10;
+        int width = 20;
+        int area = length * width;
+        int perimeter = length + width;
+        
+        System.out.println("The area of the rectangle is:" + area + "cm2");
+        System.out.println("The perimeter of the rectangle is:" + perimeter+ "cm");
+    }
+    
 }

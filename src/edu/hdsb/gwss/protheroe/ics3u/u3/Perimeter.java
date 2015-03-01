@@ -1,8 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+ * Name: Perimeter.java
+ * Date: Feb 27th, 2015
+ * Version: v0.2
+ * Author: Ryan Protheroe
+ * Description: Program calculates and displays the total perimeter and area of
+ * a rectangle given the dimensions
+*/
 package edu.hdsb.gwss.protheroe.ics3u.u3;
 
 /**
@@ -20,8 +23,8 @@ public class Perimeter {
         int area = length * width;
         int perimeter = length + width;
         
-        System.out.println("The area of the rectangle is:" + area + "cm2");
-        System.out.println("The perimeter of the rectangle is:" + perimeter+ "cm");
+        System.out.println("The area of the rectangle is: " + area + "cm2");
+        System.out.println("The perimeter of the rectangle is: " + perimeter+ "cm");
     }
     
 }

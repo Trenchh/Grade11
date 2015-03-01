@@ -1,8 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+ * Name: SmileyFaceActivity.java
+ * Date: Feb 25th, 2015
+ * Version: v0.1
+ * Author: Ryan Protheroe
+ * Description: Displays a unique smiley.
+*/
 package edu.hdsb.gwss.protheroe.ics3u.u3;
 
 /**

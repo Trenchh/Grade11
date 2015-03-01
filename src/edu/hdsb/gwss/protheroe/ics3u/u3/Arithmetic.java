@@ -1,8 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+ * Name: Arithmetic.java
+ * Date: Feb 27th, 2015
+ * Version: v0.2
+ * Author: Ryan Protheroe
+ * Description: Does and displays addition, subtraction, multiplication and mod 
+ * of varibles given.
+*/
 package edu.hdsb.gwss.protheroe.ics3u.u3;
 
 /**

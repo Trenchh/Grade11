@@ -1,8 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+ * Name: RockPaperScissorsRules.java
+ * Date: Feb 25th, 2015
+ * Version: v0.2
+ * Author: Ryan Protheroe
+ * Description: Displays rules of Rock Paper Scissors to user.
+*/
 package edu.hdsb.gwss.protheroe.ics3u.u3;
 
 /**

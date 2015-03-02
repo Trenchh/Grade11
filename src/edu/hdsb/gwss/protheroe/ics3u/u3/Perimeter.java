@@ -1,7 +1,7 @@
 /*
  * Name: Perimeter.java
- * Date: Feb 27th, 2015
- * Version: v0.2
+ * Date: March 2nd, 2015
+ * Version: v0.3
  * Author: Ryan Protheroe
  * Description: Program calculates and displays the total perimeter and area of
  * a rectangle given the dimensions
@@ -21,7 +21,7 @@ public class Perimeter {
         int length = 10;
         int width = 20;
         int area = length * width;
-        int perimeter = length + width;
+        int perimeter = ((length + width) * 2);
         
         System.out.println("The area of the rectangle is: " + area + "cm2");
         System.out.println("The perimeter of the rectangle is: " + perimeter+ "cm");

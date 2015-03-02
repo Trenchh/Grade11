@@ -1,7 +1,7 @@
 /*
  * Name: Change.java
- * Date: Feb 28th, 2015
- * Version: v0.2
+ * Date: March 2nd, 2015
+ * Version: v0.3
  * Author: Ryan Protheroe
  * Description: Program tells you how many of each currency is required for the 
  * amount needed.
@@ -18,15 +18,18 @@ public class Change {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int change  = 48;
-        int quarter = 25;
-        int dime    = 10;
-        int nickel  = 5;
-        int penny   = 1;
-        int quartersNeeded = change/quarter;
-        int dimesNeeded    = ((change -(25 * quartersNeeded))/dime);
-        int nickelsNeeded  = ((change -(10 * dimesNeeded))/nickel);
-        int penniesNeeded  = ((change -(5 * nickelsNeeded))/penny);
+        int change             = 46;
+        final int QUARTERVALUE = 25;
+        final int DIMEVALUE    = 10;
+        final int NICKELVALUE  = 5;
+        final int PENNYVALUE   = 1;
+        int quartersNeeded = (change/QUARTERVALUE);
+        int remainder1     = (change - (QUARTERVALUE * quartersNeeded));
+        int dimesNeeded    = (remainder1/DIMEVALUE);
+        int remainder2     = (remainder1 - (DIMEVALUE * dimesNeeded));
+        int nickelsNeeded  = (remainder2/NICKELVALUE);
+        int remainder3     = (remainder2 - (NICKELVALUE * nickelsNeeded));
+        int penniesNeeded  = (remainder3 /PENNYVALUE);
        
         System.out.println("You require " + quartersNeeded + " quarters");
         System.out.println("You require " + dimesNeeded    + " dimes");

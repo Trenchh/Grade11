@@ -1,15 +1,15 @@
 /*
  * Name: Botswana Flag
  * Date: March 3rd, 2015
- * Version: v0.1
+ * Version: v0.2
  * Author: Ryan Protheroe
 */
 
-final int boxWidth  = (500);
+final int boxWidth  = (800);
 final int boxXLocation = (150);
 
 //Window Size
-size(800, 800);
+size(1100, 800);
 
 //Blue rectangle
 fill(6,105,201);

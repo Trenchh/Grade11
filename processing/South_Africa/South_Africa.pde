@@ -1,7 +1,7 @@
 /*
  * Name: South Africa Flag
  * Date: March 5th, 2015
- * Version: v0.1
+ * Version: v0.2
  * Author: Ryan Protheroe
 */
 
@@ -46,7 +46,7 @@ rect(boxXLocation, boxYLocation + 190, boxWidth, boxHeight - 380);
 //Green trapezoid
 noStroke();
 fill(5, 167, 60);
-quad(boxXLocation + 100, boxYLocation, boxXLocation + 375, boxYLocation + 190, boxXLocation + 375, boxYLocation + 310, boxXLocation + 100, boxYLocation + 500);
+quad(boxXLocation + 100, boxYLocation, boxXLocation + 385, boxYLocation + 190, boxXLocation + 385, boxYLocation + 310, boxXLocation + 100, boxYLocation + 500);
 
 //Green rectangle to fill back of trap
 noStroke();

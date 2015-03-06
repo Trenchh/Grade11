@@ -1,5 +1,5 @@
 /*
- * Name: Botswana Flag
+ * Name: Bahamas Flag
  * Date: March 5th, 2015
  * Version: v0.2
  * Author: Ryan Protheroe
@@ -15,16 +15,16 @@ size(1100, 800);
 
 //Blue rectangle
 noStroke();
-fill(6,105,201);
+fill(0, 136, 175);
 rect(boxXLocation, boxYLocation, boxWidth, boxHeight);
 
-//White rectangle
+//Yellow rectangle
 noStroke();
-fill(255,255,255);
+fill(241, 250, 13);
 rect(boxXLocation, boxYLocation + 175, boxWidth, boxHeight - 350);
 
-//Black rectangle
+//Triangle
 noStroke();
 fill(0,0,0);
-rect(boxXLocation, boxYLocation + 200, boxWidth, boxHeight - 400);
+triangle(boxXLocation, boxYLocation, boxXLocation + 325, boxYLocation + 250, boxXLocation, boxYLocation + 500);
 

@@ -1,7 +1,7 @@
 /*
  * Name: Norway Flag
- * Date: March 5th, 2015
- * Version: v0.2
+ * Date: March 6th, 2015
+ * Version: v0.3
  * Author: Ryan Protheroe
 */
 
@@ -21,19 +21,19 @@ rect(boxXLocation, boxYLocation, boxWidth, boxHeight);
 //Horizontal white rectangle
 noStroke();
 fill(255, 255, 255);
-rect(boxXLocation, boxYLocation + 190, boxWidth, boxHeight - 380);
+rect(boxXLocation, boxYLocation + boxHeight * 0.38, boxWidth, boxHeight * .24);
 
 //Vertical white rectangle
 noStroke();
 fill(255, 255, 255);
-rect(boxXLocation + 200, boxYLocation, 120, boxHeight);
+rect(boxXLocation + boxWidth * .25, boxYLocation, boxWidth * .15, boxHeight);
 
 //Horizontal blue rectangle
 noStroke();
 fill(15, 43, 149);
-rect(boxXLocation, boxYLocation + 220, boxWidth, boxHeight - 440);
+rect(boxXLocation, boxYLocation + boxHeight * .44, boxWidth, boxHeight * .12);
 
 //Vertical blue rectangle
 noStroke();
 fill(15, 43, 149);
-rect(boxXLocation + 230, boxYLocation, boxWidth - 740, boxHeight);
+rect(boxXLocation + boxWidth * 0.2875, boxYLocation, boxWidth * .075, boxHeight);

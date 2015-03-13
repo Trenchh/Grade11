@@ -6,7 +6,7 @@
  * Description: Does and displays addition, subtraction, multiplication and mod 
  * of varibles given.
 */
-package edu.hdsb.gwss.protheroe.ics3u.u3;
+package edu.hdsb.gwss.protheroe.ics3u.u4;
 
 /**
  *

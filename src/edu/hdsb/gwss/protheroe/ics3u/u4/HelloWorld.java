@@ -6,7 +6,7 @@
  * Description: Simple program to display "hello world" to the screen.
 */
 
-package edu.hdsb.gwss.protheroe.ics3u.u3;
+package edu.hdsb.gwss.protheroe.ics3u.u4;
 
 /**
  *

@@ -6,7 +6,7 @@
  * Description: Program calculates the weeks, days, and hours that majke up the 
  * number of hours given
 */
-package edu.hdsb.gwss.protheroe.ics3u.u3;
+package edu.hdsb.gwss.protheroe.ics3u.u4;
 
 /**
  *

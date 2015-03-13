@@ -6,7 +6,7 @@
  * Description: Program tells you how many of each currency is required for the 
  * amount needed.
 */
-package edu.hdsb.gwss.protheroe.ics3u.u3;
+package edu.hdsb.gwss.protheroe.ics3u.u4;
 
 /**
  *

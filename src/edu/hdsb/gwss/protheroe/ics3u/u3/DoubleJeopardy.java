@@ -5,7 +5,7 @@
  * Author: Ryan Protheroe
  * Description: Displays the "double" associated with variable.
 */
-package edu.hdsb.gwss.protheroe.ics3u.u4;
+package edu.hdsb.gwss.protheroe.ics3u.u3;
 
 /**
  *

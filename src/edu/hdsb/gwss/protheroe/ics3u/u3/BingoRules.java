@@ -5,7 +5,7 @@
  * Author: Ryan Protheroe
  * Description: Displays rules of Bingo to user.
 */
-package edu.hdsb.gwss.protheroe.ics3u.u4;
+package edu.hdsb.gwss.protheroe.ics3u.u3;
 
 /**
  *

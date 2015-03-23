@@ -6,7 +6,7 @@
  * Description: Program calculates and displays the total perimeter and area of
  * a rectangle given the dimensions
 */
-package edu.hdsb.gwss.protheroe.ics3u.u4;
+package edu.hdsb.gwss.protheroe.ics3u.u3;
 
 /**
  *

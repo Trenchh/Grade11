@@ -5,7 +5,7 @@
  * Author: Ryan Protheroe
  * Description: Shows the ones, tens, and hundreds value of a 3 digit number
 */
-package edu.hdsb.gwss.protheroe.ics3u.u4;
+package edu.hdsb.gwss.protheroe.ics3u.u3;
 
 /**
  *

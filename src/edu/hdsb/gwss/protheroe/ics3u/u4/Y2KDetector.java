@@ -1,7 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Name: Y2KDetector.java
+ * Date: March 22nd, 2015
+ * Version: v0.1
+ * Author: Ryan Protheroe
+ * Description: Determines age of user given certain variables
  */
 package edu.hdsb.gwss.protheroe.ics3u.u4;
 
@@ -27,32 +29,19 @@ public class Y2KDetector {
         int currentYear;
         System.out.println("Please enter the last two digits of the current year:");
         currentYear = input.nextInt();
-        
-        //Calculates current year in thousands form and checks if 100 
+
+        //Calculates age
         if (birthYear == currentYear) {
             int age = 100;
-            System.out.println("Current age:" + age);
-        } else if (currentYear <= 15) {
-            int thousandsCurrentYear = currentYear + 2000;
-            System.out.println("Current Year:" + thousandsCurrentYear);
-        } else if (currentYear <= 99 && currentYear > 15) {
-            int thousandsCurrentYear = currentYear + 1900;
-            System.out.println("Current Year:" + thousandsCurrentYear);
+            System.out.println("Your age is:" + age);
+        } else if (birthYear > currentYear) {
+            int age1 = 100 - birthYear;
+            int finalAge = age1 + currentYear;
+            System.out.println("Your age is:" + finalAge);
         } else {
+            int finalAge1 = currentYear - birthYear;
+            System.out.println("Your age is:" + finalAge1);
         }
-        
-        //Calculates birth year in thousands form
-        if (birthYear < 15) {
-            int thousandsBirthYear = birthYear + 2000;
-            System.out.println("Birth Year:" + thousandsBirthYear);
-        } else if (birthYear <= 99 && birthYear > 15) {
-            int thousandsBirthYear = currentYear + 1900;
-            System.out.println("Birth Year:" + thousandsBirthYear);
-        } else {   
-        }
-        
-        //Calculates final age
-        int finalAge = thousandsCurrentYear - thousandsBirthYear;
     }
 
 }

@@ -5,7 +5,7 @@
  * Author: Ryan Protheroe
  * Description: appplies a 10% discount if necessary
  */
-package edu.hdsb.gwss.protheroe.ics3u.u3;
+package edu.hdsb.gwss.protheroe.ics3u.u4;
 
 import java.text.NumberFormat;
 import java.util.Scanner;

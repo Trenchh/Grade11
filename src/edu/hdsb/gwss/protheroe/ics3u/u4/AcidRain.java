@@ -19,7 +19,7 @@ public class AcidRain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //Scanner gets birth year and current year
+        //Scanner
         Scanner input = new Scanner(System.in);
 
         //User inputs data

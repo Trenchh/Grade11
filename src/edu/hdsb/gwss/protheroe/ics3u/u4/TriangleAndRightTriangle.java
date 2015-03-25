@@ -19,25 +19,44 @@ public class TriangleAndRightTriangle {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+
         //Scanner
         Scanner input = new Scanner(System.in);
 
-        //User inputs data
+        //Variables
         double sideLength1;
+        double sideLength2;
+        double sideLength3;
+        double tmp;
+        double tmp1;
+
+        //User inputs data
         System.out.println("Please enter the the 1st side length:");
         sideLength1 = input.nextDouble();
-        double sideLength2;
         System.out.println("Please enter the the 2nd side length:");
         sideLength2 = input.nextDouble();
-        double sideLength3;
         System.out.println("Please enter the the 3rd side length:");
         sideLength3 = input.nextDouble();
 
         //Determines largest side length
         if (sideLength1 > sideLength2) {
-            double tmp1 = sideLength1;
-            sideLength1 = sideLength2;
-        }if (sideLength1 > sideLength3) {
-    }
+            tmp = sideLength2;
+            sideLength2 = sideLength1;
+            sideLength1 = tmp;
+        }
+        if (sideLength2 > sideLength3) {
+            tmp1 = sideLength3;
+            sideLength3 = sideLength2;
+            sideLength2 = tmp1;
+        }
 
+        //Determines if it's a right triangle, a triangle, or not a triangle
+        if (sideLength3 * sideLength3 == sideLength2 * sideLength2 + sideLength1 * sideLength1) {
+            System.out.println("This is a right triangle");
+        } else if (sideLength2 + sideLength1 >= sideLength3) {
+            System.out.println("This is a triangle");
+        } else {
+            System.out.println("This is not a triangle");
+        }
+    }
 }

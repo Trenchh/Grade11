@@ -49,9 +49,14 @@ public class TriangleAndRightTriangle {
             sideLength3 = sideLength2;
             sideLength2 = tmp1;
         }
+       
+        //Squaring variables
+        double sideLength1Sq = Math.pow(sideLength1, 2);
+        double sideLength2Sq = Math.pow(sideLength2, 2);
+        double sideLength3Sq = Math.pow(sideLength3, 2);
 
         //Determines if it's a right triangle, a triangle, or not a triangle
-        if (sideLength3 * sideLength3 == sideLength2 * sideLength2 + sideLength1 * sideLength1) {
+        if (sideLength3Sq == sideLength2Sq + sideLength1Sq) {
             System.out.println("This is a right triangle");
         } else if (sideLength2 + sideLength1 >= sideLength3) {
             System.out.println("This is a triangle");

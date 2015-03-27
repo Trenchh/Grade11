@@ -1,7 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Name: BMI.java
+ * Date: March 25th, 2015
+ * Version: v0.1
+ * Author: Ryan Protheroe
+ * Description: Determines BMI 
  */
 package edu.hdsb.gwss.protheroe.ics3u.u4;
 
@@ -37,17 +39,13 @@ public class BMI {
             weight = input.nextDouble();
             System.out.println("Please enter height(inches): ");
             height = input.nextDouble();
-
             bmi = (weight * 703) / (height * height);
-
         } else if (select == 2) {
             System.out.println("Please enter weight(kg): ");
             weight = input.nextDouble();
             System.out.println("Please enter height(meters): ");
             height = input.nextDouble();
-
             bmi = weight / (height * height);
-
         } else {
             System.out.println("Invalid option");
         }

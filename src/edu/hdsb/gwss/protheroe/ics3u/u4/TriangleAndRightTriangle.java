@@ -3,7 +3,8 @@
  * Date: March 24th, 2015
  * Version: v0.1
  * Author: Ryan Protheroe
- * Description: Determines if the 3 side lengths given make a triangle
+ * Description: Determines if the 3 side lengths given make a right triangle, triangle
+ * or no triangle
  */
 package edu.hdsb.gwss.protheroe.ics3u.u4;
 
@@ -30,7 +31,7 @@ public class TriangleAndRightTriangle {
         double tmp;
         double tmp1;
 
-        //User inputs data
+        //User inputs 3 side lengths
         System.out.println("Please enter the the 1st side length:");
         sideLength1 = input.nextDouble();
         System.out.println("Please enter the the 2nd side length:");
@@ -49,13 +50,13 @@ public class TriangleAndRightTriangle {
             sideLength3 = sideLength2;
             sideLength2 = tmp1;
         }
-       
-        //Squaring variables
+
+        //Squaring side lengths
         double sideLength1Sq = Math.pow(sideLength1, 2);
         double sideLength2Sq = Math.pow(sideLength2, 2);
         double sideLength3Sq = Math.pow(sideLength3, 2);
 
-        //Determines if it's a right triangle, a triangle, or not a triangle
+        //Determines if it's a right triangle, triangle, or not a triangle
         if (sideLength3Sq == sideLength2Sq + sideLength1Sq) {
             System.out.println("This is a right triangle");
         } else if (sideLength2 + sideLength1 >= sideLength3) {

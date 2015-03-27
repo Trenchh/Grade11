@@ -21,9 +21,11 @@ public class AcidRain {
     public static void main(String[] args) {
         //Scanner
         Scanner input = new Scanner(System.in);
+        
+        //Variable
+        double phLevel;
 
         //User inputs data
-        double phLevel;
         System.out.println("Please enter the pH level:");
         phLevel = input.nextDouble();
 

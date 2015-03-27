@@ -26,12 +26,15 @@ public class LetterCost {
         // Money format
         NumberFormat money = NumberFormat.getCurrencyInstance();
 
+        // CONSTANT
+        final int FIRST_CLASS = 1;
+        final int SECOND_CLASS = 2;
+
         //Variables
         int select;
         double weight;
         double cost = 0;
-        double over1;
-        double over2;
+        double over;
 
         //User selects mail class and enters weight of letter
         System.out.println("Press 1 for first class mail or press 2 for second class mail: ");
@@ -40,11 +43,18 @@ public class LetterCost {
         System.out.println("Please enter weight of letter (grams): ");
         weight = input.nextDouble();
 
+        //Detects error
+        if (weight <= 0) {
+            System.out.println("Invalid");
+        }
+
         //Determines cost for first class mail
-        if (select == 1) {
-            over1 = (((weight - 100) / 50) * .29) + .80;
-            if (weight >= 100) {
-                cost = over1;
+        if (select == FIRST_CLASS) {
+            over = (((weight - 100) / 50) * .29) + .80;
+            if (weight <= 0) {
+            System.out.println("Invalid");
+            }else if (weight >= 100) {
+                cost = over;
             } else if (weight >= 51) {
                 cost = 0.8;
             } else if (weight >= 31) {
@@ -52,10 +62,12 @@ public class LetterCost {
             } else if (weight <= 30) {
                 cost = 0.4;
             }
-        } else if (select == 2) {
-            over2 = (((weight - 100) / 50) * .19) + .80;
-            if (weight >= 100) {
-                cost = over2;
+        } else if (select == SECOND_CLASS) {
+            over = (((weight - 100) / 50) * .19) + .80;
+            if (weight <= 0) {
+            System.out.println("Invalid");
+            }else if (weight >= 100) {
+                cost = over;
             } else if (weight >= 51) {
                 cost = 0.6;
             } else if (weight >= 31) {

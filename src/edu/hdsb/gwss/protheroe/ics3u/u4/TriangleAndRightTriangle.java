@@ -30,6 +30,11 @@ public class TriangleAndRightTriangle {
         double sideLength3;
         double tmp;
         double tmp1;
+        
+        //Provides description of program
+        System.out.println("Triangles");
+        System.out.println("This program determines whether the 3 sides given can create a triangle, right triangle or no triangle at all");
+        System.out.println(" ");
 
         //User inputs 3 side lengths
         System.out.println("Please enter the the 1st side length:");
@@ -58,11 +63,11 @@ public class TriangleAndRightTriangle {
 
         //Determines if it's a right triangle, triangle, or not a triangle
         if (sideLength3Sq == sideLength2Sq + sideLength1Sq) {
-            System.out.println("This is a right triangle");
+            System.out.println("These side can make a right triangle");
         } else if (sideLength2 + sideLength1 >= sideLength3) {
-            System.out.println("This is a triangle");
+            System.out.println("These side can make a triangle");
         } else {
-            System.out.println("This is not a triangle");
+            System.out.println("These side can not make a triangle");
         }
     }
 }

@@ -36,44 +36,44 @@ public class LetterCost {
         double cost = 0;
         double over;
 
+        //Provides description of program
+        System.out.println("Letter Cost");
+        System.out.println("This program calculates the cost of sending a letter given the mass and mail class.");
+        System.out.println(" ");
+        
         //User selects mail class and enters weight of letter
         System.out.println("Press 1 for first class mail or press 2 for second class mail: ");
         select = input.nextInt();
 
         System.out.println("Please enter weight of letter (grams): ");
         weight = input.nextDouble();
-
-        //Detects error
-        if (weight <= 0) {
-            System.out.println("Invalid");
-        }
-
+            
         //Determines cost for first class mail
         if (select == FIRST_CLASS) {
             over = (((weight - 100) / 50) * .29) + .80;
-            if (weight <= 0) {
-            System.out.println("Invalid");
-            }else if (weight >= 100) {
+            if (weight >= 100) {
                 cost = over;
             } else if (weight >= 51) {
                 cost = 0.8;
             } else if (weight >= 31) {
                 cost = 0.6;
-            } else if (weight <= 30) {
+            } else if (weight >= 1) {
                 cost = 0.4;
+            } else {
+                System.out.println("Invalid");
             }
         } else if (select == SECOND_CLASS) {
             over = (((weight - 100) / 50) * .19) + .80;
-            if (weight <= 0) {
-            System.out.println("Invalid");
-            }else if (weight >= 100) {
+            if (weight >= 100) {
                 cost = over;
             } else if (weight >= 51) {
                 cost = 0.6;
             } else if (weight >= 31) {
                 cost = 0.5;
-            } else if (weight <= 30) {
+            } else if (weight >= 1) {
                 cost = 0.3;
+            } else {
+                System.out.println("Invalid");
             }
         } else {
             System.out.println("Invalid class option");

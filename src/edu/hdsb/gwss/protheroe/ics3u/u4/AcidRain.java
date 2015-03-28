@@ -24,7 +24,12 @@ public class AcidRain {
         
         //Variable
         double phLevel;
-
+        
+        //Provides description of program
+        System.out.println("Acid Rain");
+        System.out.println("This program determines whether the pH level of the body of water is too acidic, alkaline or just right for sea life.");
+        System.out.println(" ");
+        
         //User inputs data
         System.out.println("Please enter the pH level:");
         phLevel = input.nextDouble();

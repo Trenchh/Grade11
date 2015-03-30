@@ -20,7 +20,7 @@ public class BMI {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
+        
         //Scanner
         Scanner input = new Scanner(System.in);
         NumberFormat decimal = NumberFormat.getIntegerInstance();

@@ -1,7 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Name: WordEcho.java
+ * Date: March 31st, 2015
+ * Version: v0.1
+ * Author: Ryan Protheroe
+ * Description: Echoes a word x amount of times given the word's length
  */
 package edu.hdsb.gwss.protheroe.ics3u.u4;
 
@@ -19,17 +21,25 @@ public class WordEcho {
     public static void main(String[] args) {
 
         //VARIABLES
-        int word;
-
+        String word;
+        int counter = 0;
+        
         //OBJECTS
         Scanner input = new Scanner(System.in);
 
         //GETS INPUT
         System.out.println("Please enter a word");
-        word = input.nextInt();
+        word = input.next();
 
         //SPACE
         System.out.println(" ");
+        
+        //Echoes word 
+        while (counter < word.length()) {
+            System.out.print(word + "\t");
+            counter++;
+            
+        }
         
     }
 

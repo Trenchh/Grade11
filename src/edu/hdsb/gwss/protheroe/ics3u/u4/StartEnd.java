@@ -30,22 +30,18 @@ public class StartEnd {
         //GETS INPUT
         System.out.println("Please enter a number");
         number1 = input.nextInt();
-
         System.out.println("Please enter a number");
         number2 = input.nextInt();
-        
+
         //SPACE
         System.out.println(" ");
-        
+
         //COUNTS DOWN/UP
-        while (number1 <= number2) {
+        for (; number1 >= number2; number1--) {
             System.out.println(number1);
-            number1++;
         }
-        while (number1 >= number2) {
+        for (; number1 <= number2; number1++) {
             System.out.println(number1);
-            number1--;
         }
     }
-
 }

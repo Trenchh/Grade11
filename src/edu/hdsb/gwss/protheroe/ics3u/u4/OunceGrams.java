@@ -31,7 +31,7 @@ public class OunceGrams {
         System.out.println();
 
         for (grams = 1; ounces <= 15; grams++, ounces++) {
-            System.out.println(ounces + "       " + decimal.format(grams * 28.35) );
+            System.out.format("%-10s %5s\n",ounces, decimal.format(grams * 28.35) );
         }
     }
     

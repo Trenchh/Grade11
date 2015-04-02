@@ -18,7 +18,6 @@ public class OunceGrams {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       
         //VARIABLES
         int ounces = 1;
         double grams;
@@ -27,9 +26,11 @@ public class OunceGrams {
         decimal.setMinimumFractionDigits( 2 );
         decimal.setMaximumFractionDigits( 2 );
         
+        //TABLE HEADERS
         System.out.format("%-10s %5s", "Ounces", "Grams");
         System.out.println();
-
+        
+        //PRINTS TABLE
         for (grams = 1; ounces <= 15; grams++, ounces++) {
             System.out.format("%-10s %5s\n",ounces, decimal.format(grams * 28.35) );
         }

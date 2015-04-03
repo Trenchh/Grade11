@@ -21,7 +21,7 @@ public class BMI {
      */
     public static void main(String[] args) {
         
-        //Scanner
+        //Objects
         Scanner input = new Scanner(System.in);
         NumberFormat decimal = NumberFormat.getIntegerInstance();
 

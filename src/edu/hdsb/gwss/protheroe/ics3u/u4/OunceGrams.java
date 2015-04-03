@@ -26,6 +26,12 @@ public class OunceGrams {
         decimal.setMinimumFractionDigits( 2 );
         decimal.setMaximumFractionDigits( 2 );
         
+        //DESCRIPTION OF PROGRAM
+        System.out.println(" Ounces to Grams ");
+        System.out.println(" This program will display a table used for converting"
+                + " ounces to grams up to an amount of 15");
+        System.out.println();
+        
         //TABLE HEADERS
         System.out.format("%-10s %5s", "Ounces", "Grams");
         System.out.println();

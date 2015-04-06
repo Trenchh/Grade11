@@ -3,7 +3,8 @@
  * Date: April 3rd, 2015
  * Version: v0.1
  * Author: Ryan Protheroe
- * Description: 
+ * Description: This program demonstrates that the results of adding numbers
+ * 1, 1/2, 1/4, 1/16, and so on will eventually reach 2
  */
 package edu.hdsb.gwss.protheroe.ics3u.u4;
 

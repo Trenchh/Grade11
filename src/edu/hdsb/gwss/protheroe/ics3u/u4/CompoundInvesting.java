@@ -34,7 +34,7 @@ public class CompoundInvesting {
         //OBJECTS
         NumberFormat money = NumberFormat.getCurrencyInstance();
         Scanner input = new Scanner(System.in);
-        
+
         //DESCRIPTION OF PROGRAM
         System.out.println(" Compound Investing ");
         System.out.println(" This program will print out a table displaying the total "

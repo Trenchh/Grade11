@@ -36,12 +36,13 @@ public class CompoundInvesting {
         Scanner input = new Scanner(System.in);
 
         //DESCRIPTION OF PROGRAM
-        System.out.println(" Compound Investing ");
-        System.out.println(" This program will print out a table displaying the total "
+        System.out.println("Compound Investing");
+        System.out.println();
+        System.out.println("This program will print out a table displaying the total \n"
                 + "amount of a yearly investment over a period of up to 15 years");
         System.out.println();
 
-        //USER INPUT
+        //USER INPUT AND ERROR CHECK
         System.out.println("Please enter the amount you wish to deposit anually: ");
         yearlyInvestment = input.nextDouble();
         tmp = yearlyInvestment;

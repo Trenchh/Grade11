@@ -25,7 +25,8 @@ public class FibonacciSeries {
         int next;
 
         //DESCRIPTION OF PROGRAM
-        System.out.println(" Fibonacci Series ");
+        System.out.println("Fibonacci Series");
+        System.out.println();
         System.out.println("This program will print the first twenty terms of the Fibonacci series");
         System.out.println();
 

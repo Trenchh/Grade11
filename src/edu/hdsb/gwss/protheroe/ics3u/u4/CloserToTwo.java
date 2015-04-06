@@ -31,9 +31,10 @@ public class CloserToTwo {
         decimal.setMaximumFractionDigits(0);
 
         //DESCRIPTION OF PROGRAM
-        System.out.println(" Closer to Two ");
-        System.out.println(" This program demonstrates that the result of adding "
-                + "the numbers 1, 1/2, 1/4, 1/16, ... and so on will eventually get to 2 ");
+        System.out.println("Closer to Two");
+        System.out.println();
+        System.out.println("This program demonstrates that the result of adding"
+                + "the\nnumbers 1, 1/2, 1/4, 1/16, ... and so on will eventually get to 2 ");
         System.out.println();
 
         //DISPLAYS MATH

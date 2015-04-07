@@ -3,7 +3,8 @@
  * Date: April 5th, 2015
  * Version: v0.1
  * Author: Ryan Protheroe
- * Description: 
+ * Description: This program will determine when the food supply will no longer
+ * support the amount of animals given certain values.
  */
 package edu.hdsb.gwss.protheroe.ics3u.u4;
 

@@ -3,7 +3,8 @@
  * Date: April 7th, 2015
  * Version: v0.1
  * Author: Ryan Protheroe
- * Description:
+ * Description: User operated Slot Machine that generates random numbers and allows user
+ * to WIN WIN WIN big in fake tokens
  */
 package edu.hdsb.gwss.protheroe.ics3u.u4;
 
@@ -40,57 +41,73 @@ public class SlotMachine {
         System.out.println("You will begin with 50 coins and let the odds be ever in your favor");
 
         //USER SELECTS OPTION
-        System.out.println("Press 1 to play, or 2 to exit");
+        System.out.println("Enter 1 to play (1 token) or 2 to exit");
         choice = input.nextInt();
+
         //LOOP THAT VALIDATES WHETHER PLAYER HAS ENNOUGH COINS
         while (coinAmount > 0) {
             if (choice == play) {
 
                 //USER PULLS LEVER
-                System.out.println("Enter 1 to spin");
+                System.out.println("Enter 1 to SPIN!!!");
                 lever = input.nextInt();
+                System.out.println();
 
                 if (lever == 1) {
-                    
-                    //NUMBER GENERATION
+
+                    //SLOT HEADER
+                    System.out.format("%11s %11s %11s\n", "|SLOT 1|", "|SLOT 2|", "|SLOT 3|");
+
+                    //NUMBER GENERATION & NUMBER DISPLAY
                     slot1 = (int) (Math.random() * 4) + 1;
                     slot2 = (int) (Math.random() * 4) + 1;
                     slot3 = (int) (Math.random() * 4) + 1;
-                    System.out.println(slot1 + "  " + slot2 + "  " + slot3);
+                    System.out.format("%11s %11s %11s\n", "|  " + slot1 + "   |", "|  " + slot2 + "   |", "|  " + slot3 + "   |");
+                    System.out.println();
 
                     //CHECKS IF YOU HAVE WON ANYTHING
                     if (slot1 != slot2 || slot2 != slot3) {
                         coinAmount--;
                         System.out.println("You Lost, you now have " + coinAmount + " coins");
-                    } else if (slot1 == 1 && slot2 == 1 && slot3 == 1) {
-                        coinAmount = coinAmount + 2;
-                        System.out.println("YOU WON 2 COINS, you now have " + coinAmount + " coins");
-                    } else if (slot1 == 2 && slot2 == 2 && slot3 == 2) {
+                    } else if (slot1 == 1) {
                         coinAmount = coinAmount + 4;
                         System.out.println("YOU WON 4 COINS, you now have " + coinAmount + " coins");
-                    } else if (slot1 == 3 && slot2 == 3 && slot3 == 3) {
+                    } else if (slot1 == 2) {
                         coinAmount = coinAmount + 6;
                         System.out.println("YOU WON 6 COINS, you now have " + coinAmount + " coins");
-                    } else if (slot1 == 4 && slot2 == 4 && slot3 == 4) {
+                    } else if (slot1 == 3) {
                         coinAmount = coinAmount + 8;
                         System.out.println("YOU WON 8 COINS, you now have " + coinAmount + " coins");
+                    } else if (slot1 == 4) {
+                        coinAmount = coinAmount + 10;
+                        System.out.println("YOU WON 10 COINS, you now have " + coinAmount + " coins");
                     }
+                    //ERROR CHECK   
                 } else {
                     System.out.println("Invalid selection");
                 }
-                System.out.println("Press 1 to play, or 2 to exit");
+                System.out.println("Press 1 to PLAY AGAIN, or 2 to cash out");
                 choice = input.nextInt();
+
+                //PROGRAM EXITS IF USER SELECTS 2 & SAYS HOW MUCH THEY'VE WON
             } else if (choice == exit) {
-                System.out.println("Thanks for Playing, you cashed out with " + coinAmount + " coins \n Come back soon!");
+                System.out.println("Thanks for Playing, you cashed out with " + coinAmount + " coins \nCome back soon!");
+                //System.out.println("Pick a Prize");
+                //System.out.println("");
                 break;
+
+                //MAKES SURE USER PICKS 1 OR 2
             } else {
                 System.out.println("Invalid Selection");
-                System.out.println("Press 1 to play, or 2 to exit");
+                System.out.println("Press 1 to play, or 2 to cash out");
                 choice = input.nextInt();
-            }if (coinAmount == 0) {
-            System.out.println("You have run out of coins \n Thanks for playing and come back soon!");
-            break;
-        }
+            }
+
+            //PROGRAM ENDS IF USER RUNS OUT OF COINS
+            if (coinAmount == 0) {
+                System.out.println("You have run out of coins \nThanks for playing and come back soon!");
+                break;
+            }
         }
     }
 }

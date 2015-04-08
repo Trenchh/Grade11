@@ -30,14 +30,16 @@ public class Erosion {
         System.out.println("This program will determine when the depth of soil will reach 9cm\n"
                 + "therefore prohibiting crops to grow on a large scale");
         System.out.println();
-        
 
         while (topsoil >= 9) {
             topsoil = topsoil - (topsoil * rate);
             year++;
+            if (year >= 500) {
+            topsoil = topsoil + 2.5 / 500;
+            }
         }
+
         System.out.println("It will take " + year + " years in order for the soil to erode\n"
                 + "beyond a point where crops are no longer growable");
     }
-
 }

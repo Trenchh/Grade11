@@ -35,7 +35,7 @@ public class Erosion {
             topsoil = topsoil - (topsoil * rate);
             year++;
             if (year >= 500) {
-            topsoil = topsoil + 2.5 / 500;
+                topsoil = topsoil + 2.5 / 500;
             }
         }
 

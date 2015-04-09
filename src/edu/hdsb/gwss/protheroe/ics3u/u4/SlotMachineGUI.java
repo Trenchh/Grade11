@@ -28,102 +28,137 @@ public class SlotMachineGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         rollButton = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         slot1Label = new javax.swing.JLabel();
+        slot3Label = new javax.swing.JLabel();
+        thanks = new javax.swing.JLabel();
+        coinAmountLabel = new javax.swing.JLabel();
+        slot2Label = new javax.swing.JLabel();
+        winOrLose = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().setLayout(null);
 
         rollButton.setBackground(new java.awt.Color(255, 255, 255));
-        rollButton.setFont(new java.awt.Font("Impact", 0, 36)); // NOI18N
-        rollButton.setText("Spin To Win");
+        rollButton.setFont(new java.awt.Font("Pricedown Bl", 0, 48)); // NOI18N
+        rollButton.setText("SPIN TO WIN");
         rollButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rollButtonPressed(evt);
+                rollButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(rollButton);
+        rollButton.setBounds(260, 430, 269, 109);
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setFont(new java.awt.Font("Pricedown Bl", 0, 24)); // NOI18N
+        jButton1.setText("Cash Out");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(70, 460, 123, 39);
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-
-        slot1Label.setFont(new java.awt.Font("Tahoma", 0, 62)); // NOI18N
+        slot1Label.setFont(new java.awt.Font("Pricedown Bl", 0, 150)); // NOI18N
         slot1Label.setForeground(new java.awt.Color(255, 51, 51));
         slot1Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         slot1Label.setText("1");
         slot1Label.setToolTipText("");
+        getContentPane().add(slot1Label);
+        slot1Label.setBounds(70, 160, 180, 170);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(slot1Label, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(slot1Label, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
-        );
+        slot3Label.setFont(new java.awt.Font("Pricedown Bl", 0, 150)); // NOI18N
+        slot3Label.setForeground(new java.awt.Color(255, 51, 51));
+        slot3Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        slot3Label.setText("1");
+        getContentPane().add(slot3Label);
+        slot3Label.setBounds(540, 160, 190, 170);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        thanks.setFont(new java.awt.Font("Pricedown Bl", 0, 30)); // NOI18N
+        thanks.setForeground(new java.awt.Color(227, 227, 227));
+        thanks.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        thanks.setText(" ");
+        thanks.setToolTipText("");
+        getContentPane().add(thanks);
+        thanks.setBounds(10, 540, 780, 50);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(74, 74, 74)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(195, 195, 195)
-                        .addComponent(rollButton, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(234, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(142, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(90, 90, 90)
-                .addComponent(rollButton, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        coinAmountLabel.setFont(new java.awt.Font("Pricedown Bl", 0, 48)); // NOI18N
+        coinAmountLabel.setForeground(new java.awt.Color(255, 51, 51));
+        coinAmountLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        coinAmountLabel.setText("50");
+        coinAmountLabel.setToolTipText("");
+        getContentPane().add(coinAmountLabel);
+        coinAmountLabel.setBounds(640, 450, 80, 80);
+
+        slot2Label.setFont(new java.awt.Font("Pricedown Bl", 0, 150)); // NOI18N
+        slot2Label.setForeground(new java.awt.Color(255, 51, 51));
+        slot2Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        slot2Label.setText("1");
+        getContentPane().add(slot2Label);
+        slot2Label.setBounds(300, 160, 200, 170);
+
+        winOrLose.setFont(new java.awt.Font("Pricedown Bl", 0, 30)); // NOI18N
+        winOrLose.setForeground(new java.awt.Color(227, 227, 227));
+        winOrLose.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        winOrLose.setText("Match 3 To WIN");
+        getContentPane().add(winOrLose);
+        winOrLose.setBounds(10, 390, 780, 40);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ryan.Susan-HP\\Desktop\\Templates\\Slots.jpg")); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, 0, 800, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void rollButtonPressed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rollButtonPressed
-        
-        coinAmount--;
+    private void rollButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rollButtonActionPerformed
 
-        //SLOT HEADER
-        System.out.format("%11s %11s %11s\n", "|SLOT 1|", "|SLOT 2|", "|SLOT 3|");
+        coinAmount--;
 
         //NUMBER GENERATION & NUMBER DISPLAY
         slot1 = (int) (Math.random() * 4) + 1;
         slot2 = (int) (Math.random() * 4) + 1;
         slot3 = (int) (Math.random() * 4) + 1;
-        
-        slot1Label.setText("" + slot1 );
-        
-    }//GEN-LAST:event_rollButtonPressed
+
+        slot1Label.setText("" + slot1);
+        slot2Label.setText("" + slot2);
+        slot3Label.setText("" + slot3);
+
+        //CHECKS IF YOU HAVE WON ANYTHING
+        if (slot1 != slot2 || slot2 != slot3) {
+            winOrLose.setText("You Lost");
+            coinAmountLabel.setText("" + coinAmount);
+        } else if (slot1 == 1) {
+            coinAmount = coinAmount + 4;
+            winOrLose.setText("YOU WON 4 COINS");
+            coinAmountLabel.setText("" + coinAmount);
+        } else if (slot1 == 2) {
+            coinAmount = coinAmount + 6;
+            winOrLose.setText("YOU WON 6 COINS");
+            coinAmountLabel.setText("" + coinAmount);
+        } else if (slot1 == 3) {
+            coinAmount = coinAmount + 8;
+            winOrLose.setText("YOU WON 8 COINS");
+            coinAmountLabel.setText("" + coinAmount);
+        } else if (slot1 == 4) {
+            coinAmount = coinAmount + 10;
+            winOrLose.setText("YOU WON 10 COINS");
+            coinAmountLabel.setText("" + coinAmount);
+        }
+        //PROGRAM ENDS IF USER RUNS OUT OF COINS
+        if (coinAmount == 0) {
+            System.out.println("You have run out of coins \nThanks for playing and come back soon!");
+        }
+
+    }//GEN-LAST:event_rollButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        thanks.setText("Thanks for Playing");
+        winOrLose.setText("You cashed out with " + coinAmount + " coins");
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,14 +196,19 @@ public class SlotMachineGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel coinAmountLabel;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton rollButton;
     private javax.swing.JLabel slot1Label;
+    private javax.swing.JLabel slot2Label;
+    private javax.swing.JLabel slot3Label;
+    private javax.swing.JLabel thanks;
+    private javax.swing.JLabel winOrLose;
     // End of variables declaration//GEN-END:variables
 
     private static int coinAmount = 50;
-    private static int slot1 = 2;
-    private static int slot2 = 2;
-    private static int slot3 = 2;
+    private static int slot1 = 4;
+    private static int slot2 = 4;
+    private static int slot3 = 4;
 }

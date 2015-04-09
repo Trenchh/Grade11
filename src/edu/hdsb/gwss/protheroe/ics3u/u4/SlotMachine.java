@@ -26,10 +26,9 @@ public class SlotMachine {
         int slot2;
         int slot3;
         int coinAmount = 50;
-        int lever;
         int choice;
-        int play = 1;
-        int exit = 2;
+        final int PLAY = 1;
+        final int EXIT = 2;
 
         //OBJECTS
         Scanner input = new Scanner(System.in);
@@ -40,20 +39,21 @@ public class SlotMachine {
         System.out.println();
         System.out.println("You will begin with 50 coins and let the odds be ever in your favor");
 
-        //USER SELECTS OPTION
-        System.out.println("Enter 1 to play (1 token) or 2 to exit");
+        //USER SELECTS INITIAL OPTION
+        System.out.println("Enter 1 to play (1 token per spin) or 2 to exit");
         choice = input.nextInt();
 
         //LOOP THAT VALIDATES WHETHER PLAYER HAS ENNOUGH COINS
         while (coinAmount > 0) {
-            if (choice == play) {
+            if (choice == PLAY) {
 
                 //USER PULLS LEVER
                 System.out.println("Enter 1 to SPIN!!!");
-                lever = input.nextInt();
+                choice = input.nextInt();
                 System.out.println();
 
-                if (lever == 1) {
+                if (choice == PLAY) {
+                    coinAmount--;
 
                     //SLOT HEADER
                     System.out.format("%11s %11s %11s\n", "|SLOT 1|", "|SLOT 2|", "|SLOT 3|");
@@ -67,7 +67,6 @@ public class SlotMachine {
 
                     //CHECKS IF YOU HAVE WON ANYTHING
                     if (slot1 != slot2 || slot2 != slot3) {
-                        coinAmount--;
                         System.out.println("You Lost, you now have " + coinAmount + " coins");
                     } else if (slot1 == 1) {
                         coinAmount = coinAmount + 4;
@@ -82,27 +81,25 @@ public class SlotMachine {
                         coinAmount = coinAmount + 10;
                         System.out.println("YOU WON 10 COINS, you now have " + coinAmount + " coins");
                     }
-                    //ERROR CHECK   
+                    //ASSURES THAT USER ENTERS 1 TO SPIN   
                 } else {
                     System.out.println("Invalid selection");
                 }
-                System.out.println("Press 1 to PLAY AGAIN, or 2 to cash out");
+                System.out.println("Press 1 to PLAY AGAIN or 2 to CASH OUT");
                 choice = input.nextInt();
 
                 //PROGRAM EXITS IF USER SELECTS 2 & SAYS HOW MUCH THEY'VE WON
-            } else if (choice == exit) {
-                System.out.println("Thanks for Playing, you cashed out with " + coinAmount + " coins \nCome back soon!");
-                //System.out.println("Pick a Prize");
-                //System.out.println("");
+            } else if (choice == EXIT) {
+                System.out.println("Thanks for Playing, you cashed out with " + coinAmount + " coins");
+                System.out.println("Come back soon!");
                 break;
 
                 //MAKES SURE USER PICKS 1 OR 2
             } else {
                 System.out.println("Invalid Selection");
-                System.out.println("Press 1 to play, or 2 to cash out");
+                System.out.println("Press 1 to PLAY AGAIN or 2 to CASH OUT");
                 choice = input.nextInt();
             }
-
             //PROGRAM ENDS IF USER RUNS OUT OF COINS
             if (coinAmount == 0) {
                 System.out.println("You have run out of coins \nThanks for playing and come back soon!");

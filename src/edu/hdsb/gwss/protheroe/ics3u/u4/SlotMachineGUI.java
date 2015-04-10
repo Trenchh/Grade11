@@ -50,7 +50,7 @@ public class SlotMachineGUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(rollButton);
-        rollButton.setBounds(260, 430, 269, 109);
+        rollButton.setBounds(270, 430, 270, 109);
 
         jButton1.setFont(new java.awt.Font("Pricedown Bl", 0, 24)); // NOI18N
         jButton1.setText("Cash Out");
@@ -60,7 +60,7 @@ public class SlotMachineGUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(70, 460, 123, 39);
+        jButton1.setBounds(80, 470, 123, 39);
 
         slot1Label.setFont(new java.awt.Font("Pricedown Bl", 0, 150)); // NOI18N
         slot1Label.setForeground(new java.awt.Color(255, 51, 51));
@@ -116,6 +116,7 @@ public class SlotMachineGUI extends javax.swing.JFrame {
 
     private void rollButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rollButtonActionPerformed
 
+        //USER LOSES TOKEN WHEN THEY SPIN
         coinAmount--;
 
         //NUMBER GENERATION & NUMBER DISPLAY
@@ -150,14 +151,17 @@ public class SlotMachineGUI extends javax.swing.JFrame {
         }
         //PROGRAM ENDS IF USER RUNS OUT OF COINS
         if (coinAmount == 0) {
-            System.out.println("You have run out of coins \nThanks for playing and come back soon!");
+            winOrLose.setText("You have run out of coins");
+            thanks.setText("Thanks for Playing");
         }
 
     }//GEN-LAST:event_rollButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        thanks.setText("Thanks for Playing");
+
+        //THANKS PLAYER AND DISPLAYS AMOUNT WON WHEN THEY CLICK "CASH OUT"
         winOrLose.setText("You cashed out with " + coinAmount + " coins");
+        thanks.setText("Thanks for Playing");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

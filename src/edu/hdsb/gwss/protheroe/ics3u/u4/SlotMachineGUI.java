@@ -61,7 +61,7 @@ public class SlotMachineGUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cashOut);
-        cashOut.setBounds(90, 490, 135, 39);
+        cashOut.setBounds(90, 490, 123, 39);
 
         slot1Label.setFont(new java.awt.Font("Pricedown Bl", 0, 150)); // NOI18N
         slot1Label.setForeground(new java.awt.Color(255, 51, 51));
@@ -92,12 +92,12 @@ public class SlotMachineGUI extends javax.swing.JFrame {
         coinAmountLabel.setText("50");
         coinAmountLabel.setToolTipText("");
         coinAmountLabel.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 coinAmountLabelAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         getContentPane().add(coinAmountLabel);
@@ -117,7 +117,7 @@ public class SlotMachineGUI extends javax.swing.JFrame {
         getContentPane().add(winOrLose);
         winOrLose.setBounds(10, 390, 780, 40);
 
-        doubleDown.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        doubleDown.setFont(new java.awt.Font("Pricedown Bl", 0, 24)); // NOI18N
         doubleDown.setText("DOUBLE DOWN");
         doubleDown.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,7 +125,9 @@ public class SlotMachineGUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(doubleDown);
-        doubleDown.setBounds(60, 440, 199, 40);
+        doubleDown.setBounds(70, 440, 170, 40);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/protheroe/ics3u/u4/Slots.jpg"))); // NOI18N
         getContentPane().add(jLabel2);
         jLabel2.setBounds(0, 0, 800, 600);
 
@@ -167,11 +169,11 @@ public class SlotMachineGUI extends javax.swing.JFrame {
             winOrLose.setText("YOU WON 10 COINS");
             coinAmountLabel.setText("" + coinAmount);
         }
-        
-        if( coinAmount <= 0 ) {
-            rollButton.setEnabled( false );
-        winOrLose.setText("You cashed out with " + coinAmount + " coins");
-        thanks.setText("Thanks for Playing");
+
+        if (coinAmount <= 0) {
+            rollButton.setEnabled(false);
+            winOrLose.setText("You have run out of coins");
+            thanks.setText("Thanks for Playing");
         }
 
     }//GEN-LAST:event_rollButtonActionPerformed
@@ -181,11 +183,16 @@ public class SlotMachineGUI extends javax.swing.JFrame {
         //THANKS PLAYER AND DISPLAYS AMOUNT WON WHEN THEY CLICK "CASH OUT"
         winOrLose.setText("You cashed out with " + coinAmount + " coins");
         thanks.setText("Thanks for Playing");
-        
+        if (coinAmount <= 0) {
+            cashOut.setEnabled(false);
+            winOrLose.setText("You have run out of coins");
+            thanks.setText("Thanks for Playing");
+        }
+
     }//GEN-LAST:event_cashOutActionPerformed
 
     private void doubleDownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doubleDownActionPerformed
- 
+
         //USER LOSES 2 TOKENS
         coinAmount = coinAmount - 2;
 
@@ -220,16 +227,15 @@ public class SlotMachineGUI extends javax.swing.JFrame {
             coinAmountLabel.setText("" + coinAmount);
         }
 
+        if (coinAmount <= 1) {
+            doubleDown.setEnabled(false);
+            winOrLose.setText("You dont have enough coins to double down");
+        }
+
     }//GEN-LAST:event_doubleDownActionPerformed
 
     private void coinAmountLabelAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_coinAmountLabelAncestorAdded
- 
-        //PROGRAM ENDS IF USER RUNS OUT OF COINS
-        if (coinAmount == 0) {
-            winOrLose.setText("You have run out of coins");
-            thanks.setText("Thanks for Playing");
-        }
-        
+
     }//GEN-LAST:event_coinAmountLabelAncestorAdded
 
     /**
@@ -280,7 +286,7 @@ public class SlotMachineGUI extends javax.swing.JFrame {
     private javax.swing.JLabel winOrLose;
     // End of variables declaration//GEN-END:variables
 
-    private static int coinAmount = 1;
+    private static int coinAmount = 3;
     private static int slot1 = 4;
     private static int slot2 = 4;
     private static int slot3 = 4;

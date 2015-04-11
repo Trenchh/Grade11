@@ -6,7 +6,7 @@
  * Description: User operated Slot Machine that generates random numbers and allows user
  * to WIN WIN WIN big in fake tokens
  */
-package edu.hdsb.gwss.protheroe.ics3u.u4;
+package SlotMachineCulminating.u4;
 
 import java.util.Scanner;
 

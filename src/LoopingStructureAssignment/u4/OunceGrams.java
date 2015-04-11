@@ -5,7 +5,7 @@
  * Author: Ryan Protheroe
  * Description: Converts ounces to grams up to a value of 15
  */
-package edu.hdsb.gwss.protheroe.ics3u.u4;
+package LoopingStructureAssignment.u4;
 
 import java.text.NumberFormat;
 /**

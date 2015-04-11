@@ -6,7 +6,7 @@
  * Description: This program will print the first twenty terms of the Fibonacci
  * series
  */
-package edu.hdsb.gwss.protheroe.ics3u.u4;
+package LoopingStructureAssignment.u4;
 
 /**
  *

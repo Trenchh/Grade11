@@ -5,7 +5,7 @@
  * Author: Ryan Protheroe
  * Description: Determines cost of mailing letter
  */
-package edu.hdsb.gwss.protheroe.ics3u.u4;
+package TheIfStructureAssignment.u4;
 
 import java.text.NumberFormat;
 import java.util.Scanner;

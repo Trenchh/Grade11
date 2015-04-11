@@ -6,7 +6,7 @@
  * Description: Displays user a table showing the growth of their investment given
  * certain variables
  */
-package edu.hdsb.gwss.protheroe.ics3u.u4;
+package LoopingStructureAssignment.u4;
 
 import java.text.NumberFormat;
 import java.util.Scanner;

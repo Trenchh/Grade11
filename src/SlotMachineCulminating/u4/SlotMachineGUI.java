@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.hdsb.gwss.protheroe.ics3u.u4;
+package SlotMachineCulminating.u4;
 
 /**
  *
@@ -92,12 +92,12 @@ public class SlotMachineGUI extends javax.swing.JFrame {
         coinAmountLabel.setText("50");
         coinAmountLabel.setToolTipText("");
         coinAmountLabel.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 coinAmountLabelAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         getContentPane().add(coinAmountLabel);
@@ -127,7 +127,7 @@ public class SlotMachineGUI extends javax.swing.JFrame {
         getContentPane().add(doubleDown);
         doubleDown.setBounds(70, 440, 170, 40);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/protheroe/ics3u/u4/Slots.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SlotMachineCulminating/u4/Slots.jpg"))); // NOI18N
         getContentPane().add(jLabel2);
         jLabel2.setBounds(0, 0, 800, 600);
 
@@ -172,6 +172,8 @@ public class SlotMachineGUI extends javax.swing.JFrame {
 
         if (coinAmount <= 0) {
             rollButton.setEnabled(false);
+            cashOut.setEnabled(false);
+            doubleDown.setEnabled(false);
             winOrLose.setText("You have run out of coins");
             thanks.setText("Thanks for Playing");
         }
@@ -183,6 +185,10 @@ public class SlotMachineGUI extends javax.swing.JFrame {
         //THANKS PLAYER AND DISPLAYS AMOUNT WON WHEN THEY CLICK "CASH OUT"
         winOrLose.setText("You cashed out with " + coinAmount + " coins");
         thanks.setText("Thanks for Playing");
+        cashOut.setEnabled(false);
+        doubleDown.setEnabled(false);
+        rollButton.setEnabled(false);
+
         if (coinAmount <= 0) {
             cashOut.setEnabled(false);
             winOrLose.setText("You have run out of coins");
@@ -193,6 +199,12 @@ public class SlotMachineGUI extends javax.swing.JFrame {
 
     private void doubleDownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doubleDownActionPerformed
 
+        //VERIFIES USER HAS ENOUGH TO DOUBLE DOWN
+        if (coinAmount <= 1) {
+            doubleDown.setEnabled(false);
+            winOrLose.setText("You dont have enough coins to double down");
+        }
+        
         //USER LOSES 2 TOKENS
         coinAmount = coinAmount - 2;
 
@@ -225,11 +237,6 @@ public class SlotMachineGUI extends javax.swing.JFrame {
             coinAmount = coinAmount + 20;
             winOrLose.setText("YOU WON 20 COINS");
             coinAmountLabel.setText("" + coinAmount);
-        }
-
-        if (coinAmount <= 1) {
-            doubleDown.setEnabled(false);
-            winOrLose.setText("You dont have enough coins to double down");
         }
 
     }//GEN-LAST:event_doubleDownActionPerformed

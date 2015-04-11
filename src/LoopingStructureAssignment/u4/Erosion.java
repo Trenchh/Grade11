@@ -6,7 +6,7 @@
  * Description: This program will determine when the depth of soil will reach 9cm
  * therefore prohibiting crops to grow on a large scale
  */
-package edu.hdsb.gwss.protheroe.ics3u.u4;
+package LoopingStructureAssignment.u4;
 
 /**
  *

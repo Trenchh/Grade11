@@ -6,7 +6,7 @@
  * Description: Determines if the 3 side lengths given make a right triangle, triangle
  * or no triangle
  */
-package edu.hdsb.gwss.protheroe.ics3u.u4;
+package TheIfStructureAssignment.u4;
 
 import java.util.Scanner;
 

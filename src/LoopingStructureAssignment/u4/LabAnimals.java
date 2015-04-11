@@ -6,7 +6,7 @@
  * Description: This program will determine when the food supply will no longer
  * support the amount of animals given certain values.
  */
-package edu.hdsb.gwss.protheroe.ics3u.u4;
+package LoopingStructureAssignment.u4;
 
 import java.util.Scanner;
 

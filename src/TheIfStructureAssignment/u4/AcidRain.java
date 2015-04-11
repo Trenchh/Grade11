@@ -5,7 +5,7 @@
  * Author: Ryan Protheroe
  * Description: Determines water purity
  */
-package edu.hdsb.gwss.protheroe.ics3u.u4;
+package TheIfStructureAssignment.u4;
 
 import java.util.Scanner;
 

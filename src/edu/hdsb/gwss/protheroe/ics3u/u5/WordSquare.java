@@ -40,7 +40,10 @@ public class WordSquare {
         word = word.toUpperCase();
 
         //DISPLAYS SQUARE
-        for (int counter = 0; counter < word.length(); counter++) {
+        for (int counter = 0, countDown = word.length(); counter < word.length(); counter++) {
+            word.charAt(counter) == word.charAt(countDown);
+            System.out.println(word);
+            countDown--;
 
             System.out.println(word);
         }

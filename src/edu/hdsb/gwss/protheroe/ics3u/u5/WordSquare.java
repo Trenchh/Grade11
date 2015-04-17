@@ -21,8 +21,8 @@ public class WordSquare {
     public static void main(String[] args) {
 
         //VARIABLES
-        String word;
-        int firstLetter = 0;
+        String word1;
+        String word2 = " ";
 
         //OBJECTS
         Scanner input = new Scanner(System.in);
@@ -35,17 +35,16 @@ public class WordSquare {
 
         //USER INPUT
         System.out.println("Please enter a word: ");
-        word = input.nextLine();
-        System.out.println();
-        word = word.toUpperCase();
+        word1 = input.nextLine();
+        word1 = word1.toUpperCase();
 
         //DISPLAYS SQUARE
-        for (int counter = 0, countDown = word.length(); counter < word.length(); counter++) {
-            word.charAt(counter) == word.charAt(countDown);
-            System.out.println(word);
-            countDown--;
+        for (int counter = 0; counter < word1.length() + word1.length(); counter++) {
 
-            System.out.println(word);
+            System.out.println(word1 + word2);
+            word2 = word1.substring(counter, word1.length());
+            word1 = word1.substring(counter, word1.length());
+
         }
     }
 }

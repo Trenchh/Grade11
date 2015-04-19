@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author Ryan
  */
-public class Palidrome {
+public class Palindrome {
 
     /**
      * @param args the command line arguments
@@ -25,7 +25,7 @@ public class Palidrome {
         Scanner input = new Scanner(System.in);
 
         //DESCRIPTION OF PROGRAM
-        System.out.println(" Palidrome ");
+        System.out.println(" Palindrome ");
         System.out.println();
         System.out.println("This program will reverse the word entered and check if it is a palindrome");
         System.out.println();

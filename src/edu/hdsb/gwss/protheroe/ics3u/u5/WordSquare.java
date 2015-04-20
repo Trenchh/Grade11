@@ -1,5 +1,5 @@
 /*
- * Name: LabAnimals.java
+ * Name: WordSquare.java
  * Date: April 14th, 2015
  * Version: v0.1
  * Author: Ryan Protheroe

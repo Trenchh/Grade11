@@ -1,7 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Name: NumbersToWords.java
+ * Date: April 18th, 2015
+ * Version: v0.1
+ * Author: Ryan Protheroe
+ * Description: This program will write out any number from 10-999
  */
 package edu.hdsb.gwss.protheroe.ics3u.u5;
 

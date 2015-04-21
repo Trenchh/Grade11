@@ -41,7 +41,6 @@ public class WordSquare {
 
         //DISPLAYS SQUARE
         for (int counter = 0; counter <= original.length(); counter++) {
-
             word = original.substring(counter) + original.substring(0, counter);
             System.out.println(word);
 

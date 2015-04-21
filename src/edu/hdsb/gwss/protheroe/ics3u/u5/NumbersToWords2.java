@@ -31,7 +31,7 @@ public class NumbersToWords2 {
         //DESCRIPTION OF PROGRAM
         System.out.println(" Numbers To Words");
         System.out.println();
-        System.out.println("This program will write out any number from 10-99");
+        System.out.println("This program will write out any number from 10-999");
         System.out.println();
 
         //OBJECTS

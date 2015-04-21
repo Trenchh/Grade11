@@ -21,6 +21,7 @@ public class StandardTime {
     public static void main(String[] args) {
         //VARIABLES
         int choice;
+        String time;
 
         //Object
         Scanner input = new Scanner(System.in);
@@ -37,50 +38,51 @@ public class StandardTime {
         System.out.println();
 
         if (choice == 1) {
-            traditionalToStandard();
+            time = getTime();
+            traditionalToStandard(time);
 
         } else if (choice == 2) {
 
         }
     }
 
-    public static void traditionalToStandard() {
+    public static String getTime() {
         //VARIABLES
         String time;
-        String colonCheck;
-        String strHours;
-        int hours;
-        int mins;
-        String amOrPm;
 
         //Object
         Scanner input = new Scanner(System.in);
 
         //USER INPUT
-        System.out.println("Please enter a traditional time: (hh:mm xx)");
+        System.out.println("Please enter the time: ");
         time = input.nextLine();
         System.out.println();
 
-        hours = Integer.parseInt(time.substring(0, 2));
-        mins = Integer.parseInt(time.substring(3, 5));
-        strHours = Integer.toString(hours);
-        strHours = "" + strHours.charAt(1);
-        amOrPm = "" + time.substring(6, 8);
-        amOrPm = amOrPm.toUpperCase();
-        System.out.println(strHours);
+        return time;
+    }
 
-        if (strHours.equals(":")) {
-            hours = Integer.parseInt("" + time.charAt(0));
-            mins = Integer.parseInt(time.substring(2, 4));
-            amOrPm = "" + time.substring(5, 7);
-            amOrPm = amOrPm.toUpperCase();
+    public static void traditionalToStandard(String time) {
+
+        //VARIABLES
+        int hours;
+        int mins;
+        String amOrPm;
+
+        //LOCATING VARIABLES
+        hours = Integer.parseInt(time.substring(0, time.indexOf(":")));
+        mins = Integer.parseInt(time.substring(time.indexOf(":") + 1, time.indexOf(" ")));
+        amOrPm = "" + time.substring(time.indexOf(" ") + 1);
+        amOrPm = amOrPm.toUpperCase();
+
+        //CONVERTS TIME
+        if (Integer.toString(hours).length() == 1) {
             switch (amOrPm) {
                 case "AM":
                     System.out.println("Standard Time : 0" + hours + ":" + mins + " " + amOrPm);
                     break;
                 case "PM":
                     hours = hours + 12;
-                    System.out.println("Standard Time :" + hours + ":" + mins + " " + amOrPm);
+                    System.out.println("Standard Time : " + hours + ":" + mins + " " + amOrPm);
                     break;
             }
         }

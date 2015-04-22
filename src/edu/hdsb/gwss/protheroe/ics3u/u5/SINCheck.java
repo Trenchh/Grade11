@@ -45,28 +45,26 @@ public class SINCheck {
         System.out.println("Please enter your SIN: ");
         sinNumber = input.next();
         System.out.println();
-        
+
         //LOOP DOES STEP 1, 2 & 3
         for (int counter = 0; counter < sinNumber.length() - 1; counter++) {
             if (counter % 2 == 0) {
                 oddSum = oddSum + Integer.parseInt("" + sinNumber.charAt(counter));
-            } 
-            else if (counter % 2 == 1) {
+            } else if (counter % 2 == 1) {
                 if ((Integer.parseInt("" + sinNumber.charAt(counter)) * 2) >= 10) {
-                    tmp = ( "" + sinNumber.charAt(counter));
+                    tmp = ("" + sinNumber.charAt(counter));
                     intTmp = (Integer.parseInt("" + tmp.charAt(0)) * 2);
                     tmp = Integer.toString(intTmp);
                     digit1 = Integer.parseInt("" + tmp.charAt(0));
                     digit2 = Integer.parseInt("" + tmp.charAt(1));
                     evenSum = evenSum + digit1 + digit2;
-                } 
-                else if ((Integer.parseInt("" + sinNumber.charAt(counter)) * 2) <= 9) {
+                } else if ((Integer.parseInt("" + sinNumber.charAt(counter)) * 2) <= 9) {
                     evenSum = evenSum + (Integer.parseInt("" + sinNumber.charAt(counter)) * 2);
-                } 
+                }
             }
-            //VERIFIES SIN
-        } bothSum = evenSum + oddSum;
-        tmp = ( "" + sinNumber.charAt(sinNumber.length() - 1));
+        } //VERIFIES SIN
+        bothSum = evenSum + oddSum;
+        tmp = ("" + sinNumber.charAt(sinNumber.length() - 1));
         checkDigit = (Integer.parseInt(tmp));
         bothSum = bothSum + checkDigit;
         check = Integer.toString(bothSum);

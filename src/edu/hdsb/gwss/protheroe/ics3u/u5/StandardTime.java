@@ -38,16 +38,16 @@ public class StandardTime {
         System.out.println();
 
         if (choice == 1) {
-            time = getTime();
+            time = getTraditionalTime();
             traditionalToStandard(time);
 
         } else if (choice == 2) {
-            time = getTime();
+            time = getStandardTime();
             standardToTraditional(time);
         }
     }
 
-    public static String getTime() {
+    public static String getTraditionalTime() {
         //VARIABLES
         String time;
 
@@ -55,7 +55,22 @@ public class StandardTime {
         Scanner input = new Scanner(System.in);
 
         //USER INPUT
-        System.out.println("Please enter the time: ");
+        System.out.println("Please enter the time (hh:mm xx) : ");
+        time = input.nextLine();
+        System.out.println();
+
+        return time;
+    }
+
+    public static String getStandardTime() {
+        //VARIABLES
+        String time;
+
+        //Object
+        Scanner input = new Scanner(System.in);
+
+        //USER INPUT
+        System.out.println("Please enter the time (hh:mm) : ");
         time = input.nextLine();
         System.out.println();
 
@@ -63,15 +78,14 @@ public class StandardTime {
     }
 
     public static void traditionalToStandard(String time) {
-
         //VARIABLES
         int hours;
-        int mins;
+        String mins;
         String amOrPm;
 
         //LOCATING VARIABLES
         hours = Integer.parseInt(time.substring(0, time.indexOf(":")));
-        mins = Integer.parseInt(time.substring(time.indexOf(":") + 1, time.indexOf(" ")));
+        mins = (time.substring(time.indexOf(":") + 1, time.indexOf(" ")));
         amOrPm = "" + time.substring(time.indexOf(" ") + 1);
         amOrPm = amOrPm.toUpperCase();
 
@@ -87,42 +101,35 @@ public class StandardTime {
                     break;
             }
         }
-        if (amOrPm.equals("AM") && hours == 12) {
+        else if (amOrPm.equals("AM") && hours == 12) {
             System.out.println("Standard Time : 00:" + mins + " ");
-        } else if (amOrPm.equals("PM") && hours == 12) {
+        } else if (amOrPm.equals("AM") && hours < 12) {
             System.out.println("Standard Time : " + hours + ":" + mins + " ");
         }
+        else if (amOrPm.equals("PM") && hours == 12) {
+            System.out.println("Standard Time : " + hours + ":" + mins + " ");
+        }
+    }
 
-    } public static void standardToTraditional(String time) {
-
+    public static void standardToTraditional(String time) {
         //VARIABLES
         int hours;
         int mins;
-        String amOrPm;
 
         //LOCATING VARIABLES
         hours = Integer.parseInt(time.substring(0, time.indexOf(":")));
-        mins = Integer.parseInt(time.substring(time.indexOf(":") + 1, time.indexOf(" ")));
-        amOrPm = "" + time.substring(time.indexOf(" ") + 1);
-        amOrPm = amOrPm.toUpperCase();
+        mins = Integer.parseInt(time.substring(time.indexOf(":") + 1) );
 
         //CONVERTS TIME
-        if (Integer.toString(hours).length() == 1) {
-            switch (amOrPm) {
-                case "AM":
-                    System.out.println("Standard Time : 0" + hours + ":" + mins + " ");
-                    break;
-                case "PM":
-                    hours = hours + 12;
-                    System.out.println("Standard Time : " + hours + ":" + mins + " ");
-                    break;
-            }
+        if (Integer.toString(hours).length() == 2 && hours < 12) {
+            System.out.println("Traditional Time :" + hours + ":" + mins + "  AM");
+        } 
+        else if (Integer.toString(hours).length() == 2 && hours == 12) {
+            System.out.println("Traditional Time : " + hours + ":" + mins + " PM");
+        } 
+        else if (Integer.toString(hours).length() == 2 && hours > 12) {
+            hours = hours - 12;
+            System.out.println("Traditional Time : " + hours + ":" + mins + " PM");
         }
-        if (amOrPm.equals("AM") && hours == 12) {
-            System.out.println("Standard Time : 00:" + mins + " ");
-        } else if (amOrPm.equals("PM") && hours == 12) {
-            System.out.println("Standard Time : " + hours + ":" + mins + " ");
-        }
+    }
 }
-}
-

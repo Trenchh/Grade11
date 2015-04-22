@@ -31,18 +31,21 @@ public class NumbersToWords2 {
         //DESCRIPTION OF PROGRAM
         System.out.println(" Numbers To Words");
         System.out.println();
-        System.out.println("This program will write out any number from 10-999");
+        System.out.println("This program will write out any number from 1-999");
         System.out.println();
 
         //OBJECTS
         Scanner input = new Scanner(System.in);
 
         //USER INPUT
-        System.out.println("Please enter a 2 or 3 digit number: ");
+        System.out.println("Please enter a number from 1 - 999: ");
         number = input.nextInt();
         System.out.println();
 
-        if (number >= 10 & number <= 19) {
+        if (number <= 9) {
+            ones();
+            System.out.println("Your number is: " + ones);
+        } else if (number >= 10 & number <= 19) {
             teens();
             System.out.println(teens);
         } else if (number >= 20 & number <= 99) {
@@ -63,7 +66,10 @@ public class NumbersToWords2 {
 
         strNumber = Integer.toString(number);
 
-        switch (strNumber.charAt(2)) {
+        switch (strNumber.charAt(strNumber.length() - 1)) {
+            case '0':
+                ones = " ";
+                break;
             case '1':
                 ones = "One";
                 break;
@@ -98,7 +104,10 @@ public class NumbersToWords2 {
 
         strNumber = Integer.toString(number);
 
-        switch (strNumber.charAt(1)) {
+        switch (strNumber.charAt(strNumber.length() - 2)) {
+            case '0':
+                tens = "";
+                break;
             case '2':
                 tens = "Twenty ";
                 break;
@@ -130,7 +139,7 @@ public class NumbersToWords2 {
 
         strNumber = Integer.toString(number);
 
-        switch (strNumber.charAt(1)) {
+        switch (strNumber.charAt(strNumber.length() - 1)) {
             case '0':
                 teens = "Ten";
                 break;
@@ -168,7 +177,7 @@ public class NumbersToWords2 {
 
         strNumber = Integer.toString(number);
 
-        switch (strNumber.charAt(0)) {
+        switch (strNumber.charAt(strNumber.length() - 3)) {
             case '1':
                 hundreds = "One Hundred ";
                 break;

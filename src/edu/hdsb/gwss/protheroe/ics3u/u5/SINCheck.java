@@ -29,8 +29,8 @@ public class SINCheck {
         int intTmp;
         int digit2;
         int digit1;
-        int bothSum = 0;
-        int checkDigit = 0;
+        int bothSum;
+        int checkDigit;
 
         //OBJECTS
         Scanner input = new Scanner(System.in);

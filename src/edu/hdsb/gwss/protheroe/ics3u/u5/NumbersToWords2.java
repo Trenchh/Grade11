@@ -29,7 +29,7 @@ public class NumbersToWords2 {
     public static void main(String[] args) {
 
         //DESCRIPTION OF PROGRAM
-        System.out.println(" Numbers To Words");
+        System.out.println("Numbers To Words");
         System.out.println();
         System.out.println("This program will write out any number from 1-999");
         System.out.println();
@@ -42,30 +42,12 @@ public class NumbersToWords2 {
         number = input.nextInt();
         System.out.println();
 
-        if (number <= 9) {
-            ones();
-            System.out.println("Your number is: " + ones);
-        } else if (number >= 10 & number <= 19) {
-            teens();
-            System.out.println(teens);
-        } else if (number >= 20 & number <= 99) {
-            tens();
-            ones();
-            System.out.println("Your number is: " + tens + ones);
-        } else if (number >= 100 & number <= 999) {
-            tens();
-            ones();
-            hundreds();
-            System.out.println("Your number is: " + hundreds + tens + ones);
-        } else {
-            System.out.println("Invalid");
-        }
+        print();
     }
 
     public static void ones() {
-
+        //FIGURES OUT ONES VALUE
         strNumber = Integer.toString(number);
-
         switch (strNumber.charAt(strNumber.length() - 1)) {
             case '0':
                 ones = " ";
@@ -101,9 +83,8 @@ public class NumbersToWords2 {
     }
 
     public static void tens() {
-
+        //FIGURES OUT TEN VALUE
         strNumber = Integer.toString(number);
-
         switch (strNumber.charAt(strNumber.length() - 2)) {
             case '0':
                 tens = "";
@@ -136,9 +117,8 @@ public class NumbersToWords2 {
     }
 
     public static void teens() {
-
+        //FIGURES OUT TEENS VALUE
         strNumber = Integer.toString(number);
-
         switch (strNumber.charAt(strNumber.length() - 1)) {
             case '0':
                 teens = "Ten";
@@ -174,9 +154,8 @@ public class NumbersToWords2 {
     }
 
     public static void hundreds() {
-
+        //FIGURES OUT HUNDREDS VALUE
         strNumber = Integer.toString(number);
-
         switch (strNumber.charAt(strNumber.length() - 3)) {
             case '1':
                 hundreds = "One Hundred ";
@@ -205,6 +184,35 @@ public class NumbersToWords2 {
             case '9':
                 hundreds = "Nine Hundred ";
                 break;
+        }
+    }
+
+    public static void print() {
+        //PRINTS NUMBER
+        if (number <= 9) {
+            ones();
+            System.out.println("Your number is: " + ones);
+        } else if (number >= 10 & number <= 19) {
+            teens();
+            System.out.println(teens);
+        } else if (number >= 20 & number <= 99) {
+            tens();
+            ones();
+            System.out.println("Your number is: " + tens + ones);
+        } else if (number >= 100 & number <= 999) {
+            strNumber = Integer.toString(number);
+            if (Integer.parseInt(strNumber.substring(strNumber.length() - 2)) >= 10 & Integer.parseInt(strNumber.substring(strNumber.length() - 2)) <= 19) {
+                hundreds();
+                teens();
+                System.out.println("Your number is: " + hundreds + teens);
+            } else {
+                tens();
+                ones();
+                hundreds();
+                System.out.println("Your number is: " + hundreds + tens + ones);
+            }
+        } else {
+            System.out.println("Invalid");
         }
     }
 }

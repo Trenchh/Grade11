@@ -9,28 +9,18 @@ package edu.hdsb.gwss.protheroe.ics3u.u5;
 
 import java.util.Scanner;
 
-/**
- *
- * @author Ryan
- */
 public class SINCheck {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
 
         //VARIABLES
         String sinNumber;
         int oddSum = 0;
         int evenSum = 0;
-        String tmp;
-        String check;
-        int intTmp;
+        int tmp;
         int digit2;
         int digit1;
-        int bothSum;
-        int checkDigit;
+        int total;
 
         //OBJECTS
         Scanner input = new Scanner(System.in);
@@ -46,37 +36,31 @@ public class SINCheck {
         sinNumber = input.next();
         System.out.println();
 
-        if (sinNumber.length().equals(8)) {
+        //ERROR CHECK
+        if (sinNumber.length() == 9) {
             //LOOP DOES STEP 1, 2 & 3
             for (int counter = 0; counter < sinNumber.length() - 1; counter++) {
                 if (counter % 2 == 0) {
                     oddSum = oddSum + Integer.parseInt("" + sinNumber.charAt(counter));
                 } else if (counter % 2 == 1) {
                     if ((Integer.parseInt("" + sinNumber.charAt(counter)) * 2) >= 10) {
-                        tmp = ("" + sinNumber.charAt(counter));
-                        intTmp = (Integer.parseInt("" + tmp.charAt(0)) * 2);
-                        tmp = Integer.toString(intTmp);
-                        digit1 = Integer.parseInt("" + tmp.charAt(0));
-                        digit2 = Integer.parseInt("" + tmp.charAt(1));
+                        tmp = Integer.parseInt("" + sinNumber.charAt(counter)) * 2;
+                        digit1 = Integer.parseInt(Integer.toString(tmp).substring(0, 1));
+                        digit2 = Integer.parseInt(Integer.toString(tmp).substring(1, 2));
                         evenSum = evenSum + digit1 + digit2;
                     } else if ((Integer.parseInt("" + sinNumber.charAt(counter)) * 2) <= 9) {
                         evenSum = evenSum + (Integer.parseInt("" + sinNumber.charAt(counter)) * 2);
                     }
                 }
             } //VERIFIES SIN
-            bothSum = evenSum + oddSum;
-            tmp = ("" + sinNumber.charAt(sinNumber.length() - 1));
-            checkDigit = (Integer.parseInt(tmp));
-            bothSum = bothSum + checkDigit;
-            check = Integer.toString(bothSum);
-            bothSum = (Integer.parseInt("" + check.charAt(1)));
-            if (bothSum == 0) {
+            total = evenSum + oddSum + (Integer.parseInt(("" + sinNumber.charAt(sinNumber.length() - 1))));
+            if (Integer.toString(total).substring(1, 2).equals("0")) {
                 System.out.println("This is a valid SIN");
             } else {
                 System.out.println("This is not a valid SIN");
             }
         } else {
-            System.out.println("This is not a valid SIN");
+            System.out.println("Invalid length");
         }
     }
 }

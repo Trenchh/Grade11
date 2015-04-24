@@ -9,19 +9,12 @@ package edu.hdsb.gwss.protheroe.ics3u.u5;
 
 import java.util.Scanner;
 
-/**
- *
- * @author Ryan
- */
 public class StandardTime {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         //VARIABLES
-        int choice;
-        String time;
+        int choice = 0;
+        String time = "";
 
         //Object
         Scanner input = new Scanner(System.in);
@@ -32,11 +25,20 @@ public class StandardTime {
         System.out.println("This program will convert either standard or traditional time into the other. ");
         System.out.println();
 
+        userChoiceAndConversion(choice, time);
+    }
+
+    public static void userChoiceAndConversion(int choice, String time) {
+
+        //Object
+        Scanner input = new Scanner(System.in);
+
         //USER INPUT
         System.out.println("Press 1 to convert traditional time to standard time or 2 to convert standard time to traditional time: ");
         choice = input.nextInt();
         System.out.println();
 
+        //CONVERSION PROCESS
         if (choice == 1) {
             time = getTraditionalTime();
             traditionalToStandard(time);
@@ -44,14 +46,14 @@ public class StandardTime {
         } else if (choice == 2) {
             time = getStandardTime();
             standardToTraditional(time);
+        } else {
+            System.out.println("Invalid Selection");
         }
     }
 
     public static String getTraditionalTime() {
         //VARIABLES
         String time;
-        int hours;
-        int mins;
 
         //Object
         Scanner input = new Scanner(System.in);
@@ -61,21 +63,12 @@ public class StandardTime {
         time = input.nextLine();
         System.out.println();
 
-        //LOCATING VARIABLES
-        hours = Integer.parseInt(time.substring(0, time.indexOf(":")));
-        mins = Integer.parseInt(time.substring(time.indexOf(":") + 1, time.indexOf(" ")));
-
-        if (hours > 12 || mins > 59) {
-            System.out.println("Invalid Time");
-        }
         return time;
     }
 
     public static String getStandardTime() {
         //VARIABLES
         String time;
-        int hours;
-        String mins;
 
         //Object
         Scanner input = new Scanner(System.in);
@@ -84,14 +77,6 @@ public class StandardTime {
         System.out.println("Please enter the time (hh:mm) : ");
         time = input.nextLine();
         System.out.println();
-
-        //LOCATING VARIABLES
-        hours = Integer.parseInt(time.substring(0, time.indexOf(":")));
-        mins = (time.substring(time.indexOf(":") + 1, time.indexOf(" ")));
-
-        if () {
-
-        }
 
         return time;
     }
@@ -104,12 +89,14 @@ public class StandardTime {
 
         //LOCATING VARIABLES
         hours = Integer.parseInt(time.substring(0, time.indexOf(":")));
-        mins = (time.substring(time.indexOf(":") + 1, time.indexOf(" ")));
+        mins = time.substring(time.indexOf(":") + 1, time.indexOf(" "));
         amOrPm = "" + time.substring(time.indexOf(" ") + 1);
         amOrPm = amOrPm.toUpperCase();
 
-        //CONVERTS TIME
-        if (Integer.toString(hours).length() == 1) {
+        //ERROR CHECK & CONVERTS TIME
+        if (hours >= 13 || Integer.parseInt(mins) >= 60 || !amOrPm.equals("PM") && !amOrPm.equals("AM") || hours <= 0 || Integer.parseInt(mins) < 0) {
+            System.out.println("Invalid Time");
+        } else if (Integer.toString(hours).length() == 1) {
             switch (amOrPm) {
                 case "AM":
                     System.out.println("Standard Time : 0" + hours + ":" + mins + " ");
@@ -137,13 +124,14 @@ public class StandardTime {
         hours = Integer.parseInt(time.substring(0, time.indexOf(":")));
         mins = (time.substring(time.indexOf(":") + 1));
 
-        //VERIFIES ITS CORRECT FORMAT
-        //CONVERTS TIME
-        if (hours == 0) {
+        //ERROR CHECK & CONVERTS TIME
+        if (hours >= 24 || Integer.parseInt(mins) >= 60 || hours < 0 || Integer.parseInt(mins) < 0) {
+            System.out.println("Invalid Time");
+        } else if (hours == 0) {
             hours = hours + 12;
             System.out.println("Traditional Time : " + hours + ":" + mins + " AM");
         } else if (hours < 12) {
-            System.out.println("Traditional Time : " + hours + ":" + mins + "  AM");
+            System.out.println("Traditional Time : " + hours + ":" + mins + " AM");
         } else if (hours == 12) {
             System.out.println("Traditional Time : " + hours + ":" + mins + " PM");
         } else if (hours > 12) {

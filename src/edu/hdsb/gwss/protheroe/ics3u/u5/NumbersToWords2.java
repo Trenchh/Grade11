@@ -40,6 +40,7 @@ public class NumbersToWords2 {
         System.out.println();
     }
     public static void ones() {
+        //FIGURES OUT ONES VALUE
         switch (strNumber.charAt(strNumber.length() - 1)) {
             case '0':
                 ones = " ";

@@ -42,21 +42,23 @@ public class GrossWages {
         System.out.println();
         
         if (hours > 40) {
-            overtime(hours);
+            overtime(hours, wage);
             
         } else {
             normalWage(hours);
         }
-    } public static void overtime(hours) {     
+    } public static void overtime(int hours, int wage) {     
         
+        double overtime;
+        double total;
+           
         overtime = hours - 40;
         wage = wage * 40; 
         overtime = overtime * (wage * 1.5);
         total = overtime + wage;
         System.out.println("The total is:" + total);
         
-        
-    } public static void normalWage(hours) {
+    } public static void normalWage(int hours) {
         
         
         

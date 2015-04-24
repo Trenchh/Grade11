@@ -1,7 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Name: RockPaperScissors.java
+ * Date: April 23rd, 2015
+ * Version: v0.1
+ * Author: Ryan Protheroe
+ * Description: This program plays rock paper scissors with a user using computer generation
  */
 package edu.hdsb.gwss.protheroe.ics3u.u5;
 
@@ -21,10 +23,10 @@ public class RockPaperScissors {
 
         userChoice = userChoice();
         computerChoice = computerGeneration();
-        game(userChoice, computerChoice);
+        winCheck(userChoice, computerChoice);
     }
 
-    public static void game(int userChoice, int computerChoice) {
+    public static void winCheck(int userChoice, int computerChoice) {
         //VARIABLES
         int rock = 1;
         int paper = 2;
@@ -33,43 +35,46 @@ public class RockPaperScissors {
         int playerWins = 0;
         int ties = 0;
 
-        //LOOP THAT VALIDATES IF THE GAME IS DONE
+        //LOOP THAT VALIDATES WHO WINS AND IF THE GAME IS DONE
         while (compWins < 3 || playerWins < 3) {
             if (userChoice == computerChoice) {
-                System.out.println("Tie");
+                System.out.println("| Tie |");
                 ties++;
             } else if (userChoice == rock && computerChoice == scissors) {
-                System.out.println("Rock vs. Scissors, You Won ");
+                System.out.println("| Rock vs. Scissors, You Won |");
                 playerWins++;
             } else if (userChoice == scissors && computerChoice == rock) {
-                System.out.println("Scissors Vs. Rock, You Lost ");
+                System.out.println("| Scissors Vs. Rock, You Lost |");
                 compWins++;
             } else if (userChoice == paper && computerChoice == rock) {
-                System.out.println("Paper vs. Rock, You Won ");
+                System.out.println("| Paper vs. Rock, You Won |");
                 playerWins++;
             } else if (userChoice == rock && computerChoice == paper) {
-                System.out.println("Rock Vs. Paper, You Lost ");
+                System.out.println("| Rock Vs. Paper, You Lost |");
                 compWins++;
             } else if (userChoice == scissors && computerChoice == paper) {
-                System.out.println("Scissors Vs. Paper, You Won ");
+                System.out.println("| Scissors Vs. Paper, You Won |");
                 playerWins++;
             } else if (userChoice == paper && computerChoice == scissors) {
-                System.out.println("Paper Vs. Scissors, You Lost ");
+                System.out.println("| Paper Vs. Scissors, You Lost |");
                 compWins++;
             }
             if (compWins == 3) {
                 System.out.println();
-                System.out.println("YOU LOST " + compWins + ":" + playerWins + " TO THE COMPUTER");
-                System.out.println("Come back soon");
-                break;
-            } else if (playerWins == 3) {
-                System.out.println();
-                System.out.println("YOU WON " + playerWins + ":" + compWins + " TO THE COMPUTER");
+                System.out.println("|| YOU LOST " + compWins + ":" + playerWins + " TO THE COMPUTER ||");
                 System.out.println("Come back soon");
                 break;
             }
-            System.out.println("Your wins: " + playerWins + " | Computer Wins:" + compWins + " | Ties:" + ties);
-            System.out.println();
+            if (playerWins == 3) {
+                System.out.println();
+                System.out.println("|| YOU WON " + playerWins + ":" + compWins + " TO THE COMPUTER ||");
+                System.out.println("Come back soon");
+                break;
+            }
+            if (userChoice > 0 & userChoice < 4) {
+                System.out.println("Your wins: " + playerWins + " | Computer Wins:" + compWins + " | Ties:" + ties);
+                System.out.println();
+            }
             userChoice = userChoice();
             computerChoice = computerGeneration();
         }
@@ -83,10 +88,15 @@ public class RockPaperScissors {
         Scanner input = new Scanner(System.in);
 
         //USER SELECTS INITIAL OPTION
-        System.out.println("Enter 1 for rock, 2 for paper or 3 for scissors.");
+        System.out.println("Enter 1 for rock, 2 for paper or 3 for scissors: ");
         userChoice = input.nextInt();
         System.out.println();
 
+        //ERROR MESSAGE
+        if (userChoice >= 4 || userChoice <= 0) {
+            System.out.println("Invalid Selection");
+            System.out.println();
+        }
         return userChoice;
     }
 

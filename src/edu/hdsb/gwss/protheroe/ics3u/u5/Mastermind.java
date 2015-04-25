@@ -85,21 +85,6 @@ public class Mastermind {
         userGuess = userGuess.toUpperCase();
         System.out.println();
 
-        //ERROR CHECK
-        for (int counter = 0; counter <= userGuess.length() - 1; counter++) {
-            if (userGuess.charAt(counter) != 'R') {
-                errorCheck = 1;
-            } else if (userGuess.charAt(counter) != 'G') {
-                errorCheck = 1;
-            } else if (userGuess.charAt(counter) != 'B') {
-                errorCheck = 1;
-            } else if (userGuess.charAt(counter) != 'Y') {
-                errorCheck = 1;
-            }
-        }
-        if (errorCheck == 1) {
-            System.out.println("Invalid Guess");
-        }
 
         // errorCheck(userGuess);
 

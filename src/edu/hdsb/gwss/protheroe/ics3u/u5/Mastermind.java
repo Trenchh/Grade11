@@ -13,23 +13,28 @@ import java.util.Scanner;
 public class Mastermind {
 
     public static void main(String[] args) {
-
         //VARIABLES
         String colourCode;
         String userGuess;
+        int rightSequence = 0;
+        int errorCheck = 0;
 
         //DESCRIPTION OF PROGRAM
         System.out.println("Welcome to Mastermind");
         System.out.println();
-        System.out.println("Correctly guess the colours and the sequence of which they're generated in to win");
+        System.out.println("Correctly guess the colours (R,G,B,Y) and the sequence of which they're generated in to win");
 
+        //LOOP THAT LETS USER KEEP GUESSING AND SINGLE CODE GENERATION
         colourCode = colourCode();
-        userGuess = userGuess();
-        sequenceCheck(colourCode, userGuess);
-        colourCheck(colourCode, userGuess);
+        while (rightSequence != 3) {
+            userGuess = userGuess();
+            //errorCheck = errorCheck(userGuess);
+            rightSequence = rightSequence(colourCode, userGuess);
+            colourCheck(colourCode, userGuess, rightSequence);
+        }
     }
 
-    public static void colourCheck(String colourCode, String userGuess) {
+    public static void colourCheck(String colourCode, String userGuess, int rightSequence) {
         int rightColour = 0;
 
         for (int counter = 0; counter <= colourCode.length() - 1; counter++) {
@@ -41,10 +46,13 @@ public class Mastermind {
                 rightColour++;
             }
         }
-        System.out.println("You have " + rightColour + " colour(s) correct.");
+        if (rightSequence != 3) {
+            System.out.println("You have " + rightColour + " colour(s) correct.");
+            System.out.println();
+        }
     }
 
-    public static void sequenceCheck(String colourCode, String userGuess) {
+    public static int rightSequence(String colourCode, String userGuess) {
         int rightSequence = 0;
 
         for (int counter = 0; counter <= colourCode.length() - 1; counter++) {
@@ -53,15 +61,20 @@ public class Mastermind {
             }
             if (rightSequence == 3) {
                 System.out.println("CONGRATULATIONS, YOU GUESSED CORRECT.");
+                System.out.println("The Colours Were: " + colourCode);
                 break;
             }
         }
-        System.out.println("You have " + rightSequence + " colour(s) in the correct order.");
+        if (rightSequence != 3) {
+            System.out.println("You have " + rightSequence + " colour(s) in the correct order.");
+        }
+        return rightSequence;
     }
 
     public static String userGuess() {
         //VARIABLES
         String userGuess;
+        int errorCheck = 0;
 
         //OBJECTS
         Scanner input = new Scanner(System.in);
@@ -72,71 +85,79 @@ public class Mastermind {
         userGuess = userGuess.toUpperCase();
         System.out.println();
 
+        //ERROR CHECK
+        for (int counter = 0; counter <= userGuess.length() - 1; counter++) {
+            if (userGuess.charAt(counter) != 'R') {
+                errorCheck = 1;
+            } else if (userGuess.charAt(counter) != 'G') {
+                errorCheck = 1;
+            } else if (userGuess.charAt(counter) != 'B') {
+                errorCheck = 1;
+            } else if (userGuess.charAt(counter) != 'Y') {
+                errorCheck = 1;
+            }
+        }
+        if (errorCheck == 1) {
+            System.out.println("Invalid Guess");
+        }
+
+        // errorCheck(userGuess);
+
         return userGuess;
     }
 
     public static String colourCode() {
         //VARIABLES
-        String colourCode;
-        String char1 = "";
-        String char2 = "";
-        String char3 = "";
+        String colourCode = "";
+        String letter;
         String tmp1;
-        String tmp2;
-        String tmp3;
+        String tmp2 = "";
 
         //COMPUTER GENERATION
-        tmp1 = Integer.toString((int) (Math.random() * 4) + 1);
-        tmp2 = Integer.toString((int) (Math.random() * 4) + 1);
-        tmp3 = Integer.toString((int) (Math.random() * 4) + 1);
+        for (int counter = 0; counter <= 2; counter++) {
+            tmp1 = Integer.toString((int) (Math.random() * 4) + 1);
 
-        switch (tmp1) {
-            case "1":
-                char1 = ("R");
-                break;
-            case "2":
-                char1 = ("G");
-                break;
-            case "3":
-                char1 = ("B");
-                break;
-            case "4":
-                char1 = ("Y");
-                break;
+            switch (tmp1) {
+                case "1":
+                    tmp2 = ("R");
+                    break;
+                case "2":
+                    tmp2 = ("G");
+                    break;
+                case "3":
+                    tmp2 = ("B");
+                    break;
+                case "4":
+                    tmp2 = ("Y");
+                    break;
+            }
+            letter = tmp2;
+            colourCode = colourCode + letter;
         }
-        switch (tmp2) {
-            case "1":
-                char2 = ("R");
-                break;
-            case "2":
-                char2 = ("G");
-                break;
-            case "3":
-                char2 = ("B");
-                break;
-            case "4":
-                char2 = ("Y");
-                break;
-        }
-        switch (tmp3) {
-            case "1":
-                char2 = ("R");
-                break;
-            case "2":
-                char2 = ("G");
-                break;
-            case "3":
-                char2 = ("B");
-                break;
-            case "4":
-                char2 = ("Y");
-                break;
-        }
-
-        colourCode = char1 + char2 + char3;
-
-        System.out.println(colourCode);
 
         return colourCode;
     }
+
+   // public static int errorCheck(String userGuess) {
+
+      //  int errorCheck = 0;
+
+      //  //ERROR CHECK
+      //  for (int counter = 0; counter <= userGuess.length() - 1; counter++) {
+      //      if (userGuess.charAt(counter) != 'R') {
+      //          errorCheck = 1;
+      //      } else if (userGuess.charAt(counter) != 'G') {
+      //          errorCheck = 1;
+       //     } else if (userGuess.charAt(counter) != 'B') {
+      //          errorCheck = 1;
+      //      } else if (userGuess.charAt(counter) != 'Y') {
+      //          errorCheck = 1;
+     //      }
+     //   }
+    //    if (errorCheck == 1) {
+    //        System.out.println("Invalid Guess");
+    //    }
+//
+   //     return errorCheck;
+  //  }
 }

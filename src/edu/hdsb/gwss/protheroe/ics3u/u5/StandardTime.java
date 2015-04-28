@@ -1,9 +1,9 @@
 /*
- * Name: WordSquare.java
+ * Name: StandardTime.java
  * Date: April 20th, 2015
  * Version: v0.1
  * Author: Ryan Protheroe
- * Description: This program will reverse the word entered and check if it is a palindrome
+ * Description: This program will convert either standard or traditional time into the other
  */
 package edu.hdsb.gwss.protheroe.ics3u.u5;
 

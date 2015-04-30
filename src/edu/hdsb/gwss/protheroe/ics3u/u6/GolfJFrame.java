@@ -27,18 +27,35 @@ public class GolfJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        enterScoreText = new javax.swing.JTextField();
+        javax.swing.JTextField amountOfHolesText = new javax.swing.JTextField();
+        holeNumberScoreText = new javax.swing.JTextField();
+        holeNumberScoreText1 = new javax.swing.JTextField();
+        background = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 661, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 494, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
+        getContentPane().add(enterScoreText);
+        enterScoreText.setBounds(220, 190, 330, 80);
+        getContentPane().add(amountOfHolesText);
+        amountOfHolesText.setBounds(90, 220, 60, 40);
+
+        holeNumberScoreText.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        holeNumberScoreText.setText("Amount of Holes");
+        holeNumberScoreText.setToolTipText("");
+        getContentPane().add(holeNumberScoreText);
+        holeNumberScoreText.setBounds(70, 190, 100, 20);
+
+        holeNumberScoreText1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        holeNumberScoreText1.setText("Please enter the amount of holes first");
+        holeNumberScoreText1.setToolTipText("");
+        getContentPane().add(holeNumberScoreText1);
+        holeNumberScoreText1.setBounds(280, 160, 200, 20);
+
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/protheroe/ics3u/u6/Golf score.jpg"))); // NOI18N
+        background.setToolTipText("");
+        getContentPane().add(background);
+        background.setBounds(0, 0, 800, 700);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -79,5 +96,9 @@ public class GolfJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel background;
+    private javax.swing.JTextField enterScoreText;
+    private javax.swing.JTextField holeNumberScoreText;
+    private javax.swing.JTextField holeNumberScoreText1;
     // End of variables declaration//GEN-END:variables
 }

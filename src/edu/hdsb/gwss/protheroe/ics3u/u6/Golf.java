@@ -3,7 +3,7 @@
  * Date: April 27th, 2015
  * Version: v0.1
  * Author: Ryan Protheroe
- * Description: This program 
+ * Description: This program will display golf scores given the ones entered
  */
 package edu.hdsb.gwss.protheroe.ics3u.u6;
 

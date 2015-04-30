@@ -7,6 +7,7 @@
  */
 package edu.hdsb.gwss.protheroe.ics3u.u6;
 
+import java.text.NumberFormat;
 import java.util.Scanner;
 
 /**
@@ -19,9 +20,16 @@ public class Temperature {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        //VARIABLE
+        double total = 0;
 
         //Object
         Scanner input = new Scanner(System.in);
+
+        //Decimal format
+        NumberFormat decimal = NumberFormat.getNumberInstance();
+        decimal.setMinimumFractionDigits(2);
+        decimal.setMaximumFractionDigits(2);
 
         //DESCRIPTION OF PROGRAM
         System.out.println(" Temperatures ");
@@ -31,17 +39,23 @@ public class Temperature {
 
         String[] days = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
 
-        String[] temperatures = new String[7];
+        int[] temperatures = new int[7];
 
+        //ACQUIRES TEMPERATURES
         for (int counter = 1; 7 >= counter; counter++) {
 
             //USER INPUT
             System.out.println("Please enter the temperature of " + days[counter - 1]);
-            temperatures[counter - 1] = input.nextLine();
-            temperatures[counter - 1] = days[counter - 1] + ":  " + temperatures[counter - 1];
+            temperatures[counter - 1] = input.nextInt();
+            total = total + temperatures[counter - 1];
         }
+        //PRINTS WEATHER
         for (int counter = 1; 7 >= counter; counter++) {
-            System.out.println(temperatures[counter - 1]);
+            System.out.println(days[counter - 1] + ":   " + temperatures[counter - 1]);
         }
+        //CALCULATES AVERAGE
+        double average;
+        average = total / 7;
+        System.out.println("The average temperature was: " + decimal.format(average));
     }
 }

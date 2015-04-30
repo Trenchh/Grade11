@@ -20,8 +20,8 @@ public class Golf {
      */
     public static void main(String[] args) {
 
-        String amountOfHoles;
-
+        int amountOfHoles;
+        double total = 0;
         //Object
         Scanner input = new Scanner(System.in);
 
@@ -33,20 +33,42 @@ public class Golf {
 
         //USER INPUT
         System.out.println("Please enter the amount of holes: ");
-        amountOfHoles = input.nextLine();
+        amountOfHoles = input.nextInt();
         System.out.println();
 
-        String[] golfScore = new String[Integer.parseInt(amountOfHoles)];
+        int[] golfScore = new int[amountOfHoles];
 
-        for (int counter = 1; Integer.parseInt(amountOfHoles) >= counter; counter++) {
+        //ACQUIRES SCORES AND ADDS SCORE
+        for (int counter = 1; amountOfHoles >= counter; counter++) {
 
             //USER INPUT
             System.out.println("Please enter the score of hole #" + counter);
-            golfScore[counter - 1] = input.nextLine();
-            golfScore[counter - 1] = "Hole #" + counter + ":   " + golfScore[counter - 1];
+            golfScore[counter - 1] = input.nextInt();
+            total = total + golfScore[counter - 1];
+
         }
-        for (int counter = 1; Integer.parseInt(amountOfHoles) >= counter; counter++) {
-            System.out.println(golfScore[counter - 1]);
+        //PRINTS SCORES
+        for (int counter = 1; amountOfHoles >= counter; counter++) {
+            System.out.println("Hole #" + counter + ":  " + golfScore[counter - 1]);
         }
+        //HIGHEST SCORE
+        int max = -1;
+        for (int counter = 0; counter < golfScore.length; counter++) {
+            if ((golfScore[counter]) > max) {
+                max = (golfScore[counter]);
+            }
+        }
+        System.out.println();
+        System.out.println("Your highest Score was: " + max);
+
+        //LOWEST SCORE
+        int low = 99999;
+        for (int counter = 0; counter < golfScore.length; counter++) {
+            if ((golfScore[counter]) < low) {
+                low = (golfScore[counter]);
+            }
+        }
+        System.out.println("Your lowest Score was: " + low);
+        System.out.println("The total Score was: " + total);
     }
 }

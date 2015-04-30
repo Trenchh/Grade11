@@ -29,28 +29,48 @@ public class GolfJFrame extends javax.swing.JFrame {
 
         enterScoreText = new javax.swing.JTextField();
         javax.swing.JTextField amountOfHolesText = new javax.swing.JTextField();
+        setAmountOfHolesText = new javax.swing.JTextField();
         holeNumberScoreText = new javax.swing.JTextField();
-        holeNumberScoreText1 = new javax.swing.JTextField();
+        tableDisplay = new javax.swing.JTextField();
+        otherStats = new javax.swing.JTextField();
+        enterButton = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
+
+        enterScoreText.setFont(new java.awt.Font("UPBOLTERS", 0, 36)); // NOI18N
         getContentPane().add(enterScoreText);
         enterScoreText.setBounds(220, 190, 330, 80);
+
+        amountOfHolesText.setFont(new java.awt.Font("UPBOLTERS", 0, 12)); // NOI18N
         getContentPane().add(amountOfHolesText);
         amountOfHolesText.setBounds(90, 220, 60, 40);
 
+        setAmountOfHolesText.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        setAmountOfHolesText.setText("Amount of Holes");
+        setAmountOfHolesText.setToolTipText("");
+        getContentPane().add(setAmountOfHolesText);
+        setAmountOfHolesText.setBounds(70, 190, 100, 20);
+
         holeNumberScoreText.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        holeNumberScoreText.setText("Amount of Holes");
+        holeNumberScoreText.setText("Please enter the amount of holes first");
         holeNumberScoreText.setToolTipText("");
         getContentPane().add(holeNumberScoreText);
-        holeNumberScoreText.setBounds(70, 190, 100, 20);
+        holeNumberScoreText.setBounds(280, 160, 200, 20);
+        getContentPane().add(tableDisplay);
+        tableDisplay.setBounds(30, 300, 520, 370);
+        getContentPane().add(otherStats);
+        otherStats.setBounds(560, 300, 210, 370);
 
-        holeNumberScoreText1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        holeNumberScoreText1.setText("Please enter the amount of holes first");
-        holeNumberScoreText1.setToolTipText("");
-        getContentPane().add(holeNumberScoreText1);
-        holeNumberScoreText1.setBounds(280, 160, 200, 20);
+        enterButton.setText("Enter");
+        enterButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enterButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(enterButton);
+        enterButton.setBounds(560, 210, 210, 40);
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/protheroe/ics3u/u6/Golf score.jpg"))); // NOI18N
         background.setToolTipText("");
@@ -59,6 +79,10 @@ public class GolfJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_enterButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -97,8 +121,11 @@ public class GolfJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
+    private javax.swing.JButton enterButton;
     private javax.swing.JTextField enterScoreText;
     private javax.swing.JTextField holeNumberScoreText;
-    private javax.swing.JTextField holeNumberScoreText1;
+    private javax.swing.JTextField otherStats;
+    private javax.swing.JTextField setAmountOfHolesText;
+    private javax.swing.JTextField tableDisplay;
     // End of variables declaration//GEN-END:variables
 }

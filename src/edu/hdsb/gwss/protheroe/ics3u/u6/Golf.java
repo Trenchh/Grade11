@@ -21,7 +21,7 @@ public class Golf {
     public static void main(String[] args) {
 
         int amountOfHoles;
-        double total = 0;
+        int total = 0;
         //Object
         Scanner input = new Scanner(System.in);
 

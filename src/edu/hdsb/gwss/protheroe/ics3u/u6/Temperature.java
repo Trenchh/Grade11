@@ -23,10 +23,10 @@ public class Temperature {
         //VARIABLE
         double total = 0;
 
-        //Object
+        //OBJECTS
         Scanner input = new Scanner(System.in);
 
-        //Decimal format
+        //DECIMAL FORMAT
         NumberFormat decimal = NumberFormat.getNumberInstance();
         decimal.setMinimumFractionDigits(2);
         decimal.setMaximumFractionDigits(2);
@@ -55,7 +55,7 @@ public class Temperature {
         }
         //CALCULATES AVERAGE
         double average;
-        average = total / 7;
+        average = total / days.length;
         System.out.println("The average temperature was: " + decimal.format(average));
     }
 }

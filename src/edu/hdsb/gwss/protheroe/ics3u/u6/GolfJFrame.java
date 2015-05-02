@@ -41,6 +41,11 @@ public class GolfJFrame extends javax.swing.JFrame {
         totalScoreTextHeader = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         lowestScoreText.setEditable(false);
@@ -133,13 +138,13 @@ public class GolfJFrame extends javax.swing.JFrame {
 
     private void enterAmountOfHolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterAmountOfHolesActionPerformed
         amountOfHoles = Integer.parseInt(enterAmountOfHoles.getText());
-        
 
+        //ASSURES USER ENTERS CORRECT AMOUNT
         if (amountOfHoles > 0) {
             amountOfHolesText.setText("Amount of Holes");
             enterAmountOfHoles.setEnabled(false);
             enterScore.setEnabled(true);
-            holeNumberScoreText.setText("Please enter the score of hole #" + counter);
+            holeNumberScoreText.setText("Please enter the score of hole #" + (counter + 1));
             enterScore.setText("");
 
         } else {
@@ -156,27 +161,30 @@ public class GolfJFrame extends javax.swing.JFrame {
 
             //USER INPUT
             holeNumberScoreText.setText("Please enter the score of hole #" + counter);
-            golfScore[counter - 1] = Integer.parseInt(enterScore.getText());
-            golfScorePrint[counter - 1] = "Hole #" + counter + ": " + enterScore.getText();
-            print = print + golfScorePrint[counter - 1] + "\n";
+            golfScore[counter] = Integer.parseInt(enterScore.getText());
+            golfScorePrint[counter] = "Hole #" + (counter + 1) + ": " + enterScore.getText();
+            print = print + golfScorePrint[counter] + "\n";
 
             //HIGHEST SCORE
-            if ((golfScore[counter - 1]) > max) {
-                max = (golfScore[counter - 1]);
+            if ((golfScore[counter]) > max) {
+                max = (golfScore[counter]);
             }
-
             //LOWEST SCORE
-            if ((golfScore[counter - 1]) < low) {
-                low = (golfScore[counter - 1]);
+            if ((golfScore[counter]) < low) {
+                low = (golfScore[counter]);
             }
-            total = total + golfScore[counter - 1];
+            //CALCULATED TOTAL SCORE
+            total = total + golfScore[counter];
 
+            //WIPES ENTERED SCORE
             enterScore.setText("");
 
+            //PRINTS TABLE
             tableDisplay.setText(print);
 
-            if (counter == amountOfHoles) {
+            if ((counter + 1) == amountOfHoles) {
 
+                //USER CAN NOT CHANGE ANYTHING ELSE ONCE TABLED DISPLAYED
                 lowestScoreText.setText("" + low);
                 highestScoreText.setText("" + max);
                 totalScoreText.setText("" + total);
@@ -189,6 +197,12 @@ public class GolfJFrame extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_enterScoreActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+
+        //CANT ENTER SCORE UNTIL AMOUNT OF HOLES
+        enterScore.setEnabled(false);
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -241,7 +255,7 @@ public class GolfJFrame extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 int amountOfHoles = 0;
     int total = 0;
-    int counter = 1;
+    int counter = 0;
     int max = -1;
     int low = 99999;
     String print = "";

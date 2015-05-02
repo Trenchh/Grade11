@@ -34,15 +34,30 @@ public class GolfJFrame extends javax.swing.JFrame {
         enterAmountOfHoles = new javax.swing.JTextField();
         holeNumberScoreText = new javax.swing.JLabel();
         amountOfHolesText = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tableDisplay = new javax.swing.JTextPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tableDisplay = new javax.swing.JTextArea();
+        lowestScoreTextHeader = new javax.swing.JLabel();
+        highestScoreTextHeader = new javax.swing.JLabel();
+        totalScoreTextHeader = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
+
+        lowestScoreText.setEditable(false);
+        lowestScoreText.setFont(new java.awt.Font("UPBOLTERS", 0, 24)); // NOI18N
+        lowestScoreText.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(lowestScoreText);
         lowestScoreText.setBounds(560, 300, 210, 70);
+
+        totalScoreText.setEditable(false);
+        totalScoreText.setFont(new java.awt.Font("UPBOLTERS", 0, 24)); // NOI18N
+        totalScoreText.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(totalScoreText);
         totalScoreText.setBounds(560, 600, 210, 70);
+
+        highestScoreText.setEditable(false);
+        highestScoreText.setFont(new java.awt.Font("UPBOLTERS", 0, 24)); // NOI18N
+        highestScoreText.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(highestScoreText);
         highestScoreText.setBounds(560, 450, 210, 70);
 
@@ -70,21 +85,48 @@ public class GolfJFrame extends javax.swing.JFrame {
         getContentPane().add(enterAmountOfHoles);
         enterAmountOfHoles.setBounds(90, 220, 70, 40);
 
+        holeNumberScoreText.setFont(new java.awt.Font("UPBOLTERS", 0, 14)); // NOI18N
         holeNumberScoreText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         holeNumberScoreText.setText("Please enter the amount of holes first");
         holeNumberScoreText.setToolTipText("");
         getContentPane().add(holeNumberScoreText);
         holeNumberScoreText.setBounds(270, 150, 230, 30);
 
+        amountOfHolesText.setFont(new java.awt.Font("UPBOLTERS", 0, 14)); // NOI18N
         amountOfHolesText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         amountOfHolesText.setText("Amount of Holes");
         getContentPane().add(amountOfHolesText);
         amountOfHolesText.setBounds(60, 180, 130, 30);
 
-        jScrollPane1.setViewportView(tableDisplay);
+        tableDisplay.setEditable(false);
+        tableDisplay.setColumns(20);
+        tableDisplay.setFont(new java.awt.Font("UPBOLTERS", 0, 24)); // NOI18N
+        tableDisplay.setRows(5);
+        jScrollPane2.setViewportView(tableDisplay);
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(30, 300, 500, 370);
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(30, 300, 520, 370);
+
+        lowestScoreTextHeader.setFont(new java.awt.Font("UPBOLTERS", 0, 14)); // NOI18N
+        lowestScoreTextHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lowestScoreTextHeader.setText("Lowest Score");
+        lowestScoreTextHeader.setToolTipText("");
+        getContentPane().add(lowestScoreTextHeader);
+        lowestScoreTextHeader.setBounds(560, 280, 210, 20);
+
+        highestScoreTextHeader.setFont(new java.awt.Font("UPBOLTERS", 0, 14)); // NOI18N
+        highestScoreTextHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        highestScoreTextHeader.setText("Highest Score");
+        highestScoreTextHeader.setToolTipText("");
+        getContentPane().add(highestScoreTextHeader);
+        highestScoreTextHeader.setBounds(560, 430, 210, 20);
+
+        totalScoreTextHeader.setFont(new java.awt.Font("UPBOLTERS", 0, 14)); // NOI18N
+        totalScoreTextHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        totalScoreTextHeader.setText("Total Score");
+        totalScoreTextHeader.setToolTipText("");
+        getContentPane().add(totalScoreTextHeader);
+        totalScoreTextHeader.setBounds(560, 580, 210, 20);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -95,11 +137,8 @@ public class GolfJFrame extends javax.swing.JFrame {
         if (amountOfHoles > 0) {
             amountOfHolesText.setText("Amount of Holes");
             enterAmountOfHoles.setEnabled(false);
-            
-            for (int counter = 1; amountOfHoles >= counter; counter++) {          
             holeNumberScoreText.setText("Please enter the score of hole #" + counter);
-            break;
-            }
+            enterScore.setText("");
 
         } else {
             amountOfHolesText.setText("Invalid");
@@ -111,18 +150,42 @@ public class GolfJFrame extends javax.swing.JFrame {
         String[] golfScorePrint = new String[amountOfHoles];
 
         //ACQUIRES SCORES AND ADDS SCORE
-        for (int counter = 1; amountOfHoles >= counter; counter++) {
+        for (; amountOfHoles >= counter; counter++) {
 
             //USER INPUT
             holeNumberScoreText.setText("Please enter the score of hole #" + counter);
             golfScore[counter - 1] = Integer.parseInt(enterScore.getText());
-            golfScorePrint[counter - 1] = "Hole #" + counter + ":" + enterScore.getText();
+            golfScorePrint[counter - 1] = "Hole #" + counter + ": " + enterScore.getText();
+            
+            //HIGHEST SCORE
+            if ((golfScore[counter - 1]) > max) {
+                max = (golfScore[counter - 1]);
+            }
+
+            //LOWEST SCORE
+            if ((golfScore[counter - 1]) < low) {
+                low = (golfScore[counter - 1]);
+            }
             total = total + golfScore[counter - 1];
 
-            tableDisplay.setText(golfScorePrint[counter - 1]);
-            break;
-        }
+            enterScore.setText("");
+
+            tableDisplay.setText(golfScorePrint[0]);
         
+        
+        if(counter == amountOfHoles) {
+            
+        lowestScoreText.setText("" + low);
+        highestScoreText.setText("" + max);
+        totalScoreText.setText("" + total);
+        enterScore.setEnabled(false);
+        lowestScoreText.setEnabled(false);
+        highestScoreText.setEnabled(false);
+        totalScoreText.setEnabled(false);
+        tableDisplay.setEnabled(false);
+        
+        }
+        }
     }//GEN-LAST:event_enterScoreActionPerformed
 
     /**
@@ -165,12 +228,18 @@ public class GolfJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField enterAmountOfHoles;
     private javax.swing.JTextField enterScore;
     private javax.swing.JTextField highestScoreText;
+    private javax.swing.JLabel highestScoreTextHeader;
     private javax.swing.JLabel holeNumberScoreText;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField lowestScoreText;
-    private javax.swing.JTextPane tableDisplay;
+    private javax.swing.JLabel lowestScoreTextHeader;
+    private javax.swing.JTextArea tableDisplay;
     private javax.swing.JTextField totalScoreText;
+    private javax.swing.JLabel totalScoreTextHeader;
     // End of variables declaration//GEN-END:variables
 int amountOfHoles = 0;
     int total = 0;
+    int counter = 1;
+    int max = -1;
+    int low = 99999;
 }

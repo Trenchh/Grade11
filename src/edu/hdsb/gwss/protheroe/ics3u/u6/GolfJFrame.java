@@ -39,7 +39,6 @@ public class GolfJFrame extends javax.swing.JFrame {
         lowestScoreTextHeader = new javax.swing.JLabel();
         highestScoreTextHeader = new javax.swing.JLabel();
         totalScoreTextHeader = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -129,20 +128,17 @@ public class GolfJFrame extends javax.swing.JFrame {
         getContentPane().add(totalScoreTextHeader);
         totalScoreTextHeader.setBounds(560, 580, 210, 20);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/protheroe/ics3u/u6/Golf score.jpg"))); // NOI18N
-        jLabel1.setToolTipText("");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 800, 700);
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void enterAmountOfHolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterAmountOfHolesActionPerformed
         amountOfHoles = Integer.parseInt(enterAmountOfHoles.getText());
+        
 
         if (amountOfHoles > 0) {
             amountOfHolesText.setText("Amount of Holes");
             enterAmountOfHoles.setEnabled(false);
+            enterScore.setEnabled(true);
             holeNumberScoreText.setText("Please enter the score of hole #" + counter);
             enterScore.setText("");
 
@@ -162,6 +158,7 @@ public class GolfJFrame extends javax.swing.JFrame {
             holeNumberScoreText.setText("Please enter the score of hole #" + counter);
             golfScore[counter - 1] = Integer.parseInt(enterScore.getText());
             golfScorePrint[counter - 1] = "Hole #" + counter + ": " + enterScore.getText();
+            print = print + golfScorePrint[counter - 1] + "\n";
 
             //HIGHEST SCORE
             if ((golfScore[counter - 1]) > max) {
@@ -176,7 +173,7 @@ public class GolfJFrame extends javax.swing.JFrame {
 
             enterScore.setText("");
 
-            tableDisplay.setText(golfScorePrint[counter - 1]);
+            tableDisplay.setText(print);
 
             if (counter == amountOfHoles) {
 
@@ -235,7 +232,6 @@ public class GolfJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField highestScoreText;
     private javax.swing.JLabel highestScoreTextHeader;
     private javax.swing.JLabel holeNumberScoreText;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField lowestScoreText;
     private javax.swing.JLabel lowestScoreTextHeader;
@@ -248,4 +244,5 @@ int amountOfHoles = 0;
     int counter = 1;
     int max = -1;
     int low = 99999;
+    String print = "";
 }

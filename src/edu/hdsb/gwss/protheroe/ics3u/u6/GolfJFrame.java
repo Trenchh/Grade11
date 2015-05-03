@@ -39,6 +39,7 @@ public class GolfJFrame extends javax.swing.JFrame {
         lowestScoreTextHeader = new javax.swing.JLabel();
         highestScoreTextHeader = new javax.swing.JLabel();
         totalScoreTextHeader = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -132,6 +133,10 @@ public class GolfJFrame extends javax.swing.JFrame {
         totalScoreTextHeader.setToolTipText("");
         getContentPane().add(totalScoreTextHeader);
         totalScoreTextHeader.setBounds(560, 580, 210, 20);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/protheroe/ics3u/u6/Golf score.jpg"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 800, 700);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -246,6 +251,7 @@ public class GolfJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField highestScoreText;
     private javax.swing.JLabel highestScoreTextHeader;
     private javax.swing.JLabel holeNumberScoreText;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField lowestScoreText;
     private javax.swing.JLabel lowestScoreTextHeader;

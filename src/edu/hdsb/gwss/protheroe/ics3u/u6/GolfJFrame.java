@@ -96,7 +96,7 @@ public class GolfJFrame extends javax.swing.JFrame {
         holeNumberScoreText.setText("Please enter the amount of holes first");
         holeNumberScoreText.setToolTipText("");
         getContentPane().add(holeNumberScoreText);
-        holeNumberScoreText.setBounds(270, 150, 230, 30);
+        holeNumberScoreText.setBounds(250, 150, 260, 30);
 
         amountOfHolesText.setFont(new java.awt.Font("UPBOLTERS", 0, 14)); // NOI18N
         amountOfHolesText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

@@ -7,6 +7,7 @@
  */
 package edu.hdsb.gwss.protheroe.ics3u.u6;
 
+import edu.hdsb.gwss.protheroe.util.ArrayHelper;
 import java.util.Scanner;
 
 /**
@@ -62,12 +63,8 @@ public class Golf {
         System.out.println("Your highest Score was: " + max);
 
         //LOWEST SCORE
-        int low = 99999;
-        for (int counter = 0; counter < golfScore.length; counter++) {
-            if ((golfScore[counter]) < low) {
-                low = (golfScore[counter]);
-            }
-        }
+        int low = ArrayHelper.min(golfScore);
+        
         System.out.println("Your lowest Score was: " + low);
         System.out.println("The total Score was: " + total);
     }

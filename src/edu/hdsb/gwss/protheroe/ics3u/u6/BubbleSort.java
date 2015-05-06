@@ -3,7 +3,7 @@
  * Date: May 4th, 2015
  * Version: v0.1
  * Author: Ryan Protheroe
- * Description: This program will 
+ * Description: This program will sort an array
  */
 package edu.hdsb.gwss.protheroe.ics3u.u6;
 
@@ -19,7 +19,7 @@ public class BubbleSort {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+
         int listSize;
         int[] values = new int[10];
 
@@ -28,17 +28,12 @@ public class BubbleSort {
             values[counter] = (int) (Math.random() * 1000) + 1;
         }
         ArrayHelper.display(values);
-
-        //BUBBLE SORT
-        for (int pass = 0; pass < values.length - 1; pass++) {
-            listSize = values.length - pass - 1;
-            for (int i = 0; i < listSize; i++) {
-                if (values[i] > values[i + 1]) {
-                    swap(values, i, i + 1);
-                }
-            }
-        }
+        System.out.println();
+        ArrayHelper.bubbleSort(values);
+        System.out.println();
         ArrayHelper.display(values);
+        System.out.println();
+
     }
 
     public static void swap(int[] values, int i, int j) {

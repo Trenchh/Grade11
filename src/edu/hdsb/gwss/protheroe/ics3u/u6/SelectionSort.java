@@ -5,6 +5,8 @@
  */
 package edu.hdsb.gwss.protheroe.ics3u.u6;
 
+import edu.hdsb.gwss.protheroe.util.ArrayHelper;
+
 /**
  *
  * @author 1protheroery
@@ -16,21 +18,22 @@ public class SelectionSort {
      */
     public static void main(String[] args) {
 
+        int listSize;
         int[] values = new int[10];
+        int numberOfSwaps = 0;
+        int numberOfComparisons = 0;
 
         //VALUE CREATOR
         for (int counter = 0; counter < 10; counter++) {
             values[counter] = (int) (Math.random() * 1000) + 1;
-            System.out.println("value #" + (counter + 1) + ": " + values[counter]);
         }
-
-        //HIGHEST SCORE
-        int max = -1;
-        for (int counter = 0; counter < values.length; counter++) {
-            if ((values[counter]) > max) {
-                max = (values[counter]);
-                
-            }
-        } System.out.println(values[9]);
+        ArrayHelper.display(values);
+        System.out.println();
+        ArrayHelper.selectionSort(values);
+        System.out.println();
+        ArrayHelper.display(values);
+        System.out.println();
+     
+        }
     }
-}
+

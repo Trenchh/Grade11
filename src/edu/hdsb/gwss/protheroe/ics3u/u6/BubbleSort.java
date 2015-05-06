@@ -27,10 +27,12 @@ public class BubbleSort {
         for (int counter = 0; counter < 10; counter++) {
             values[counter] = (int) (Math.random() * 1000) + 1;
         }
+        System.out.println("Unsorted");
         ArrayHelper.display(values);
         System.out.println();
         ArrayHelper.bubbleSort(values);
         System.out.println();
+        System.out.println("Sorted");
         ArrayHelper.display(values);
         System.out.println();
 

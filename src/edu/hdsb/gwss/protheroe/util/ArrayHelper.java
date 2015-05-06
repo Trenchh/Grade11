@@ -50,7 +50,7 @@ public class ArrayHelper {
         int numberOfComparisons = 0;
         int numberOfSwaps = 0;
 
-        for (int pass = 0; pass < data.length - 1; pass++) {
+        for (int pass = 0; pass < data.length; pass++) {
             int listSize = data.length - pass - 1;
             swap(data, max(data, listSize), listSize);
             numberOfSwaps++;
@@ -68,7 +68,7 @@ public class ArrayHelper {
 
     public static int max(int[] data, int listSize) {
         int indexOfTheMax = 0;
-        for (int counter = 0; counter < listSize; counter++) {
+        for (int counter = 0; counter <= listSize; counter++) {
             if (data[counter] > data[indexOfTheMax]) {
                 indexOfTheMax = counter;
             }

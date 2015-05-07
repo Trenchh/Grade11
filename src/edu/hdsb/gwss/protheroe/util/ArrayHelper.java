@@ -1,9 +1,13 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Name: ArrayHelper.java
+ * Date: May 4th, 2015
+ * Version: v0.1
+ * Author: Ryan Protheroe
+ * Description: This class stores methods to be used in any main class
  */
 package edu.hdsb.gwss.protheroe.util;
+
+import java.util.Scanner;
 
 /**
  *
@@ -42,6 +46,7 @@ public class ArrayHelper {
                 }
             }
         }
+        System.out.println("Bubble Sort Process");
         System.out.println("Number of Swaps: " + numberOfSwaps);
         System.out.println("Number of comparisons: " + numberOfComparisons);
     }
@@ -56,6 +61,7 @@ public class ArrayHelper {
             numberOfSwaps++;
             numberOfComparisons = numberOfComparisons + listSize;
         }
+        System.out.println("Selection Sort Process");
         System.out.println("Number of comparisons: " + numberOfComparisons);
         System.out.println("Number of Swaps: " + numberOfSwaps);
     }
@@ -74,5 +80,34 @@ public class ArrayHelper {
             }
         }
         return indexOfTheMax;
+    }
+
+    public static void linearSearch(int[] data) {
+        int numberOfComparisons = 0;
+        int check = 0;
+
+        //OBJECTS
+        Scanner input = new Scanner(System.in);
+
+        //USER SELECTS INITIAL OPTION
+        System.out.println("Enter the value you wish to search for: ");
+        int userChoice = input.nextInt();
+        System.out.println();
+
+        for (int counter = 0; counter < data.length; counter++) {
+            numberOfComparisons++;
+            if (data[counter] == userChoice) {
+                check++;
+            }
+        }
+        System.out.println("Search Process");
+        if (check == 1) {
+            System.out.println("This value was found " + check + " time");
+        } else if (check > 1) {
+            System.out.println("This value was found " + check + " times");
+        } else {
+            System.out.println("This value was found not found");
+        }
+        System.out.println("Number of comparisons: " + numberOfComparisons);
     }
 }

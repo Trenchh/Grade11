@@ -83,10 +83,10 @@ public class ArrayHelper {
         return indexOfTheMax;
     }
 
-    public static void linearSearch(int[] data) {
+    public static int linearSearch(int[] data) {
         int numberOfComparisons = 0;
         int check = 0;
-        int place;
+        int place = 0;
 
         //OBJECTS
         Scanner input = new Scanner(System.in);
@@ -109,9 +109,11 @@ public class ArrayHelper {
             System.out.println("This value was found not found");
         }
         System.out.println("Number of comparisons: " + numberOfComparisons);
+        return place;
     }
 
-    public static void binarySearch(int[] data) {
+
+    public static int binarySearch(int[] data) {
         ArrayHelper.bubbleSort(data);
 
         int place = -1;
@@ -143,6 +145,7 @@ public class ArrayHelper {
                 place = 1;
             }
         }
+        return place;
     }
 
     public static int average(int i, int j) {

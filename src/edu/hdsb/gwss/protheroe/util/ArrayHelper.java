@@ -8,6 +8,7 @@
 package edu.hdsb.gwss.protheroe.util;
 
 import java.util.Scanner;
+
 /**
  *
  * @author 1protheroery
@@ -73,6 +74,16 @@ public class ArrayHelper {
         data[j] = tmp;
     }
 
+    public static int min(int[] data, int listSize) {
+        int indexOfTheMin = 0;
+        for (int counter = 0; counter <= listSize; counter++) {
+            if (data[counter] < data[indexOfTheMin]) {
+                indexOfTheMin = counter;
+            }
+        }
+        return indexOfTheMin;
+    }
+
     public static int max(int[] data, int listSize) {
         int indexOfTheMax = 0;
         for (int counter = 0; counter <= listSize; counter++) {
@@ -112,7 +123,6 @@ public class ArrayHelper {
         return place;
     }
 
-
     public static int binarySearch(int[] data) {
         ArrayHelper.bubbleSort(data);
 
@@ -131,7 +141,7 @@ public class ArrayHelper {
 
         while (place == -1) {
             if (l < r) {
-                mid = average((l + r), 2);
+                mid = (l + r) / 2;
                 if (data[mid] > userChoice) {
                     r = mid - 1;
                 } else if (data[mid] < userChoice) {
@@ -148,13 +158,16 @@ public class ArrayHelper {
         return place;
     }
 
-    public static int average(int i, int j) {
-        int average = i / j;
+    public static int average(int[] data) {
+        int average = sum(data) / data.length;
         return average;
     }
 
-    public static int sum(int i, int j) {
+    public static int sum(int[] data) {
         int sum = 0;
+        for (int counter = 0; data.length > counter; counter++) {
+            sum = data[counter] + sum;
+        }
         return sum;
     }
 }

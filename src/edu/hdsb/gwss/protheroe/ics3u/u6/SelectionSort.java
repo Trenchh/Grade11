@@ -21,10 +21,7 @@ public class SelectionSort {
      */
     public static void main(String[] args) {
 
-        int listSize;
         int[] values = new int[10];
-        int numberOfSwaps = 0;
-        int numberOfComparisons = 0;
 
         //VALUE CREATOR
         for (int counter = 0; counter < 10; counter++) {
@@ -34,7 +31,6 @@ public class SelectionSort {
         ArrayHelper.display(values);
         System.out.println();
         ArrayHelper.selectionSort(values);
-        System.out.println();
         System.out.println("Sorted");
         ArrayHelper.display(values);
         System.out.println();

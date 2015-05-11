@@ -8,6 +8,7 @@
 package edu.hdsb.gwss.protheroe.ics3u.u6;
 
 import edu.hdsb.gwss.protheroe.util.ArrayHelper;
+import static edu.hdsb.gwss.protheroe.util.ArrayHelper.binarySearch;
 import static edu.hdsb.gwss.protheroe.util.ArrayHelper.bubbleSort;
 import static edu.hdsb.gwss.protheroe.util.ArrayHelper.max;
 import static edu.hdsb.gwss.protheroe.util.ArrayHelper.min;
@@ -122,5 +123,75 @@ public class TestingMethods {
         }
         System.out.println();
         System.out.println("TEST #4 PASSED ");
+
+        //TEST 5
+        System.out.println();
+        System.out.println("-------------------------");
+        System.out.println();
+        System.out.println("TEST #5: BINARY SEARCH");
+        System.out.println("PRE: UNSORTED ARRAY OF INTS, 'LOST' VARIABLE ");
+        System.out.println("POST: SORTED ARRAY OF INTS. 'FOUND' VARIABLE ");
+        System.out.println();
+
+        //VALUE CREATOR
+        for (int counter = 0; counter < 10; counter++) {
+            values[counter] = (int) (Math.random() * 1000) + 1;
+        }
+
+        //UNSORTED
+        System.out.println("UNSORTED");
+        ArrayHelper.display(values);
+        System.out.println();
+
+        //SORT & SEARCH
+        binarySearch(values);
+        System.out.println();
+
+        //SORTED
+        System.out.println("SORTED");
+        ArrayHelper.display(values);
+
+        //TEST
+        for (int i = 0; i < values.length - 1; i++) {
+            assert (values[i] <= values[i + 1]);
+        }
+        
+        System.out.println();
+        System.out.println("TEST #5 PASSED ");
+        
+        //TEST 6
+        System.out.println();
+        System.out.println("-------------------------");
+        System.out.println();
+        System.out.println("TEST #6: LINEAR SEARCH");
+        System.out.println("PRE: 'LOST' VARIABLE ");
+        System.out.println("POST: 'FOUND' VARIABLE ");
+        System.out.println();
+
+        //VALUE CREATOR
+        for (int counter = 0; counter < 10; counter++) {
+            values[counter] = (int) (Math.random() * 1000) + 1;
+        }
+
+        //UNSORTED
+        System.out.println("UNSORTED");
+        ArrayHelper.display(values);
+        System.out.println();
+
+        //SORT & SEARCH
+        binarySearch(values);
+        System.out.println();
+
+        //SORTED
+        System.out.println("SORTED");
+        ArrayHelper.display(values);
+
+        //TEST
+        for (int i = 0; i < values.length - 1; i++) {
+            assert (values[i] <= values[i + 1]);
+        }
+        
+        System.out.println();
+        System.out.println("TEST #6 PASSED ");
     }
 }

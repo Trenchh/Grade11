@@ -14,6 +14,7 @@ import java.util.Scanner;
  * @author 1protheroery
  */
 public class ArrayHelper {
+
     public static void display(int[] data) {
         for (int counter = 0; counter < data.length; counter++) {
             System.out.print(data[counter] + ",");
@@ -137,10 +138,10 @@ public class ArrayHelper {
                     l = mid + 1;
                 } else {
                     place = mid;
-                    System.out.println("Value found at " + place);
+                    System.out.println("This value was found at " + place);
                 }
             } else {
-                System.out.println("Value not found");
+                System.out.println("This value was found not found");
                 place = 1;
             }
         }

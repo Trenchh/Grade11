@@ -14,17 +14,6 @@ import java.util.Scanner;
  * @author 1protheroery
  */
 public class ArrayHelper {
-
-    public static int min(int[] data) {
-        int low = data[0];
-        for (int counter = 1; counter < data.length; counter++) {
-            if ((data[counter]) < low) {
-                low = (data[counter]);
-            }
-        }
-        return low;
-    }
-
     public static void display(int[] data) {
         for (int counter = 0; counter < data.length; counter++) {
             System.out.print(data[counter] + ",");

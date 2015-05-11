@@ -10,6 +10,7 @@ package edu.hdsb.gwss.protheroe.ics3u.u6;
 import edu.hdsb.gwss.protheroe.util.ArrayHelper;
 import static edu.hdsb.gwss.protheroe.util.ArrayHelper.binarySearch;
 import static edu.hdsb.gwss.protheroe.util.ArrayHelper.bubbleSort;
+import static edu.hdsb.gwss.protheroe.util.ArrayHelper.linearSearch;
 import static edu.hdsb.gwss.protheroe.util.ArrayHelper.max;
 import static edu.hdsb.gwss.protheroe.util.ArrayHelper.min;
 import static edu.hdsb.gwss.protheroe.util.ArrayHelper.selectionSort;
@@ -130,7 +131,7 @@ public class TestingMethods {
         System.out.println();
         System.out.println("TEST #5: BINARY SEARCH");
         System.out.println("PRE: UNSORTED ARRAY OF INTS, 'LOST' VARIABLE ");
-        System.out.println("POST: SORTED ARRAY OF INTS. 'FOUND' VARIABLE ");
+        System.out.println("POST: SORTED ARRAY OF INTS. NOT/'FOUND' VARIABLE ");
         System.out.println();
 
         //VALUE CREATOR
@@ -155,10 +156,10 @@ public class TestingMethods {
         for (int i = 0; i < values.length - 1; i++) {
             assert (values[i] <= values[i + 1]);
         }
-        
+
         System.out.println();
         System.out.println("TEST #5 PASSED ");
-        
+
         //TEST 6
         System.out.println();
         System.out.println("-------------------------");
@@ -174,24 +175,17 @@ public class TestingMethods {
         }
 
         //UNSORTED
-        System.out.println("UNSORTED");
         ArrayHelper.display(values);
         System.out.println();
 
-        //SORT & SEARCH
-        binarySearch(values);
+        //SEARCH
+        linearSearch(values);
         System.out.println();
 
-        //SORTED
-        System.out.println("SORTED");
-        ArrayHelper.display(values);
-
-        //TEST
-        for (int i = 0; i < values.length - 1; i++) {
-            assert (values[i] <= values[i + 1]);
-        }
-        
-        System.out.println();
+//        //TEST
+//        for (int i = 0; i < values.length - 1; i++) {
+//            assert (values[i] <= values[i + 1]);
+//        }
         System.out.println("TEST #6 PASSED ");
     }
 }

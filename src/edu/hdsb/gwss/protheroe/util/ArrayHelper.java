@@ -113,7 +113,7 @@ public class ArrayHelper {
             if (data[counter] == userChoice) {
                 check++;
                 place = counter;
-                System.out.println("This value was found at " + (place + 1));
+                System.out.println("This value was found at " + place);
             }
         }
         if (check == 0) {
@@ -148,7 +148,7 @@ public class ArrayHelper {
                     l = mid + 1;
                 } else {
                     place = mid;
-                    System.out.println("Value found at " + (place + 1));
+                    System.out.println("Value found at " + place);
                 }
             } else {
                 System.out.println("Value not found");

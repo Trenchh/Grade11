@@ -20,7 +20,7 @@ public class SelectionSort2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       
+
         int[] values = new int[10];
 
         //VALUE CREATOR
@@ -40,5 +40,4 @@ public class SelectionSort2 {
         System.out.println();
         ArrayHelper.linearSearch(values);
     }
-
 }

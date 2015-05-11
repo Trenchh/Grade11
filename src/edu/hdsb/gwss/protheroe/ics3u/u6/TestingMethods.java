@@ -1,11 +1,14 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Name: TestingMethods.java
+ * Date: May 11th, 2015
+ * Version: v0.1
+ * Author: Ryan Protheroe
+ * Description: This program will test every method in ArrayHelper
  */
 package edu.hdsb.gwss.protheroe.ics3u.u6;
 
 import edu.hdsb.gwss.protheroe.util.ArrayHelper;
+import static edu.hdsb.gwss.protheroe.util.ArrayHelper.bubbleSort;
 import static edu.hdsb.gwss.protheroe.util.ArrayHelper.max;
 import static edu.hdsb.gwss.protheroe.util.ArrayHelper.min;
 import static edu.hdsb.gwss.protheroe.util.ArrayHelper.selectionSort;
@@ -86,5 +89,38 @@ public class TestingMethods {
         }
         System.out.println();
         System.out.println("TEST #3 PASSED ");
+
+        //TEST 4
+        System.out.println();
+        System.out.println("-------------------------");
+        System.out.println();
+        System.out.println("TEST #4: BUBBLE SORT");
+        System.out.println("PRE: UNSORTED ARRAY OF INTS ");
+        System.out.println("POST: SORTED ARRAY OF INTS ");
+        System.out.println();
+
+        //VALUE CREATOR
+        for (int counter = 0; counter < 10; counter++) {
+            values[counter] = (int) (Math.random() * 1000) + 1;
+        }
+
+        //UNSORTED
+        System.out.println("UNSORTED");
+        ArrayHelper.display(values);
+        System.out.println();
+
+        //SORT
+        bubbleSort(values);
+
+        //SORTED
+        System.out.println("SORTED");
+        ArrayHelper.display(values);
+
+        //TEST
+        for (int i = 0; i < values.length - 1; i++) {
+            assert (values[i] <= values[i + 1]);
+        }
+        System.out.println();
+        System.out.println("TEST #4 PASSED ");
     }
 }

@@ -85,54 +85,45 @@ public class ArrayHelper {
     }
 
     public static int linearSearch(int[] data, int searchValue) {
-        int numberOfComparisons = 0;
-        int check = 0;
-        int place = 0;
+        // int numberOfComparisons = 0;
+        int place = -1;
 
         //LOOP CHECKS FOR MATCH
         for (int counter = 0; counter < data.length; counter++) {
-            numberOfComparisons++;
+            // numberOfComparisons++;
             if (data[counter] == searchValue) {
-                check++;
                 place = counter;
-                System.out.println("This value was found at " + place);
+                //System.out.println("This value was found at " + place);
             }
         }
-        if (check == 0) {
-            System.out.println("This value was found not found");
+        if (place == -1) {
+            // System.out.println("This value was found not found");
         }
-        System.out.println("Number of comparisons: " + numberOfComparisons);
+        // System.out.println("Number of comparisons: " + numberOfComparisons);
         return place;
     }
 
     public static int binarySearch(int[] data, int userChoice) {
-       // for (int i = 0; i < data.length; i++) {
-       //     if (data[i] > data[i + 1]) {
-      //          ArrayHelper.bubbleSort(data);
-       //     }
-      //  }
 
-        ArrayHelper.bubbleSort(data);
-        
-        int place = -1;
+        int place = -2;
+        int check = -1;
         int l = 0;
         int r = data.length;
-        int mid;
 
-        while (place == -1) {
-            if (l < r) {
-                mid = (l + r) / 2;
+        while (place == -2) {
+            if (l <= r) {
+                int mid = (l + r) / 2;
                 if (data[mid] > userChoice) {
                     r = mid - 1;
                 } else if (data[mid] < userChoice) {
                     l = mid + 1;
                 } else {
                     place = mid;
-                    System.out.println("This value was found at " + place);
+                    // System.out.println("This value was found at " + place);
                 }
             } else {
-                System.out.println("This value was found not found");
-                place = 1;
+                //System.out.println("This value was found not found");
+                place = -1;
             }
         }
         return place;

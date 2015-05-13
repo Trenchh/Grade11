@@ -28,17 +28,18 @@ public class SelectionSort2 {
         for (int counter = 0; counter < 10; counter++) {
             values[counter] = (int) (Math.random() * 1000) + 1;
         }
-        
+
         //OBJECTS
         Scanner input = new Scanner(System.in);
+
+        System.out.println("Unsorted");
+        ArrayHelper.display(values);
 
         //USER ENTERS NUMBER TO SEARCH FOR
         System.out.println("Enter the value you wish to search for: ");
         int userChoice = input.nextInt();
         System.out.println();
 
-        System.out.println("Unsorted");
-        ArrayHelper.display(values);
         System.out.println();
         ArrayHelper.linearSearch(values, userChoice);
         System.out.println();
@@ -47,6 +48,6 @@ public class SelectionSort2 {
         System.out.println("Sorted");
         ArrayHelper.display(values);
         System.out.println();
-        ArrayHelper.linearSearch(values, userChoice);
+        ArrayHelper.binarySearch(values, userChoice);
     }
 }

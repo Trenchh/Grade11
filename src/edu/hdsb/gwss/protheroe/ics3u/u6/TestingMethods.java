@@ -138,14 +138,19 @@ public class TestingMethods {
         ArrayHelper.display(values);
         System.out.println();
 
+        //SORT
+        ArrayHelper.selectionSort(values);
+
         //SEARCH FOR EVERY VALUE IN THE ARRAY
         for (int i = 0; i < values.length; i++) {
             assert (i == ArrayHelper.binarySearch(values, values[i]));
         }
 
         //SEARCH FOR A VALUE NOT IN THE ARRAY
-        assert (-1 == ArrayHelper.binarySearch(values, 0));
-
+        for (int i = 0; i < values.length; i++) {
+            assert (-1 == ArrayHelper.binarySearch(values, 0));
+        }
+        
         //SORTED
         System.out.println("SORTED");
         ArrayHelper.display(values);
@@ -167,17 +172,15 @@ public class TestingMethods {
             values[counter] = (int) (Math.random() * 1000) + 1;
         }
 
-        //UNSORTED
-        ArrayHelper.display(values);
-        System.out.println();
-
         //SEARCH FOR EVERY VALUE IN THE ARRAY
         for (int i = 0; i < values.length; i++) {
             assert (i == ArrayHelper.linearSearch(values, values[i]));
         }
 
         //SEARCH FOR A VALUE NOT IN THE ARRAY
-        assert (-1 == ArrayHelper.linearSearch(values, 0));
+        for (int i = 0; i < values.length; i++) {
+            assert (-1 == ArrayHelper.linearSearch(values, 0));
+        }
 
         System.out.println("TEST #6 PASSED ");
 

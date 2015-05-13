@@ -8,6 +8,7 @@
 package edu.hdsb.gwss.protheroe.ics3u.u6;
 
 import edu.hdsb.gwss.protheroe.util.ArrayHelper;
+import java.util.Scanner;
 
 /**
  *
@@ -27,16 +28,24 @@ public class BubbleSort2 {
             values[counter] = (int) (Math.random() * 1000) + 1;
         }
 
+        //OBJECTS
+        Scanner input = new Scanner(System.in);
+
+        //USER ENTERS NUMBER TO SEARCH FOR
+        System.out.println("Enter the value you wish to search for: ");
+        int userChoice = input.nextInt();
+        System.out.println();
+
         System.out.println("Unsorted");
         ArrayHelper.display(values);
         System.out.println();
-        ArrayHelper.linearSearch(values);
+        ArrayHelper.linearSearch(values, userChoice);
         System.out.println();
         ArrayHelper.bubbleSort(values);
         System.out.println();
         System.out.println("Sorted");
         ArrayHelper.display(values);
         System.out.println();
-        ArrayHelper.linearSearch(values);
+        ArrayHelper.linearSearch(values, userChoice);
     }
 }

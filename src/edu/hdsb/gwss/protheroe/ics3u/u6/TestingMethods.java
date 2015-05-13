@@ -138,18 +138,17 @@ public class TestingMethods {
         ArrayHelper.display(values);
         System.out.println();
 
-        //SORT & SEARCH
-        ArrayHelper.binarySearch(values);
-        System.out.println();
+        //SEARCH FOR EVERY VALUE IN THE ARRAY
+        for (int i = 0; i < values.length; i++) {
+            assert (i == ArrayHelper.binarySearch(values, values[i]));
+        }
+
+        //SEARCH FOR A VALUE NOT IN THE ARRAY
+        assert (-1 == ArrayHelper.binarySearch(values, 0));
 
         //SORTED
         System.out.println("SORTED");
         ArrayHelper.display(values);
-
-        //TEST
-        for (int i = 0; i < values.length - 1; i++) {
-            assert (values[i] <= values[i + 1]);
-        }
 
         System.out.println();
         System.out.println("TEST #5 PASSED ");
@@ -172,20 +171,24 @@ public class TestingMethods {
         ArrayHelper.display(values);
         System.out.println();
 
-        //SEARCH
-        int place = ArrayHelper.linearSearch(values);
+        //SEARCH FOR EVERY VALUE IN THE ARRAY
+        for (int i = 0; i < values.length; i++) {
+            assert (i == ArrayHelper.linearSearch(values, values[i]));
+        }
+
+        //SEARCH FOR A VALUE NOT IN THE ARRAY
+        assert (-1 == ArrayHelper.linearSearch(values, 0));
+
+        System.out.println("TEST #6 PASSED ");
+
+        //TEST 7
+        System.out.println();
+        System.out.println("-------------------------");
+        System.out.println();
+        System.out.println("TEST #7: AVERAGE");
+        System.out.println("PRE: ARRAY OF INTS ");
+        System.out.println("POST: AVERAGE OF THE SUM OF INTS");
         System.out.println();
 
-        //TEST
-        for (int i = 0; i < values.length - 1; i++) {
-            if (values[place] == values[i]) {
-                int check = 0;
-                check++;
-                if (check == 1) {
-                    break;
-                }
-            }
-        }
-        System.out.println("TEST #6 PASSED ");
     }
 }

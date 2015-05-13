@@ -84,23 +84,15 @@ public class ArrayHelper {
         return indexOfTheMax;
     }
 
-    public static int linearSearch(int[] data) {
+    public static int linearSearch(int[] data, int searchValue) {
         int numberOfComparisons = 0;
         int check = 0;
         int place = 0;
 
-        //OBJECTS
-        Scanner input = new Scanner(System.in);
-
-        //USER ENTERS NUMBER TO SEARCH FOR
-        System.out.println("Enter the value you wish to search for: ");
-        int userChoice = input.nextInt();
-        System.out.println();
-
         //LOOP CHECKS FOR MATCH
         for (int counter = 0; counter < data.length; counter++) {
             numberOfComparisons++;
-            if (data[counter] == userChoice) {
+            if (data[counter] == searchValue) {
                 check++;
                 place = counter;
                 System.out.println("This value was found at " + place);
@@ -113,21 +105,19 @@ public class ArrayHelper {
         return place;
     }
 
-    public static int binarySearch(int[] data) {
-        ArrayHelper.bubbleSort(data);
+    public static int binarySearch(int[] data, int userChoice) {
+       // for (int i = 0; i < data.length; i++) {
+       //     if (data[i] > data[i + 1]) {
+      //          ArrayHelper.bubbleSort(data);
+       //     }
+      //  }
 
+        ArrayHelper.bubbleSort(data);
+        
         int place = -1;
         int l = 0;
         int r = data.length;
         int mid;
-
-        //OBJECTS
-        Scanner input = new Scanner(System.in);
-
-        //USER ENTERS NUMBER TO SEARCH FOR
-        System.out.println("Enter the value you wish to search for: ");
-        int userChoice = input.nextInt();
-        System.out.println();
 
         while (place == -1) {
             if (l < r) {

@@ -8,12 +8,6 @@
 package edu.hdsb.gwss.protheroe.ics3u.u6;
 
 import edu.hdsb.gwss.protheroe.util.ArrayHelper;
-import static edu.hdsb.gwss.protheroe.util.ArrayHelper.binarySearch;
-import static edu.hdsb.gwss.protheroe.util.ArrayHelper.bubbleSort;
-import static edu.hdsb.gwss.protheroe.util.ArrayHelper.linearSearch;
-import static edu.hdsb.gwss.protheroe.util.ArrayHelper.max;
-import static edu.hdsb.gwss.protheroe.util.ArrayHelper.min;
-import static edu.hdsb.gwss.protheroe.util.ArrayHelper.selectionSort;
 
 /**
  *
@@ -40,7 +34,7 @@ public class TestingMethods {
         System.out.println("POST: INDEX OF THE MAX ");
 
         //FIND MAX
-        int indexOfTheMax = max(values, values.length - 1);
+        int indexOfTheMax = ArrayHelper.max(values, values.length - 1);
         //TEST
         for (int i = 0; i < values.length; i++) {
             assert (values[indexOfTheMax] >= values[i]);
@@ -56,7 +50,7 @@ public class TestingMethods {
         System.out.println("POST: INDEX OF THE MIN ");
 
         //FIND MIN
-        int indexOfTheMin = min(values, values.length - 1);
+        int indexOfTheMin = ArrayHelper.min(values, values.length - 1);
 
         //TEST
         for (int i = 0; i < values.length - 1; i++) {
@@ -79,7 +73,7 @@ public class TestingMethods {
         System.out.println();
 
         //SORT
-        selectionSort(values);
+        ArrayHelper.selectionSort(values);
 
         //SORTED
         System.out.println("SORTED");
@@ -112,7 +106,7 @@ public class TestingMethods {
         System.out.println();
 
         //SORT
-        bubbleSort(values);
+        ArrayHelper.bubbleSort(values);
 
         //SORTED
         System.out.println("SORTED");
@@ -145,7 +139,7 @@ public class TestingMethods {
         System.out.println();
 
         //SORT & SEARCH
-        binarySearch(values);
+        ArrayHelper.binarySearch(values);
         System.out.println();
 
         //SORTED
@@ -179,13 +173,19 @@ public class TestingMethods {
         System.out.println();
 
         //SEARCH
-        linearSearch(values);
+        int place = ArrayHelper.linearSearch(values);
         System.out.println();
 
-//        //TEST
-//        for (int i = 0; i < values.length - 1; i++) {
-//            assert (values[i] <= values[i + 1]);
-//        }
+        //TEST
+        for (int i = 0; i < values.length - 1; i++) {
+            if (values[place] == values[i]) {
+                int check = 0;
+                check++;
+                if (check == 1) {
+                    break;
+                }
+            }
+        }
         System.out.println("TEST #6 PASSED ");
     }
 }

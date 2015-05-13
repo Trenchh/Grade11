@@ -136,8 +136,10 @@ public class ArrayHelper {
 
     public static int sum(int[] data) {
         int sum = 0;
-        for (int counter = 0; data.length > counter; counter++) {
+
+        for (int counter = 0; counter < data.length; counter++) {
             sum = data[counter] + sum;
+
         }
         return sum;
     }

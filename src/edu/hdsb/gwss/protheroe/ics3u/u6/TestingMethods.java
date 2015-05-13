@@ -150,7 +150,7 @@ public class TestingMethods {
         for (int i = 0; i < values.length; i++) {
             assert (-1 == ArrayHelper.binarySearch(values, 0));
         }
-        
+
         //SORTED
         System.out.println("SORTED");
         ArrayHelper.display(values);
@@ -188,10 +188,38 @@ public class TestingMethods {
         System.out.println();
         System.out.println("-------------------------");
         System.out.println();
-        System.out.println("TEST #7: AVERAGE");
+        System.out.println("TEST #7: SUM");
+        System.out.println("PRE: ARRAY OF INTS ");
+        System.out.println("POST: THE SUM OF INTS");
+        System.out.println();
+
+        //VALUE CREATOR
+        for (int counter = 0; counter < 10; counter++) {
+            values[counter] = 1;
+        }
+        int sum = ArrayHelper.sum(values);
+        assert (sum == 10);
+
+        System.out.println("TEST #7 PASSED ");
+
+        //TEST 8
+        System.out.println();
+        System.out.println("-------------------------");
+        System.out.println();
+        System.out.println("TEST #8: AVERAGE");
         System.out.println("PRE: ARRAY OF INTS ");
         System.out.println("POST: AVERAGE OF THE SUM OF INTS");
         System.out.println();
 
+        //VALUE CREATOR
+        for (int counter = 0; counter < 10; counter++) {
+            values[counter] = 1;
+        }
+        int average = ArrayHelper.average(values);
+        assert (average == 1);
+
+        System.out.println("TEST #7 PASSED ");
+        System.out.println();
+        System.out.println("YOU PASSED ALL THE TESTS!");
     }
 }

@@ -105,6 +105,17 @@ public class ArrayHelper {
 
     public static int binarySearch(int[] data, int userChoice) {
 
+        //CHECKS IF SORT IS NEEDED
+        for (int i = 0; i < data.length; i++) {
+            if (data[i] > data[i + 1]) {
+                selectionSort(data);
+                break;
+            }
+            else {
+                break;
+            }
+        }
+
         int place = -2;
         int check = -1;
         int l = 0;
@@ -119,10 +130,10 @@ public class ArrayHelper {
                     l = mid + 1;
                 } else {
                     place = mid;
-                    // System.out.println("This value was found at " + place);
+                    //System.out.println("This value was found at " + place);
                 }
             } else {
-                //System.out.println("This value was found not found");
+               // System.out.println("This value was found not found");
                 place = -1;
             }
         }

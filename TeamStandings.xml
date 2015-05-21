@@ -1,0 +1,29 @@
+<CoDTeams>
+    <team>
+        <name>OpTic Gaming</name>
+        <established>2006</established>
+        <players>
+            <name>Scump</name>
+            <name>Crimsix</name>
+            <name>Formal</name>
+        </players>
+    </team>
+    <team>
+        <name>FaZe Black</name>
+        <established>2014</established>
+        <players>
+            <name>Slasher</name>
+            <name>Enable</name>
+            <name>ZooMaa</name>
+        </players>
+    </team>
+    <team>
+        <name>Denial eSports</name>
+        <established>2014</established>
+        <players>
+            <name>Clayster</name>
+            <name>Attach</name>
+            <name>JKap</name>
+        </players>
+    </team>
+</CoDTeams>

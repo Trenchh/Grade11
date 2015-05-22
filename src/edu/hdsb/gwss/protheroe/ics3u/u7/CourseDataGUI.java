@@ -5,7 +5,6 @@
  */
 package edu.hdsb.gwss.protheroe.ics3u.u7;
 
-import static edu.hdsb.gwss.protheroe.ics3u.u7.CourseData.ELEMENT_COURSE;
 import java.io.IOException;
 import nu.xom.Document;
 import nu.xom.Element;
@@ -46,7 +45,7 @@ public class CourseDataGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        programHeader.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        programHeader.setFont(new java.awt.Font("Bell Gothic Std Black", 0, 48)); // NOI18N
         programHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         programHeader.setText("Course Data");
 
@@ -61,22 +60,27 @@ public class CourseDataGUI extends javax.swing.JFrame {
 
         schoolBoardText.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         schoolBoardText.setToolTipText("");
+        schoolBoardText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                schoolBoardTextActionPerformed(evt);
+            }
+        });
 
-        codeLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        codeLabel.setFont(new java.awt.Font("Bell Gothic Std Light", 0, 30)); // NOI18N
         codeLabel.setText("Code");
 
-        descriptionLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        descriptionLabel.setFont(new java.awt.Font("Bell Gothic Std Light", 0, 30)); // NOI18N
         descriptionLabel.setText("Description");
 
-        schoolBoardLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        schoolBoardLabel.setFont(new java.awt.Font("Bell Gothic Std Light", 0, 30)); // NOI18N
         schoolBoardLabel.setText("School Board");
         schoolBoardLabel.setToolTipText("");
 
-        teacherLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        teacherLabel.setFont(new java.awt.Font("Bell Gothic Std Light", 0, 30)); // NOI18N
         teacherLabel.setText("Teacher");
         teacherLabel.setToolTipText("");
 
-        addCourseData.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        addCourseData.setFont(new java.awt.Font("Bauhaus 93", 0, 24)); // NOI18N
         addCourseData.setText("Add");
         addCourseData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,28 +93,21 @@ public class CourseDataGUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
+                .addContainerGap(50, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(teacherLabel)
+                                    .addComponent(schoolBoardLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 23, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(teacherLabel)
-                                        .addGap(18, 18, 18))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(descriptionLabel)
-                                        .addGap(18, 18, 18))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(schoolBoardLabel)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(codeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                                    .addComponent(codeLabel)
+                                    .addComponent(descriptionLabel))
+                                .addGap(18, 18, 18)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(schoolBoardText, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(teacherText, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -136,8 +133,9 @@ public class CourseDataGUI extends javax.swing.JFrame {
                         .addGap(40, 40, 40)
                         .addComponent(descriptionText, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
                         .addComponent(codeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
+                        .addGap(18, 18, 18)
                         .addComponent(descriptionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -152,7 +150,7 @@ public class CourseDataGUI extends javax.swing.JFrame {
                         .addComponent(teacherLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
                         .addComponent(schoolBoardLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
@@ -185,6 +183,10 @@ public class CourseDataGUI extends javax.swing.JFrame {
             System.err.println(ex);
         }
     }//GEN-LAST:event_addCourseDataActionPerformed
+
+    private void schoolBoardTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schoolBoardTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_schoolBoardTextActionPerformed
 
     /**
      * @param args the command line arguments

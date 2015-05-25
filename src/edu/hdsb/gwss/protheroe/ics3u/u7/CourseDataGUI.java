@@ -5,6 +5,8 @@
  */
 package edu.hdsb.gwss.protheroe.ics3u.u7;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import nu.xom.Document;
 import nu.xom.Element;
@@ -16,9 +18,9 @@ import nu.xom.Serializer;
  */
 public class CourseDataGUI extends javax.swing.JFrame {
 
-    /**
-     * Creates new form CourseDataGUI
-     */
+    Element course = new Element(ELEMENT_COURSE);
+    Document courseDocument = new Document(course);
+
     public CourseDataGUI() {
         initComponents();
     }
@@ -157,8 +159,7 @@ public class CourseDataGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addCourseDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCourseDataActionPerformed
-        Element course = new Element(ELEMENT_COURSE);
-        Document courseDocument = new Document(course);
+        Element courses = new Element(ELEMENT_COURSE);
 
         Element code = new Element(ELEMENT_CODE);
         code.appendChild(codeText.getText());
@@ -173,12 +174,22 @@ public class CourseDataGUI extends javax.swing.JFrame {
         course.appendChild(description);
         course.appendChild(teacher);
         course.appendChild(schoolBoard);
+        courses.appendChild(course);
 
         try {
             Serializer serializer = new Serializer(System.out);
             serializer.setIndent(4);
             serializer.setMaxLength(64);
             serializer.write(courseDocument);
+        } catch (IOException ex) {
+            System.err.println(ex);
+        }
+
+        try {
+            BufferedWriter output = new BufferedWriter(new FileWriter("School.xml"));
+            output.write(courseDocument.toXML());
+            output.close();
+
         } catch (IOException ex) {
             System.err.println(ex);
         }

@@ -5,6 +5,8 @@
  */
 package edu.hdsb.gwss.protheroe.ics3u.u7;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import nu.xom.Document;
 import nu.xom.Element;
@@ -26,6 +28,7 @@ public class CourseData {
 
         Element course = new Element(ELEMENT_COURSE);
         Document courseDocument = new Document(course);
+        //Element courses = new Element(ELEMENT_COURSE);
 
         Element code = new Element(ELEMENT_CODE);
         code.appendChild("ICS3U");
@@ -40,12 +43,22 @@ public class CourseData {
         course.appendChild(description);
         course.appendChild(teacher);
         course.appendChild(schoolBoard);
+        //courses.appendChild(course);
 
         try {
             Serializer serializer = new Serializer(System.out);
             serializer.setIndent(4);
             serializer.setMaxLength(64);
             serializer.write(courseDocument);
+        } catch (IOException ex) {
+            System.err.println(ex);
+        }
+
+        try {
+            BufferedWriter output = new BufferedWriter(new FileWriter("School.xml"));
+            output.write(courseDocument.toXML());
+            output.close();
+
         } catch (IOException ex) {
             System.err.println(ex);
         }

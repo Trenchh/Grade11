@@ -74,7 +74,7 @@ public class AnimalSearch {
             System.out.println();
             for (int i = 0; i < animals.size(); i++) {
                 if (animals.get(i).getFirstChildElement("animalClass").getValue().equals("Mammalia")) {
-                    System.out.println( animals.get(i).getFirstChildElement("animalName").toXML() );
+                    System.out.println(animals.get(i).getFirstChildElement("animalName").toXML());
                 }
             }
             //QUESTION7

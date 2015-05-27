@@ -23,33 +23,6 @@ public class Friends extends javax.swing.JFrame {
      */
     public Friends() {
         initComponents();
-
-        File file = new File("friends.xml");
-
-        Builder builder = new Builder();
-        Document friendsDocument;
-        Element friendsRoot;
-
-        try {
-            //Builder parses file and creates doc
-            friendsDocument = builder.build(file);
-            friendsRoot = friendsDocument.getRootElement();
-
-            Elements friends = friendsRoot.getChildElements();
-
-            // data goes in the combo box model
-            DefaultComboBoxModel model = new DefaultComboBoxModel();
-
-            for (int friend = 0; friend < friends.size(); friend++) {
-                model.addElement(friends.get(friend).getFirstChildElement("name").getValue());
-            }
-
-            // add model to the combo box
-            dropDownMenu.setModel(model);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     /**
@@ -70,6 +43,7 @@ public class Friends extends javax.swing.JFrame {
         addressTextField = new javax.swing.JTextField();
         emailTextField = new javax.swing.JTextField();
         numberTextField = new javax.swing.JTextField();
+        importButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -113,6 +87,15 @@ public class Friends extends javax.swing.JFrame {
         numberTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         numberTextField.setToolTipText("");
 
+        importButton.setFont(new java.awt.Font("Rockwell Condensed", 0, 24)); // NOI18N
+        importButton.setText("Import");
+        importButton.setToolTipText("");
+        importButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                importButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -140,6 +123,10 @@ public class Friends extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(mainHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(183, 183, 183))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(242, 242, 242)
+                .addComponent(importButton, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,24 +149,55 @@ public class Friends extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(emailTextField)
                     .addComponent(emailHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(importButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    private void importButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importButtonActionPerformed
+
+        File file = new File("friends.xml");
+
+        Builder builder = new Builder();
+        Document friendsDocument;
+        Element friendsRoot;
+
+        try {
+            //Builder parses file and creates doc
+            friendsDocument = builder.build(file);
+            friendsRoot = friendsDocument.getRootElement();
+
+            Elements friends = friendsRoot.getChildElements();
+
+            // data goes in the combo box model
+            DefaultComboBoxModel model = new DefaultComboBoxModel();
+
+            for (int friend = 0; friend < friends.size(); friend++) {
+                model.addElement(friends.get(friend).getFirstChildElement("name").getValue());
+            }
+
+            // add model to the combo box
+            dropDownMenu.setModel(model);
+
+            // the selected item in the combo box
+            int index = dropDownMenu.getSelectedIndex();
+
+            // the value (text) of the item in the combo box
+            String value = (String) dropDownMenu.getSelectedItem();
+
+            addressTextField.setText(friends.get(index).getFirstChildElement("address").getValue());
+            numberTextField.setText(friends.get(index).getFirstChildElement("number").getValue());
+            emailTextField.setText(friends.get(index).getFirstChildElement("email").getValue());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_importButtonActionPerformed
 
     private void dropDownMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dropDownMenuActionPerformed
-
-        // the selected item in the combo box
-        int index = dropDownMenu.getSelectedIndex();
-
-        // the value (text) of the item in the combo box
-        String value = (String) dropDownMenu.getSelectedItem();
-
-        addressTextField = friends.get(index).getFirstChildElement("address").getValue();
-        numberTextField = friends.get(index).getFirstChildElement("address").getValue();
-        emailTextField = friends.get(index).getFirstChildElement("address").getValue();
-
+        // TODO add your handling code here:
     }//GEN-LAST:event_dropDownMenuActionPerformed
 
     /**
@@ -198,15 +216,11 @@ public class Friends extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Friends.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Friends.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Friends.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Friends.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+
         //</editor-fold>
 
         /* Create and display the form */
@@ -223,6 +237,7 @@ public class Friends extends javax.swing.JFrame {
     private javax.swing.JComboBox dropDownMenu;
     private javax.swing.JLabel emailHeader;
     private javax.swing.JTextField emailTextField;
+    private javax.swing.JButton importButton;
     private javax.swing.JLabel mainHeader;
     private javax.swing.JLabel nameHeader;
     private javax.swing.JTextField numberTextField;

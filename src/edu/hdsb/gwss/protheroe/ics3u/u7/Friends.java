@@ -68,7 +68,6 @@ public class Friends extends javax.swing.JFrame {
         emailHeader.setText("Email");
 
         dropDownMenu.setFont(new java.awt.Font("Rockwell Condensed", 0, 18)); // NOI18N
-        dropDownMenu.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         dropDownMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dropDownMenuActionPerformed(evt);
@@ -181,23 +180,37 @@ public class Friends extends javax.swing.JFrame {
             // add model to the combo box
             dropDownMenu.setModel(model);
 
-            // the selected item in the combo box
-            int index = dropDownMenu.getSelectedIndex();
-
-            // the value (text) of the item in the combo box
-            String value = (String) dropDownMenu.getSelectedItem();
-
-            addressTextField.setText(friends.get(index).getFirstChildElement("address").getValue());
-            numberTextField.setText(friends.get(index).getFirstChildElement("number").getValue());
-            emailTextField.setText(friends.get(index).getFirstChildElement("email").getValue());
-
         } catch (Exception e) {
             e.printStackTrace();
         }
     }//GEN-LAST:event_importButtonActionPerformed
 
     private void dropDownMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dropDownMenuActionPerformed
-        // TODO add your handling code here:
+        File file = new File("friends.xml");
+
+        Builder builder = new Builder();
+        Document friendsDocument;
+        Element friendsRoot;
+
+        try {
+            //Builder parses file and creates doc
+            friendsDocument = builder.build(file);
+            friendsRoot = friendsDocument.getRootElement();
+
+            Elements friends = friendsRoot.getChildElements();
+            int index = dropDownMenu.getSelectedIndex();
+
+            for (int counter = 0; counter < friends.size(); counter++) {
+
+                if (index == counter) {
+                    addressTextField.setText(friends.get(counter).getFirstChildElement("address").getValue());
+                    numberTextField.setText(friends.get(counter).getFirstChildElement("phone").getValue());
+                    emailTextField.setText(friends.get(counter).getFirstChildElement("email").getValue());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_dropDownMenuActionPerformed
 
     /**

@@ -70,11 +70,18 @@ public class AnimalSearch {
                     System.out.println(animals.get(i).getFirstChildElement("animalName").getValue());
                 }
             }
-            //QUESTION5
+            //QUESTION6
             System.out.println();
             for (int i = 0; i < animals.size(); i++) {
                 if (animals.get(i).getFirstChildElement("animalClass").getValue().equals("Mammalia")) {
-                    System.out.println( animals.get(int).getFirstChildElement("animalName").toXML() );
+                    System.out.println( animals.get(i).getFirstChildElement("animalName").toXML() );
+                }
+            }
+            //QUESTION7
+            System.out.println();
+            for (int i = 0; i < animals.size(); i++) {
+                if (animals.get(i).getFirstChildElement("diet").getValue().equals("Omnivore")) {
+                    System.out.println(animals.get(i).toXML());
                 }
             }
 

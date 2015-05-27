@@ -156,7 +156,6 @@ public class Friends extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     private void importButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importButtonActionPerformed
-
         File file = new File("friends.xml");
 
         Builder builder = new Builder();

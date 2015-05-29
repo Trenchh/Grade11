@@ -5,12 +5,16 @@
  */
 package edu.hdsb.gwss.protheroe.ics3u.u7;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import javax.swing.DefaultComboBoxModel;
 import nu.xom.Builder;
 import nu.xom.Document;
 import nu.xom.Element;
 import nu.xom.Elements;
+import nu.xom.Serializer;
 
 /**
  *
@@ -18,31 +22,29 @@ import nu.xom.Elements;
  */
 public class Culminating extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Culminating
-     */
+    Element menuRoot = new Element(ELEMENT_FOOD);
+    Document menuDocument = new Document(menuRoot);
+
     public Culminating() {
         initComponents();
 
         File file = new File("culminating.xml");
 
-        Builder builder = new Builder();
-        Document menuDocument;
-        Element menuRoot;
-
         try {
-            //Builder parses file and creates doc
-            menuDocument = builder.build(file);
+            //Builder parses file and creates doc;
+            if (menuDocument.getRootElement() == null) {
+                Builder builder = new Builder();
+                menuDocument = builder.build(file);
+            }
             menuRoot = menuDocument.getRootElement();
-
             Elements food = menuRoot.getChildElements();
 
             // data goes in the combo box model
             DefaultComboBoxModel model = new DefaultComboBoxModel();
 
-            for (int i = 0; i < food.size(); i++) {
-                model.addElement(food.get(i).getFirstChildElement("type").getValue());
-            }
+            model.addElement("Hamburger");
+            model.addElement("Drink");
+            model.addElement("Desert");
 
             // add model to the combo box
             typeBox.setModel(model);
@@ -52,7 +54,7 @@ public class Culminating extends javax.swing.JFrame {
         }
     }
 
-        @SuppressWarnings("unchecked")
+    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -65,6 +67,7 @@ public class Culminating extends javax.swing.JFrame {
         javax.swing.JLabel priceHeader = new javax.swing.JLabel();
         nameInput = new javax.swing.JTextField();
         priceInput = new javax.swing.JTextField();
+        javax.swing.JButton addButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -101,6 +104,14 @@ public class Culminating extends javax.swing.JFrame {
 
         priceInput.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
 
+        addButton.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
+        addButton.setText("Add");
+        addButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -120,15 +131,14 @@ public class Culminating extends javax.swing.JFrame {
                             .addComponent(quantityHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 3, Short.MAX_VALUE)
-                                .addComponent(typeBox, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(quantityInput, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                                .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(nameInput)
-                            .addComponent(priceInput, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addContainerGap(151, Short.MAX_VALUE))
+                            .addComponent(priceInput, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(typeBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,19 +157,57 @@ public class Culminating extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(priceHeader, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
                     .addComponent(priceInput))
-                .addGap(45, 45, 45)
+                .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(quantityHeader)
                     .addComponent(quantityInput, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(quantityHeader))
-                .addGap(53, 53, 53))
+                    .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
+        Element food = new Element(ELEMENT_FOOD);
+
+        Element type = new Element(ELEMENT_TYPE);
+        type.appendChild(typeBox.getSelectedItem().toString());
+        Element name = new Element(ELEMENT_NAME);
+        name.appendChild(nameInput.getText());
+        Element price = new Element("price");
+        price.appendChild("" + priceInput.getText());
+        Element quantity = new Element("quantity");
+        quantity.appendChild("" + quantityInput.getValue());
+
+        menuRoot.appendChild(type);
+        menuRoot.appendChild(name);
+        menuRoot.appendChild(price);
+        menuRoot.appendChild(quantity);
+        food.appendChild(menuRoot);
+
+        try {
+            Serializer serializer = new Serializer(System.out);
+            serializer.setIndent(4);
+            serializer.setMaxLength(64);
+            serializer.write(menuDocument);
+        } catch (IOException ex) {
+            System.err.println(ex);
+        }
+
+        try {
+            BufferedWriter output = new BufferedWriter(new FileWriter("culminating.xml"));
+            output.write(menuDocument.toXML());
+            output.close();
+
+        } catch (IOException ex) {
+            System.err.println(ex);
+        }
+    }//GEN-LAST:event_addButtonActionPerformed
+
     /**
-         * @param args the command line arguments
-         */
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -206,4 +254,9 @@ public class Culminating extends javax.swing.JFrame {
     private javax.swing.JComboBox typeBox;
     private javax.swing.JLabel typeHeader;
     // End of variables declaration//GEN-END:variables
+    static final String ELEMENT_TYPE = "type";
+    static final String ELEMENT_FOOD = "food";
+    static final String ELEMENT_NAME = "name";
+    static final double ELEMENT_PRICE = 0;
+    static final int ELEMENT_QUANTITY = 0;
 }

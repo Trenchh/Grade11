@@ -1,0 +1,20 @@
+<menu>
+    <food>
+        <type></type>
+		<name></name>
+		<price></price>
+		<quantity></quantity>
+    </food>
+    <food>
+        <type></type>
+		<name></name>
+		<price></price>
+		<quantity></quantity>
+    </food>
+    <food>
+        <type></type>
+		<name></name>
+		<price></price>
+		<quantity></quantity>
+    </food>
+</menu>

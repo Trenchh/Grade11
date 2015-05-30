@@ -184,7 +184,7 @@ public class Culminating extends javax.swing.JFrame {
         menuRoot.appendChild(name);
         menuRoot.appendChild(price);
         menuRoot.appendChild(quantity);
-        food.appendChild(menuRoot);
+        //food.appendChild(menuRoot);
 
         try {
             Serializer serializer = new Serializer(System.out);
@@ -254,6 +254,7 @@ public class Culminating extends javax.swing.JFrame {
     private javax.swing.JComboBox typeBox;
     private javax.swing.JLabel typeHeader;
     // End of variables declaration//GEN-END:variables
+    //static final String ELEMENT_ROOT = "mcdonalds";
     static final String ELEMENT_TYPE = "type";
     static final String ELEMENT_FOOD = "food";
     static final String ELEMENT_NAME = "name";

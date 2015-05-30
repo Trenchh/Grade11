@@ -1,21 +1,2 @@
 <?xml version="1.0"?>
-<menu>
-    <food>
-        <type>hamburger</type>
-		<name />
-		<price />
-		<quantity />
-    </food>
-    <food>
-        <type>drink</type>
-		<name />
-		<price />
-		<quantity />
-    </food>
-    <food>
-        <type>desert</type>
-		<name />
-		<price />
-		<quantity />
-    </food>
-</menu>
+<course><code>ICS3U</code><description>Computer Science</description><teacher>Mr.Muir</teacher><schoolboard>HDSB</schoolboard></course>

@@ -1,2 +1,2 @@
 <?xml version="1.0"?>
-<food />
+<food><type>Hamburger</type><name>swag</name><price>2.99</price><quantity>4</quantity></food>

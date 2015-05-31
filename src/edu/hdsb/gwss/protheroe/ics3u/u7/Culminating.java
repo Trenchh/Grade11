@@ -49,7 +49,6 @@ public class Culminating extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        header = new javax.swing.JLabel();
         javax.swing.JLabel nameHeader = new javax.swing.JLabel();
         quantityHeader = new javax.swing.JLabel();
         typeHeader = new javax.swing.JLabel();
@@ -59,42 +58,60 @@ public class Culminating extends javax.swing.JFrame {
         nameInput = new javax.swing.JTextField();
         priceInput = new javax.swing.JTextField();
         javax.swing.JButton addButton = new javax.swing.JButton();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        header.setFont(new java.awt.Font("Haettenschweiler", 0, 36)); // NOI18N
-        header.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        header.setText("McDonalds Menu");
-        header.setToolTipText("");
+        setPreferredSize(new java.awt.Dimension(500, 400));
+        getContentPane().setLayout(null);
 
         nameHeader.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
+        nameHeader.setForeground(new java.awt.Color(255, 255, 255));
         nameHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nameHeader.setText("Name:");
         nameHeader.setToolTipText("");
+        getContentPane().add(nameHeader);
+        nameHeader.setBounds(65, 173, 44, 27);
 
         quantityHeader.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
+        quantityHeader.setForeground(new java.awt.Color(255, 255, 255));
         quantityHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        quantityHeader.setText("Quantity:");
+        quantityHeader.setText("Quantity");
         quantityHeader.setToolTipText("");
+        getContentPane().add(quantityHeader);
+        quantityHeader.setBounds(130, 280, 68, 26);
 
         typeHeader.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
+        typeHeader.setForeground(new java.awt.Color(255, 255, 255));
         typeHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         typeHeader.setText("Type:");
         typeHeader.setToolTipText("");
+        getContentPane().add(typeHeader);
+        typeHeader.setBounds(69, 100, 40, 26);
 
         typeBox.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
         typeBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Hamburger", "Salad", "Breakfast", "Drink", "Desert" }));
+        getContentPane().add(typeBox);
+        typeBox.setBounds(135, 96, 260, 30);
 
         quantityInput.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
+        getContentPane().add(quantityInput);
+        quantityInput.setBounds(135, 318, 55, 26);
 
         priceHeader.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
+        priceHeader.setForeground(new java.awt.Color(255, 255, 255));
         priceHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         priceHeader.setText("Price:");
         priceHeader.setToolTipText("");
+        getContentPane().add(priceHeader);
+        priceHeader.setBounds(65, 245, 44, 27);
 
         nameInput.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
+        getContentPane().add(nameInput);
+        nameInput.setBounds(135, 173, 260, 27);
 
         priceInput.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
+        getContentPane().add(priceInput);
+        priceInput.setBounds(135, 245, 260, 27);
 
         addButton.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
         addButton.setText("Add");
@@ -103,59 +120,13 @@ public class Culminating extends javax.swing.JFrame {
                 addButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(addButton);
+        addButton.setBounds(262, 314, 133, 34);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(146, 146, 146)
-                        .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(typeHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(priceHeader)
-                                .addComponent(nameHeader))
-                            .addComponent(quantityHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(quantityInput, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-                                .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(nameInput)
-                            .addComponent(priceInput, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(typeBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(105, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(typeBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(typeHeader))
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(nameHeader, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
-                    .addComponent(nameInput))
-                .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(priceHeader, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
-                    .addComponent(priceInput))
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(quantityHeader)
-                    .addComponent(quantityInput, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50))
-        );
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/protheroe/ics3u/u7/McDonaldsMenu.jpg"))); // NOI18N
+        background.setToolTipText("");
+        getContentPane().add(background);
+        background.setBounds(0, 0, 500, 400);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -238,7 +209,7 @@ public class Culminating extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel header;
+    private javax.swing.JLabel background;
     private javax.swing.JTextField nameInput;
     private javax.swing.JTextField priceInput;
     private javax.swing.JLabel quantityHeader;

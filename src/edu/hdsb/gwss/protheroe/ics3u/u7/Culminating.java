@@ -9,7 +9,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import javax.swing.DefaultComboBoxModel;
 import nu.xom.Builder;
 import nu.xom.Document;
 import nu.xom.Element;
@@ -28,26 +27,18 @@ public class Culminating extends javax.swing.JFrame {
     public Culminating() {
         initComponents();
 
-        File file = new File("culminating.xml");
-
         try {
-            //Builder parses file and creates doc;
-            if (menuDocument.getRootElement() == null) {
+            File file = new File("culminating.xml");
+            if (menuDocument.getRootElement() != menuRoot) {
+                Builder builder = new Builder();
+                menuDocument = builder.build(file);
+            } else if (menuDocument.getRootElement() == menuRoot) {
                 Builder builder = new Builder();
                 menuDocument = builder.build(file);
             }
+
             menuRoot = menuDocument.getRootElement();
             Elements food = menuRoot.getChildElements();
-
-            // data goes in the combo box model
-            DefaultComboBoxModel model = new DefaultComboBoxModel();
-
-            model.addElement("Hamburger");
-            model.addElement("Drink");
-            model.addElement("Desert");
-
-            // add model to the combo box
-            typeBox.setModel(model);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -92,6 +83,7 @@ public class Culminating extends javax.swing.JFrame {
         typeHeader.setToolTipText("");
 
         typeBox.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
+        typeBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Hamburger", "Salad", "Breakfast", "Drink", "Desert" }));
 
         quantityInput.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
 

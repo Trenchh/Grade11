@@ -29,10 +29,7 @@ public class Culminating extends javax.swing.JFrame {
 
         try {
             File file = new File("culminating.xml");
-            if (menuDocument.getRootElement() != menuRoot) {
-                Builder builder = new Builder();
-                menuDocument = builder.build(file);
-            } else if (menuDocument.getRootElement() == menuRoot) {
+            if (menuDocument.getRootElement() == menuRoot) {
                 Builder builder = new Builder();
                 menuDocument = builder.build(file);
             }

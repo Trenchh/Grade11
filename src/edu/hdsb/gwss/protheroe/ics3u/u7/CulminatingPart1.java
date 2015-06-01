@@ -131,7 +131,7 @@ public class CulminatingPart1 extends javax.swing.JFrame {
             }
         });
         getContentPane().add(clearButton);
-        clearButton.setBounds(290, 360, 61, 29);
+        clearButton.setBounds(300, 360, 61, 29);
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/protheroe/ics3u/u7/McDonaldsMenu.jpg"))); // NOI18N
         background.setToolTipText("");

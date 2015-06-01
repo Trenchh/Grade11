@@ -38,12 +38,13 @@ public class CulminatingPart2 extends javax.swing.JFrame {
             for (int counter = 0; counter < food.size(); counter++) {
 
                 name = food.get(counter).getFirstChildElement("name").getValue();
-                price = Integer.parseInt(food.get(counter).getFirstChildElement("price").getValue());
+                price = Double.parseDouble(food.get(counter).getFirstChildElement("price").getValue());
                 quantity = Integer.parseInt(food.get(counter).getFirstChildElement("quantity").getValue());
                 total = total + (price * quantity);
                 totalDisplay.setText(Double.toString(total));
                 print = print + name + " x " + quantity + "     " + price + "\n";
                 menuDisplay.setText(print);
+                totalDisplay.setText("" + total);
 
             }
 
@@ -68,11 +69,11 @@ public class CulminatingPart2 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(500, 400));
 
-        menuDisplay.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
+        menuDisplay.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
         menuDisplay.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         menuDisplay.setToolTipText("");
 
-        totalDisplay.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
+        totalDisplay.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
         totalDisplay.setToolTipText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

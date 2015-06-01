@@ -12,30 +12,31 @@ import java.io.IOException;
 import nu.xom.Builder;
 import nu.xom.Document;
 import nu.xom.Element;
-import nu.xom.Elements;
 import nu.xom.Serializer;
 
 /**
  *
  * @author 1protheroery
  */
-public class Culminating extends javax.swing.JFrame {
+public class CulminatingPart1 extends javax.swing.JFrame {
 
-    Element menuRoot = new Element(ELEMENT_FOOD);
-    Document menuDocument = new Document(menuRoot);
+    Element menuRoot;
+    Document menuDocument;
 
-    public Culminating() {
+    public CulminatingPart1() {
         initComponents();
 
         try {
             File file = new File("culminating.xml");
-            if (menuDocument.getRootElement() == menuRoot) {
+
+            if (file.length() == 0) {
+                menuRoot = new Element("food");
+                menuDocument = new Document(menuRoot);
+            } else {
                 Builder builder = new Builder();
                 menuDocument = builder.build(file);
+                menuRoot = menuDocument.getRootElement();
             }
-
-            menuRoot = menuDocument.getRootElement();
-            Elements food = menuRoot.getChildElements();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -55,6 +56,7 @@ public class Culminating extends javax.swing.JFrame {
         nameInput = new javax.swing.JTextField();
         priceInput = new javax.swing.JTextField();
         javax.swing.JButton addButton = new javax.swing.JButton();
+        clearButton = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -120,6 +122,17 @@ public class Culminating extends javax.swing.JFrame {
         getContentPane().add(addButton);
         addButton.setBounds(262, 314, 133, 34);
 
+        clearButton.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
+        clearButton.setText("Clear");
+        clearButton.setToolTipText("");
+        clearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(clearButton);
+        clearButton.setBounds(290, 360, 61, 29);
+
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/protheroe/ics3u/u7/McDonaldsMenu.jpg"))); // NOI18N
         background.setToolTipText("");
         getContentPane().add(background);
@@ -129,7 +142,8 @@ public class Culminating extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        Element food = new Element(ELEMENT_FOOD);
+
+        Element food = new Element("type");
 
         Element type = new Element(ELEMENT_TYPE);
         type.appendChild(typeBox.getSelectedItem().toString());
@@ -140,11 +154,11 @@ public class Culminating extends javax.swing.JFrame {
         Element quantity = new Element("quantity");
         quantity.appendChild("" + quantityInput.getValue());
 
-        menuRoot.appendChild(type);
-        menuRoot.appendChild(name);
-        menuRoot.appendChild(price);
-        menuRoot.appendChild(quantity);
-        //food.appendChild(menuRoot);
+        food.appendChild(type);
+        food.appendChild(name);
+        food.appendChild(price);
+        food.appendChild(quantity);
+        menuRoot.appendChild(food);
 
         try {
             Serializer serializer = new Serializer(System.out);
@@ -165,6 +179,22 @@ public class Culminating extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_addButtonActionPerformed
 
+    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
+
+        menuRoot = new Element("food");
+        menuDocument = new Document(menuRoot);
+
+        try {
+            BufferedWriter output = new BufferedWriter(new FileWriter("culminating.xml"));
+            output.write(menuDocument.toXML());
+            output.close();
+
+        } catch (IOException ex) {
+            System.err.println(ex);
+        }
+
+    }//GEN-LAST:event_clearButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -183,30 +213,32 @@ public class Culminating extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Culminating.class
+            java.util.logging.Logger.getLogger(CulminatingPart1.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Culminating.class
+            java.util.logging.Logger.getLogger(CulminatingPart1.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Culminating.class
+            java.util.logging.Logger.getLogger(CulminatingPart1.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Culminating.class
+            java.util.logging.Logger.getLogger(CulminatingPart1.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Culminating().setVisible(true);
+                new CulminatingPart1().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
+    private javax.swing.JButton clearButton;
     private javax.swing.JTextField nameInput;
     private javax.swing.JTextField priceInput;
     private javax.swing.JLabel quantityHeader;
@@ -216,7 +248,6 @@ public class Culminating extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     //static final String ELEMENT_ROOT = "mcdonalds";
     static final String ELEMENT_TYPE = "type";
-    static final String ELEMENT_FOOD = "food";
     static final String ELEMENT_NAME = "name";
     static final double ELEMENT_PRICE = 0;
     static final int ELEMENT_QUANTITY = 0;

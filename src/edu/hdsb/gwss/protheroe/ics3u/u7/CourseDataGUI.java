@@ -62,11 +62,6 @@ public class CourseDataGUI extends javax.swing.JFrame {
 
         schoolBoardText.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         schoolBoardText.setToolTipText("");
-        schoolBoardText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                schoolBoardTextActionPerformed(evt);
-            }
-        });
 
         codeLabel.setFont(new java.awt.Font("Bell Gothic Std Light", 0, 30)); // NOI18N
         codeLabel.setText("Code");
@@ -194,10 +189,6 @@ public class CourseDataGUI extends javax.swing.JFrame {
             System.err.println(ex);
         }
     }//GEN-LAST:event_addCourseDataActionPerformed
-
-    private void schoolBoardTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schoolBoardTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_schoolBoardTextActionPerformed
 
     /**
      * @param args the command line arguments

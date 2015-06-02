@@ -58,27 +58,27 @@ public class CulminatingPart2 extends javax.swing.JFrame {
 
                 switch (food.get(counter).getFirstChildElement("type").getValue()) {
                     case "Hamburger":
-                        hamburgerPrint.equals(breakfastPrint + food.get(counter).getFirstChildElement("name").getValue() + print);
+                        hamburgerPrint = hamburgerPrint + food.get(counter).getFirstChildElement("name").getValue() + print;
                         hamburgerDisplay.setText(hamburgerPrint);
                         break;
                     case "Salad":
-                        saladPrint.equals(breakfastPrint + food.get(counter).getFirstChildElement("name").getValue() + print);
+                        saladPrint = saladPrint + food.get(counter).getFirstChildElement("name").getValue() + print;
                         saladDisplay.setText(saladPrint);
                         break;
                     case "Breakfast":
-                        breakfastPrint.equals(breakfastPrint + food.get(counter).getFirstChildElement("name").getValue() + print);
+                        breakfastPrint = breakfastPrint + food.get(counter).getFirstChildElement("name").getValue() + print;
                         breakfastDisplay.setText(breakfastPrint);
                         break;
                     case "Desert":
-                        desertPrint.equals(breakfastPrint + food.get(counter).getFirstChildElement("name").getValue() + " " + print);
+                        desertPrint = desertPrint + food.get(counter).getFirstChildElement("name").getValue() + " " + print;
                         desertDisplay.setText(desertPrint);
                         break;
                     case "Drink":
-                        drinkPrint.equals(breakfastPrint + food.get(counter).getFirstChildElement("name").getValue() + " " + print);
+                        drinkPrint = drinkPrint + food.get(counter).getFirstChildElement("name").getValue() + " " + print;
                         drinkDisplay.setText(drinkPrint);
                         break;
                     case "Fries":
-                        friesPrint.equals(breakfastPrint + food.get(counter).getFirstChildElement("name").getValue() + " " + print);
+                        friesPrint = friesPrint + food.get(counter).getFirstChildElement("name").getValue() + " " + print;
                         friesDisplay.setText(friesPrint);
                         break;
                 }

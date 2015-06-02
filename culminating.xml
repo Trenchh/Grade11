@@ -1,2 +1,2 @@
 <?xml version="1.0"?>
-<food />
+<food><type><type>Hamburger</type><name>pizazasdasd</name><price>99</price><quantity>4</quantity><size></size></type><type><type>Breakfast</type><name>asddsgfdfg</name><price>99934</price><quantity>1</quantity><size></size></type><type><type>Desert</type><name>qwetrt</name><price>99.09</price><quantity>0</quantity><size></size></type><type><type>Desert</type><name>123123</name><price>34</price><quantity>2</quantity><size></size></type><type><type>Hamburger</type><name>omjoj</name><price>98.96</price><quantity>0</quantity><size></size></type></food>

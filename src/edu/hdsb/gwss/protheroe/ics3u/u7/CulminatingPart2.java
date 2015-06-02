@@ -42,7 +42,7 @@ public class CulminatingPart2 extends javax.swing.JFrame {
                 quantity = Integer.parseInt(food.get(counter).getFirstChildElement("quantity").getValue());
                 total = total + (price * quantity);
                 totalDisplay.setText(Double.toString(total));
-                print = print + name + " x " + quantity + "     " + price + "\n";
+                print = print + name + " x " + quantity + "     " + price+ "\n";
                 menuDisplay.setText(print);
                 totalDisplay.setText("" + total);
 
@@ -63,41 +63,34 @@ public class CulminatingPart2 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        menuDisplay = new javax.swing.JLabel();
         totalDisplay = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        menuDisplay = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(500, 400));
-
-        menuDisplay.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
-        menuDisplay.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        menuDisplay.setToolTipText("");
+        getContentPane().setLayout(null);
 
         totalDisplay.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
+        totalDisplay.setForeground(new java.awt.Color(255, 255, 255));
+        totalDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         totalDisplay.setToolTipText("");
+        getContentPane().add(totalDisplay);
+        totalDisplay.setBounds(170, 370, 160, 30);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(menuDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(161, 161, 161)
-                .addComponent(totalDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(170, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(83, Short.MAX_VALUE)
-                .addComponent(menuDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(totalDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        menuDisplay.setEditable(false);
+        menuDisplay.setColumns(20);
+        menuDisplay.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
+        menuDisplay.setRows(5);
+        jScrollPane1.setViewportView(menuDisplay);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(50, 80, 410, 280);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/protheroe/ics3u/u7/McDonaldsOrder.jpg"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, -50, 600, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -138,7 +131,9 @@ public class CulminatingPart2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel menuDisplay;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea menuDisplay;
     private javax.swing.JLabel totalDisplay;
     // End of variables declaration//GEN-END:variables
     String print = "";

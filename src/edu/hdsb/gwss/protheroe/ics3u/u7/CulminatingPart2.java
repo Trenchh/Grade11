@@ -54,7 +54,7 @@ public class CulminatingPart2 extends javax.swing.JFrame {
                 }
                 total = total + (price * quantity);
                 print = size + " x " + quantity + "/ " + money.format(price) + "\n";
-                totalDisplay.setText(money.format(total));
+                totalDisplay.setText( "Total: " + money.format(total));
 
                 switch (food.get(counter).getFirstChildElement("type").getValue()) {
                     case "Hamburger":
@@ -117,6 +117,7 @@ public class CulminatingPart2 extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         desertDisplay = new javax.swing.JTextArea();
         desertLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(500, 400));
@@ -126,7 +127,7 @@ public class CulminatingPart2 extends javax.swing.JFrame {
         totalDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         totalDisplay.setToolTipText("");
         getContentPane().add(totalDisplay);
-        totalDisplay.setBounds(460, 10, 190, 40);
+        totalDisplay.setBounds(190, 10, 730, 40);
 
         breakfastDisplay.setColumns(20);
         breakfastDisplay.setFont(new java.awt.Font("Haettenschweiler", 0, 20)); // NOI18N
@@ -135,7 +136,7 @@ public class CulminatingPart2 extends javax.swing.JFrame {
         jScrollPane1.setViewportView(breakfastDisplay);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(20, 120, 170, 380);
+        jScrollPane1.setBounds(30, 110, 160, 380);
 
         hamburgerDisplay.setColumns(20);
         hamburgerDisplay.setFont(new java.awt.Font("Haettenschweiler", 0, 20)); // NOI18N
@@ -144,7 +145,7 @@ public class CulminatingPart2 extends javax.swing.JFrame {
         jScrollPane2.setViewportView(hamburgerDisplay);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(560, 120, 170, 380);
+        jScrollPane2.setBounds(550, 110, 170, 380);
 
         drinkDisplay.setColumns(20);
         drinkDisplay.setFont(new java.awt.Font("Haettenschweiler", 0, 20)); // NOI18N
@@ -153,7 +154,7 @@ public class CulminatingPart2 extends javax.swing.JFrame {
         jScrollPane3.setViewportView(drinkDisplay);
 
         getContentPane().add(jScrollPane3);
-        jScrollPane3.setBounds(380, 120, 170, 380);
+        jScrollPane3.setBounds(380, 110, 160, 380);
 
         saladDisplay.setColumns(20);
         saladDisplay.setFont(new java.awt.Font("Haettenschweiler", 0, 20)); // NOI18N
@@ -162,7 +163,7 @@ public class CulminatingPart2 extends javax.swing.JFrame {
         jScrollPane4.setViewportView(saladDisplay);
 
         getContentPane().add(jScrollPane4);
-        jScrollPane4.setBounds(200, 120, 170, 380);
+        jScrollPane4.setBounds(200, 110, 170, 380);
 
         friesDisplay.setColumns(20);
         friesDisplay.setFont(new java.awt.Font("Haettenschweiler", 0, 20)); // NOI18N
@@ -171,9 +172,10 @@ public class CulminatingPart2 extends javax.swing.JFrame {
         jScrollPane5.setViewportView(friesDisplay);
 
         getContentPane().add(jScrollPane5);
-        jScrollPane5.setBounds(740, 120, 170, 380);
+        jScrollPane5.setBounds(730, 110, 170, 380);
 
         friesLabel.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
+        friesLabel.setForeground(new java.awt.Color(255, 255, 255));
         friesLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         friesLabel.setText("Fries");
         friesLabel.setToolTipText("");
@@ -181,6 +183,7 @@ public class CulminatingPart2 extends javax.swing.JFrame {
         friesLabel.setBounds(760, 90, 130, 20);
 
         breakfastLabel1.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
+        breakfastLabel1.setForeground(new java.awt.Color(255, 255, 255));
         breakfastLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         breakfastLabel1.setText("Breakfast");
         breakfastLabel1.setToolTipText("");
@@ -188,6 +191,7 @@ public class CulminatingPart2 extends javax.swing.JFrame {
         breakfastLabel1.setBounds(40, 90, 130, 20);
 
         saladLabel.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
+        saladLabel.setForeground(new java.awt.Color(255, 255, 255));
         saladLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         saladLabel.setText("Salad");
         saladLabel.setToolTipText("");
@@ -195,6 +199,7 @@ public class CulminatingPart2 extends javax.swing.JFrame {
         saladLabel.setBounds(220, 90, 130, 20);
 
         drinkLabel.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
+        drinkLabel.setForeground(new java.awt.Color(255, 255, 255));
         drinkLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         drinkLabel.setText("Drink");
         drinkLabel.setToolTipText("");
@@ -202,6 +207,7 @@ public class CulminatingPart2 extends javax.swing.JFrame {
         drinkLabel.setBounds(400, 90, 130, 20);
 
         hamburgerLabel.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
+        hamburgerLabel.setForeground(new java.awt.Color(255, 255, 255));
         hamburgerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         hamburgerLabel.setText("Hamburger");
         hamburgerLabel.setToolTipText("");
@@ -215,14 +221,20 @@ public class CulminatingPart2 extends javax.swing.JFrame {
         jScrollPane6.setViewportView(desertDisplay);
 
         getContentPane().add(jScrollPane6);
-        jScrollPane6.setBounds(920, 120, 170, 380);
+        jScrollPane6.setBounds(910, 110, 170, 380);
 
         desertLabel.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
+        desertLabel.setForeground(new java.awt.Color(255, 255, 255));
         desertLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         desertLabel.setText("Desert");
         desertLabel.setToolTipText("");
         getContentPane().add(desertLabel);
         desertLabel.setBounds(940, 90, 130, 20);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/protheroe/ics3u/u7/McDonaldsOrder.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 1110, 520);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -273,6 +285,7 @@ public class CulminatingPart2 extends javax.swing.JFrame {
     private javax.swing.JLabel friesLabel;
     private javax.swing.JTextArea hamburgerDisplay;
     private javax.swing.JLabel hamburgerLabel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

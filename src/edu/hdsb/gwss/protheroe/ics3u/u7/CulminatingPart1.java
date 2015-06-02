@@ -1,7 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Name: CulminatingPart1.java
+ * Date: June 6th, 2015
+ * Version: v0.1
+ * Author: Ryan Protheroe
+ * Description: Takes order from user
  */
 package edu.hdsb.gwss.protheroe.ics3u.u7;
 
@@ -170,7 +172,11 @@ public class CulminatingPart1 extends javax.swing.JFrame {
         Element name = new Element(ELEMENT_NAME);
         name.appendChild(nameInput.getText());
         Element size = new Element(ELEMENT_SIZE);
-        size.appendChild(sizeBox.getSelectedItem().toString());
+        if (type.equals("Fries") || type.equals("Drink") || type.equals("Desert")) {
+            size.appendChild(sizeBox.getSelectedItem().toString());
+        } else {
+            size.appendChild("");
+        }
         Element price = new Element("price");
         price.appendChild("" + priceInput.getText());
         Element quantity = new Element("quantity");
@@ -196,6 +202,9 @@ public class CulminatingPart1 extends javax.swing.JFrame {
             BufferedWriter output = new BufferedWriter(new FileWriter("culminating.xml"));
             output.write(menuDocument.toXML());
             output.close();
+            quantityInput.setValue(0);
+            nameInput.setText("");
+            priceInput.setText("");
 
         } catch (IOException ex) {
             System.err.println(ex);
@@ -228,6 +237,8 @@ public class CulminatingPart1 extends javax.swing.JFrame {
         }
         if (typeBox.getSelectedItem().toString().equals("Fries")) {
             nameInput.setEnabled(false);
+        } else {
+            nameInput.setEnabled(true);
         }
     }//GEN-LAST:event_typeBoxActionPerformed
 

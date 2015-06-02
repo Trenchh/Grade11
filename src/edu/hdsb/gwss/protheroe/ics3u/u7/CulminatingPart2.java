@@ -1,7 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Name: OrderChecker.java
+ * Date: March 13th, 2015
+ * Version: v0.1
+ * Author: Ryan Protheroe
+ * Description: Makes sure you have the correct amount of 
+ * nuts and washers based on number of bolts
  */
 package edu.hdsb.gwss.protheroe.ics3u.u7;
 
@@ -36,31 +39,48 @@ public class CulminatingPart2 extends javax.swing.JFrame {
         try {
             menuDocument = builder.build(file);
             menuRoot = menuDocument.getRootElement();
-
             Elements food = menuRoot.getChildElements();
 
             for (int counter = 0; counter < food.size(); counter++) {
 
+                type = food.get(counter).getFirstChildElement("type").getValue();
                 name = food.get(counter).getFirstChildElement("name").getValue();
                 price = Double.parseDouble(food.get(counter).getFirstChildElement("price").getValue());
                 quantity = Integer.parseInt(food.get(counter).getFirstChildElement("quantity").getValue());
-                size = food.get(counter).getFirstChildElement("size").getValue();
+                if (type.equals("Hamburger") || type.equals("Salad") || type.equals("Breakfast")) {
+                    size = "";
+                } else {
+                    size = food.get(counter).getFirstChildElement("size").getValue();
+                }
                 total = total + (price * quantity);
-                print = size + " x " + quantity + "     $" + price + "\n";
-                totalDisplay.setText(Double.toString(total));
+                print = size + " x " + quantity + "/ " + money.format(price) + "\n";
+                totalDisplay.setText(money.format(total));
 
-                if (food.get(counter).getFirstChildElement("type").getValue().equals("Hamburger")) {
-                    hamburgerDisplay.setText(food.get(counter).getFirstChildElement("name").getValue() + print);
-                } else if (food.get(counter).getFirstChildElement("type").getValue().equals("Salad")) {
-                    saladDisplay.setText(food.get(counter).getFirstChildElement("name").getValue() + print);
-                } else if (food.get(counter).getFirstChildElement("type").getValue().equals("Breakfast")) {
-                    breakfastDisplay.setText(food.get(counter).getFirstChildElement("name").getValue() + print);
-                } else if (food.get(counter).getFirstChildElement("type").getValue().equals("Desert")) {
-                    friesDisplay.setText(food.get(counter).getFirstChildElement("name").getValue() + print);
-                } else if (food.get(counter).getFirstChildElement("type").getValue().equals("Drink")) {
-                    drinkDisplay.setText(food.get(counter).getFirstChildElement("name").getValue() + print);
-                } else if (food.get(counter).getFirstChildElement("type").getValue().equals("Fries")) {
-                    friesDisplay.setText(food.get(counter).getFirstChildElement("name").getValue() + print);
+                switch (food.get(counter).getFirstChildElement("type").getValue()) {
+                    case "Hamburger":
+                        hamburgerPrint.equals(breakfastPrint + food.get(counter).getFirstChildElement("name").getValue() + print);
+                        hamburgerDisplay.setText(hamburgerPrint);
+                        break;
+                    case "Salad":
+                        saladPrint.equals(breakfastPrint + food.get(counter).getFirstChildElement("name").getValue() + print);
+                        saladDisplay.setText(saladPrint);
+                        break;
+                    case "Breakfast":
+                        breakfastPrint.equals(breakfastPrint + food.get(counter).getFirstChildElement("name").getValue() + print);
+                        breakfastDisplay.setText(breakfastPrint);
+                        break;
+                    case "Desert":
+                        desertPrint.equals(breakfastPrint + food.get(counter).getFirstChildElement("name").getValue() + " " + print);
+                        desertDisplay.setText(desertPrint);
+                        break;
+                    case "Drink":
+                        drinkPrint.equals(breakfastPrint + food.get(counter).getFirstChildElement("name").getValue() + " " + print);
+                        drinkDisplay.setText(drinkPrint);
+                        break;
+                    case "Fries":
+                        friesPrint.equals(breakfastPrint + food.get(counter).getFirstChildElement("name").getValue() + " " + print);
+                        friesDisplay.setText(friesPrint);
+                        break;
                 }
             }
 
@@ -109,7 +129,7 @@ public class CulminatingPart2 extends javax.swing.JFrame {
         totalDisplay.setBounds(460, 10, 190, 40);
 
         breakfastDisplay.setColumns(20);
-        breakfastDisplay.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
+        breakfastDisplay.setFont(new java.awt.Font("Haettenschweiler", 0, 20)); // NOI18N
         breakfastDisplay.setRows(5);
         breakfastDisplay.setAlignmentX(45.0F);
         jScrollPane1.setViewportView(breakfastDisplay);
@@ -118,7 +138,7 @@ public class CulminatingPart2 extends javax.swing.JFrame {
         jScrollPane1.setBounds(20, 120, 170, 380);
 
         hamburgerDisplay.setColumns(20);
-        hamburgerDisplay.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
+        hamburgerDisplay.setFont(new java.awt.Font("Haettenschweiler", 0, 20)); // NOI18N
         hamburgerDisplay.setRows(5);
         hamburgerDisplay.setAlignmentX(45.0F);
         jScrollPane2.setViewportView(hamburgerDisplay);
@@ -127,7 +147,7 @@ public class CulminatingPart2 extends javax.swing.JFrame {
         jScrollPane2.setBounds(560, 120, 170, 380);
 
         drinkDisplay.setColumns(20);
-        drinkDisplay.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
+        drinkDisplay.setFont(new java.awt.Font("Haettenschweiler", 0, 20)); // NOI18N
         drinkDisplay.setRows(5);
         drinkDisplay.setAlignmentX(45.0F);
         jScrollPane3.setViewportView(drinkDisplay);
@@ -136,7 +156,7 @@ public class CulminatingPart2 extends javax.swing.JFrame {
         jScrollPane3.setBounds(380, 120, 170, 380);
 
         saladDisplay.setColumns(20);
-        saladDisplay.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
+        saladDisplay.setFont(new java.awt.Font("Haettenschweiler", 0, 20)); // NOI18N
         saladDisplay.setRows(5);
         saladDisplay.setAlignmentX(45.0F);
         jScrollPane4.setViewportView(saladDisplay);
@@ -145,7 +165,7 @@ public class CulminatingPart2 extends javax.swing.JFrame {
         jScrollPane4.setBounds(200, 120, 170, 380);
 
         friesDisplay.setColumns(20);
-        friesDisplay.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
+        friesDisplay.setFont(new java.awt.Font("Haettenschweiler", 0, 20)); // NOI18N
         friesDisplay.setRows(5);
         friesDisplay.setAlignmentX(45.0F);
         jScrollPane5.setViewportView(friesDisplay);
@@ -189,7 +209,7 @@ public class CulminatingPart2 extends javax.swing.JFrame {
         hamburgerLabel.setBounds(580, 90, 130, 20);
 
         desertDisplay.setColumns(20);
-        desertDisplay.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
+        desertDisplay.setFont(new java.awt.Font("Haettenschweiler", 0, 20)); // NOI18N
         desertDisplay.setRows(5);
         desertDisplay.setAlignmentX(45.0F);
         jScrollPane6.setViewportView(desertDisplay);
@@ -267,6 +287,14 @@ public class CulminatingPart2 extends javax.swing.JFrame {
     String size = "";
     String print = "";
     String name = "";
+
+    String hamburgerPrint = "";
+    String saladPrint = "";
+    String desertPrint = "";
+    String friesPrint = "";
+    String drinkPrint = "";
+    String breakfastPrint = "";
+
     int quantity = 0;
     double price = 0;
     double total = 0;

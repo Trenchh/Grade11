@@ -1,2 +1,2 @@
 <?xml version="1.0"?>
-<food><type><type>Hamburger</type><name>Big Mac</name><price>4.00</price><quantity>2</quantity></type><type><type>Hamburger</type><name>big mac</name><price>4.99</price><quantity>2</quantity><size>Small</size></type><type><type>Fries</type><name></name><price>2.00</price><quantity>1</quantity><size>Small</size></type><type><type>Fries</type><name></name><price>3.00</price><quantity>2</quantity><size>Medium</size></type><type><type>Desert</type><name>Mcflurry</name><price>7.00</price><quantity>1</quantity><size>Large</size></type></food>
+<food />

@@ -26,9 +26,9 @@ public class CulminatingPart1 extends javax.swing.JFrame {
     Document menuDocument;
     CulminatingPart2 childWindow;
 
-    public CulminatingPart1(CulminatingPart2 opener){
-            initComponents();
-            this.childWindow = opener;
+    public CulminatingPart1(CulminatingPart2 opener) {
+        initComponents();
+        this.childWindow = opener;
     }
 
     public CulminatingPart1() {

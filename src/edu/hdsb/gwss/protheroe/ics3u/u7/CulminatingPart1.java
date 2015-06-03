@@ -74,6 +74,7 @@ public class CulminatingPart1 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 0, 500, 400));
+        setMinimumSize(new java.awt.Dimension(510, 440));
         setPreferredSize(new java.awt.Dimension(500, 400));
         getContentPane().setLayout(null);
 
@@ -107,7 +108,7 @@ public class CulminatingPart1 extends javax.swing.JFrame {
 
         quantityInput.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
         getContentPane().add(quantityInput);
-        quantityInput.setBounds(140, 320, 55, 26);
+        quantityInput.setBounds(140, 320, 60, 26);
 
         priceHeader.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
         priceHeader.setForeground(new java.awt.Color(255, 255, 255));
@@ -144,7 +145,7 @@ public class CulminatingPart1 extends javax.swing.JFrame {
             }
         });
         getContentPane().add(clearButton);
-        clearButton.setBounds(140, 360, 70, 29);
+        clearButton.setBounds(140, 360, 80, 29);
 
         typeBox.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
         typeBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Hamburger", "Fries", "Salad", "Breakfast", "Drink", "Desert" }));
@@ -170,7 +171,7 @@ public class CulminatingPart1 extends javax.swing.JFrame {
         quantityHeader1.setText("Quantity");
         quantityHeader1.setToolTipText("");
         getContentPane().add(quantityHeader1);
-        quantityHeader1.setBounds(140, 280, 68, 26);
+        quantityHeader1.setBounds(130, 280, 80, 26);
 
         viewOrder.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
         viewOrder.setText("View Order");

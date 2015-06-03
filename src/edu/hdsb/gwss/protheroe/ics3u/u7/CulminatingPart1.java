@@ -24,12 +24,19 @@ public class CulminatingPart1 extends javax.swing.JFrame {
 
     Element menuRoot;
     Document menuDocument;
+    CulminatingPart2 childWindow;
+
+    public CulminatingPart1(CulminatingPart2 opener){
+            initComponents();
+            this.childWindow = opener;
+    }
 
     public CulminatingPart1() {
         initComponents();
 
         try {
             File file = new File("culminating.xml");
+            sizeBox.setEnabled(false);
 
             if (file.length() == 0) {
                 menuRoot = new Element("food");
@@ -50,7 +57,7 @@ public class CulminatingPart1 extends javax.swing.JFrame {
     private void initComponents() {
 
         javax.swing.JLabel sizeHeader = new javax.swing.JLabel();
-        quantityHeader = new javax.swing.JLabel();
+        errorHeader = new javax.swing.JLabel();
         typeHeader = new javax.swing.JLabel();
         sizeBox = new javax.swing.JComboBox();
         quantityInput = new javax.swing.JSpinner();
@@ -61,9 +68,12 @@ public class CulminatingPart1 extends javax.swing.JFrame {
         clearButton = new javax.swing.JButton();
         typeBox = new javax.swing.JComboBox();
         javax.swing.JLabel nameHeader = new javax.swing.JLabel();
+        quantityHeader1 = new javax.swing.JLabel();
+        viewOrder = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(0, 0, 500, 400));
         setPreferredSize(new java.awt.Dimension(500, 400));
         getContentPane().setLayout(null);
 
@@ -75,13 +85,12 @@ public class CulminatingPart1 extends javax.swing.JFrame {
         getContentPane().add(sizeHeader);
         sizeHeader.setBounds(80, 200, 35, 27);
 
-        quantityHeader.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
-        quantityHeader.setForeground(new java.awt.Color(255, 255, 255));
-        quantityHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        quantityHeader.setText("Quantity");
-        quantityHeader.setToolTipText("");
-        getContentPane().add(quantityHeader);
-        quantityHeader.setBounds(140, 280, 68, 26);
+        errorHeader.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
+        errorHeader.setForeground(new java.awt.Color(255, 255, 255));
+        errorHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        errorHeader.setToolTipText("");
+        getContentPane().add(errorHeader);
+        errorHeader.setBounds(260, 280, 140, 30);
 
         typeHeader.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
         typeHeader.setForeground(new java.awt.Color(255, 255, 255));
@@ -110,7 +119,7 @@ public class CulminatingPart1 extends javax.swing.JFrame {
 
         nameInput.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
         getContentPane().add(nameInput);
-        nameInput.setBounds(140, 150, 260, 27);
+        nameInput.setBounds(140, 150, 260, 30);
 
         priceInput.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
         getContentPane().add(priceInput);
@@ -135,7 +144,7 @@ public class CulminatingPart1 extends javax.swing.JFrame {
             }
         });
         getContentPane().add(clearButton);
-        clearButton.setBounds(300, 360, 61, 29);
+        clearButton.setBounds(140, 360, 70, 29);
 
         typeBox.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
         typeBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Hamburger", "Fries", "Salad", "Breakfast", "Drink", "Desert" }));
@@ -155,6 +164,25 @@ public class CulminatingPart1 extends javax.swing.JFrame {
         getContentPane().add(nameHeader);
         nameHeader.setBounds(70, 150, 44, 27);
 
+        quantityHeader1.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
+        quantityHeader1.setForeground(new java.awt.Color(255, 255, 255));
+        quantityHeader1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        quantityHeader1.setText("Quantity");
+        quantityHeader1.setToolTipText("");
+        getContentPane().add(quantityHeader1);
+        quantityHeader1.setBounds(140, 280, 68, 26);
+
+        viewOrder.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
+        viewOrder.setText("View Order");
+        viewOrder.setToolTipText("");
+        viewOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewOrderActionPerformed(evt);
+            }
+        });
+        getContentPane().add(viewOrder);
+        viewOrder.setBounds(280, 360, 100, 29);
+
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/protheroe/ics3u/u7/McDonaldsMenu.jpg"))); // NOI18N
         background.setToolTipText("");
         getContentPane().add(background);
@@ -165,49 +193,53 @@ public class CulminatingPart1 extends javax.swing.JFrame {
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
 
-        Element food = new Element("type");
+        if ((int) quantityInput.getValue() > 0) {
 
-        Element type = new Element(ELEMENT_TYPE);
-        type.appendChild(typeBox.getSelectedItem().toString());
-        Element name = new Element(ELEMENT_NAME);
-        name.appendChild(nameInput.getText());
-        Element size = new Element(ELEMENT_SIZE);
-        if (type.equals("Fries") || type.equals("Drink") || type.equals("Desert")) {
-            size.appendChild(sizeBox.getSelectedItem().toString());
+            Element food = new Element("type");
+            Element type = new Element(ELEMENT_TYPE);
+            type.appendChild(typeBox.getSelectedItem().toString());
+            Element name = new Element(ELEMENT_NAME);
+            name.appendChild(nameInput.getText());
+            Element size = new Element(ELEMENT_SIZE);
+            if (type.equals("Fries") || type.equals("Drink") || type.equals("Desert")) {
+                size.appendChild(sizeBox.getSelectedItem().toString());
+            } else {
+                size.appendChild("");
+            }
+            Element price = new Element("price");
+            price.appendChild("" + priceInput.getText());
+            Element quantity = new Element("quantity");
+            quantity.appendChild("" + quantityInput.getValue());
+
+            food.appendChild(type);
+            food.appendChild(name);
+            food.appendChild(price);
+            food.appendChild(quantity);
+            food.appendChild(size);
+            menuRoot.appendChild(food);
+
+            try {
+                Serializer serializer = new Serializer(System.out);
+                serializer.setIndent(4);
+                serializer.setMaxLength(64);
+                serializer.write(menuDocument);
+            } catch (IOException ex) {
+                System.err.println(ex);
+            }
+
+            try {
+                BufferedWriter output = new BufferedWriter(new FileWriter("culminating.xml"));
+                output.write(menuDocument.toXML());
+                output.close();
+                quantityInput.setValue(0);
+                nameInput.setText("");
+                priceInput.setText("");
+
+            } catch (IOException ex) {
+                System.err.println(ex);
+            }
         } else {
-            size.appendChild("");
-        }
-        Element price = new Element("price");
-        price.appendChild("" + priceInput.getText());
-        Element quantity = new Element("quantity");
-        quantity.appendChild("" + quantityInput.getValue());
-
-        food.appendChild(type);
-        food.appendChild(name);
-        food.appendChild(price);
-        food.appendChild(quantity);
-        food.appendChild(size);
-        menuRoot.appendChild(food);
-
-        try {
-            Serializer serializer = new Serializer(System.out);
-            serializer.setIndent(4);
-            serializer.setMaxLength(64);
-            serializer.write(menuDocument);
-        } catch (IOException ex) {
-            System.err.println(ex);
-        }
-
-        try {
-            BufferedWriter output = new BufferedWriter(new FileWriter("culminating.xml"));
-            output.write(menuDocument.toXML());
-            output.close();
-            quantityInput.setValue(0);
-            nameInput.setText("");
-            priceInput.setText("");
-
-        } catch (IOException ex) {
-            System.err.println(ex);
+            errorHeader.setText("Invalid");
         }
     }//GEN-LAST:event_addButtonActionPerformed
 
@@ -241,6 +273,13 @@ public class CulminatingPart1 extends javax.swing.JFrame {
             nameInput.setEnabled(true);
         }
     }//GEN-LAST:event_typeBoxActionPerformed
+
+    private void viewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewOrderActionPerformed
+        childWindow = new CulminatingPart2(this);
+        childWindow.setVisible(true);
+        this.setVisible(false);
+
+    }//GEN-LAST:event_viewOrderActionPerformed
 
     /**
      * @param args the command line arguments
@@ -286,15 +325,16 @@ public class CulminatingPart1 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
     private javax.swing.JButton clearButton;
+    private javax.swing.JLabel errorHeader;
     private javax.swing.JTextField nameInput;
     private javax.swing.JTextField priceInput;
-    private javax.swing.JLabel quantityHeader;
+    private javax.swing.JLabel quantityHeader1;
     private javax.swing.JSpinner quantityInput;
     private javax.swing.JComboBox sizeBox;
     private javax.swing.JComboBox typeBox;
     private javax.swing.JLabel typeHeader;
+    private javax.swing.JButton viewOrder;
     // End of variables declaration//GEN-END:variables
-    //static final String ELEMENT_ROOT = "mcdonalds";
     static final String ELEMENT_TYPE = "type";
     static final String ELEMENT_NAME = "name";
     static final String ELEMENT_SIZE = "size";

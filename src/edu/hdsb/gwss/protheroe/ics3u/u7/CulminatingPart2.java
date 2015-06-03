@@ -1,10 +1,9 @@
 /*
- * Name: OrderChecker.java
- * Date: March 13th, 2015
+ * Name: CulminatingPart1.java
+ * Date: June 6th, 2015
  * Version: v0.1
  * Author: Ryan Protheroe
- * Description: Makes sure you have the correct amount of 
- * nuts and washers based on number of bolts
+ * Description: Displays order taken from CulminatingPart1
  */
 package edu.hdsb.gwss.protheroe.ics3u.u7;
 
@@ -21,72 +20,15 @@ import nu.xom.Elements;
  */
 public class CulminatingPart2 extends javax.swing.JFrame {
 
-    /**
-     * Creates new form CulminatingPart2
-     */
+    CulminatingPart1 opener;
+    
+    public CulminatingPart2(CulminatingPart1 opener){
+                initComponents();
+                this.opener = opener;
+    }
+    
     public CulminatingPart2() {
         initComponents();
-
-        // Money format
-        NumberFormat money = NumberFormat.getCurrencyInstance();
-
-        File file = new File("culminating.xml");
-
-        Builder builder = new Builder();
-        Document menuDocument;
-        Element menuRoot;
-
-        try {
-            menuDocument = builder.build(file);
-            menuRoot = menuDocument.getRootElement();
-            Elements food = menuRoot.getChildElements();
-
-            for (int counter = 0; counter < food.size(); counter++) {
-
-                type = food.get(counter).getFirstChildElement("type").getValue();
-                name = food.get(counter).getFirstChildElement("name").getValue();
-                price = Double.parseDouble(food.get(counter).getFirstChildElement("price").getValue());
-                quantity = Integer.parseInt(food.get(counter).getFirstChildElement("quantity").getValue());
-                if (type.equals("Hamburger") || type.equals("Salad") || type.equals("Breakfast")) {
-                    size = "";
-                } else {
-                    size = food.get(counter).getFirstChildElement("size").getValue();
-                }
-                total = total + (price * quantity);
-                print = size + " x " + quantity + "/ " + money.format(price) + "\n";
-                totalDisplay.setText( "Total: " + money.format(total));
-
-                switch (food.get(counter).getFirstChildElement("type").getValue()) {
-                    case "Hamburger":
-                        hamburgerPrint = hamburgerPrint + food.get(counter).getFirstChildElement("name").getValue() + print;
-                        hamburgerDisplay.setText(hamburgerPrint);
-                        break;
-                    case "Salad":
-                        saladPrint = saladPrint + food.get(counter).getFirstChildElement("name").getValue() + print;
-                        saladDisplay.setText(saladPrint);
-                        break;
-                    case "Breakfast":
-                        breakfastPrint = breakfastPrint + food.get(counter).getFirstChildElement("name").getValue() + print;
-                        breakfastDisplay.setText(breakfastPrint);
-                        break;
-                    case "Desert":
-                        desertPrint = desertPrint + food.get(counter).getFirstChildElement("name").getValue() + " " + print;
-                        desertDisplay.setText(desertPrint);
-                        break;
-                    case "Drink":
-                        drinkPrint = drinkPrint + food.get(counter).getFirstChildElement("name").getValue() + " " + print;
-                        drinkDisplay.setText(drinkPrint);
-                        break;
-                    case "Fries":
-                        friesPrint = friesPrint + food.get(counter).getFirstChildElement("name").getValue() + " " + print;
-                        friesDisplay.setText(friesPrint);
-                        break;
-                }
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     /**
@@ -117,6 +59,8 @@ public class CulminatingPart2 extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         desertDisplay = new javax.swing.JTextArea();
         desertLabel = new javax.swing.JLabel();
+        importButton = new javax.swing.JButton();
+        switchButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -231,6 +175,26 @@ public class CulminatingPart2 extends javax.swing.JFrame {
         getContentPane().add(desertLabel);
         desertLabel.setBounds(940, 90, 130, 20);
 
+        importButton.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
+        importButton.setText("Import");
+        importButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                importButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(importButton);
+        importButton.setBounds(460, 60, 80, 30);
+
+        switchButton.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
+        switchButton.setText("Add More");
+        switchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                switchButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(switchButton);
+        switchButton.setBounds(550, 60, 90, 29);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/protheroe/ics3u/u7/McDonaldsOrder.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1);
@@ -238,6 +202,74 @@ public class CulminatingPart2 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void importButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importButtonActionPerformed
+        // Money format
+        NumberFormat money = NumberFormat.getCurrencyInstance();
+
+        File file = new File("culminating.xml");
+
+        Builder builder = new Builder();
+        Document menuDocument;
+        Element menuRoot;
+
+        try {
+            menuDocument = builder.build(file);
+            menuRoot = menuDocument.getRootElement();
+            Elements food = menuRoot.getChildElements();
+
+            for (int counter = 0; counter < food.size(); counter++) {
+
+                type = food.get(counter).getFirstChildElement("type").getValue();
+                name = food.get(counter).getFirstChildElement("name").getValue();
+                price = Double.parseDouble(food.get(counter).getFirstChildElement("price").getValue());
+                quantity = Integer.parseInt(food.get(counter).getFirstChildElement("quantity").getValue());
+                if (type.equals("Hamburger") || type.equals("Salad") || type.equals("Breakfast")) {
+                    size = "";
+                } else {
+                    size = food.get(counter).getFirstChildElement("size").getValue();
+                }
+                total = total + (price * quantity);
+                print = size + " x " + quantity + "/ " + money.format(price) + "\n";
+                totalDisplay.setText("Total: " + money.format(total));
+
+                switch (food.get(counter).getFirstChildElement("type").getValue()) {
+                    case "Hamburger":
+                        hamburgerPrint = hamburgerPrint + food.get(counter).getFirstChildElement("name").getValue() + print;
+                        hamburgerDisplay.setText(hamburgerPrint);
+                        break;
+                    case "Salad":
+                        saladPrint = saladPrint + food.get(counter).getFirstChildElement("name").getValue() + print;
+                        saladDisplay.setText(saladPrint);
+                        break;
+                    case "Breakfast":
+                        breakfastPrint = breakfastPrint + food.get(counter).getFirstChildElement("name").getValue() + print;
+                        breakfastDisplay.setText(breakfastPrint);
+                        break;
+                    case "Desert":
+                        desertPrint = desertPrint + food.get(counter).getFirstChildElement("name").getValue() + " " + print;
+                        desertDisplay.setText(desertPrint);
+                        break;
+                    case "Drink":
+                        drinkPrint = drinkPrint + food.get(counter).getFirstChildElement("name").getValue() + " " + print;
+                        drinkDisplay.setText(drinkPrint);
+                        break;
+                    case "Fries":
+                        friesPrint = friesPrint + food.get(counter).getFirstChildElement("name").getValue() + " " + print;
+                        friesDisplay.setText(friesPrint);
+                        break;
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_importButtonActionPerformed
+
+    private void switchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchButtonActionPerformed
+        opener.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_switchButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -285,6 +317,7 @@ public class CulminatingPart2 extends javax.swing.JFrame {
     private javax.swing.JLabel friesLabel;
     private javax.swing.JTextArea hamburgerDisplay;
     private javax.swing.JLabel hamburgerLabel;
+    private javax.swing.JButton importButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -294,6 +327,7 @@ public class CulminatingPart2 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTextArea saladDisplay;
     private javax.swing.JLabel saladLabel;
+    private javax.swing.JButton switchButton;
     private javax.swing.JLabel totalDisplay;
     // End of variables declaration//GEN-END:variables
     String type = "";

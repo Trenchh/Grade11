@@ -54,12 +54,17 @@ public class Review {
             System.err.println(ex);
         }
 
-        //Search file
+        //Search/read file
         Elements wings = pizza.getChildElements();
 
         for (int i = 0; i < wings.size(); i++) {
+            //Read
+            System.out.println(wings.get(i).getFirstChildElement("name").getValue());
+
+            //Search
             if (wings.get(i).getFirstChildElement("whats inside the <> that youre searching for").getValue().equals("condition youre searchinfg for")) {
                 System.out.println(wings.get(i).getFirstChildElement("what you want to print").getValue());
+
             }
         }
     }

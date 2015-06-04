@@ -59,7 +59,7 @@ public class Review {
 
         for (int i = 0; i < wings.size(); i++) {
             //Read
-            System.out.println(wings.get(i).getFirstChildElement("name").getValue());
+            System.out.println(wings.get(i).getFirstChildElement("whats inside the <> that youre searching for").getValue());
 
             //Search
             if (wings.get(i).getFirstChildElement("whats inside the <> that youre searching for").getValue().equals("condition youre searchinfg for")) {

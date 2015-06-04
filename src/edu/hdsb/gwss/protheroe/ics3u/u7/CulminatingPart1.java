@@ -193,7 +193,6 @@ public class CulminatingPart1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-
         if ((int) quantityInput.getValue() > 0) {
 
             Element food = new Element("type");
@@ -202,7 +201,7 @@ public class CulminatingPart1 extends javax.swing.JFrame {
             Element name = new Element(ELEMENT_NAME);
             name.appendChild(nameInput.getText());
             Element size = new Element(ELEMENT_SIZE);
-            if (type.equals("Fries") || type.equals("Drink") || type.equals("Desert")) {
+            if (typeBox.getSelectedItem().toString().equals("Fries") || typeBox.getSelectedItem().toString().equals("Drink") || typeBox.getSelectedItem().toString().equals("Desert")) {
                 size.appendChild(sizeBox.getSelectedItem().toString());
             } else {
                 size.appendChild("");
@@ -245,7 +244,6 @@ public class CulminatingPart1 extends javax.swing.JFrame {
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
-
         menuRoot = new Element("food");
         menuDocument = new Document(menuRoot);
 
@@ -257,7 +255,6 @@ public class CulminatingPart1 extends javax.swing.JFrame {
         } catch (IOException ex) {
             System.err.println(ex);
         }
-
     }//GEN-LAST:event_clearButtonActionPerformed
 
     private void typeBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typeBoxActionPerformed
@@ -279,7 +276,6 @@ public class CulminatingPart1 extends javax.swing.JFrame {
         childWindow = new CulminatingPart2(this);
         childWindow.setVisible(true);
         this.setVisible(false);
-
     }//GEN-LAST:event_viewOrderActionPerformed
 
     /**

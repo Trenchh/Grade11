@@ -64,6 +64,7 @@ public class CulminatingPart2 extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         totalDisplay.setFont(new java.awt.Font("Haettenschweiler", 0, 36)); // NOI18N
+        totalDisplay.setForeground(new java.awt.Color(255, 255, 255));
         totalDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         totalDisplay.setToolTipText("");
         getContentPane().add(totalDisplay);
@@ -231,37 +232,36 @@ public class CulminatingPart2 extends javax.swing.JFrame {
                     size = food.get(counter).getFirstChildElement("size").getValue();
                 }
                 total = total + (price * quantity);
-                print = size + " x " + quantity + "/ " + money.format(price) + "\n";
+                print = size + " " + name + " x " + quantity + "/ " + money.format(price) + "\n";
                 totalDisplay.setText("Total: " + money.format(total));
 
                 switch (food.get(counter).getFirstChildElement("type").getValue()) {
                     case "Hamburger":
-                        hamburgerPrint = hamburgerPrint + food.get(counter).getFirstChildElement("name").getValue() + print;
+                        hamburgerPrint = hamburgerPrint + print;
                         hamburgerDisplay.setText(hamburgerPrint);
                         break;
                     case "Salad":
-                        saladPrint = saladPrint + food.get(counter).getFirstChildElement("name").getValue() + print;
+                        saladPrint = saladPrint + print;
                         saladDisplay.setText(saladPrint);
                         break;
                     case "Breakfast":
-                        breakfastPrint = breakfastPrint + food.get(counter).getFirstChildElement("name").getValue() + print;
+                        breakfastPrint = breakfastPrint + print;
                         breakfastDisplay.setText(breakfastPrint);
                         break;
                     case "Desert":
-                        desertPrint = desertPrint + food.get(counter).getFirstChildElement("name").getValue() + " " + print;
+                        desertPrint = desertPrint + print;
                         desertDisplay.setText(desertPrint);
                         break;
                     case "Drink":
-                        drinkPrint = drinkPrint + food.get(counter).getFirstChildElement("name").getValue() + " " + print;
+                        drinkPrint = drinkPrint + print;
                         drinkDisplay.setText(drinkPrint);
                         break;
                     case "Fries":
-                        friesPrint = friesPrint + food.get(counter).getFirstChildElement("name").getValue() + " " + print;
+                        friesPrint = friesPrint + print;
                         friesDisplay.setText(friesPrint);
                         break;
                 }
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }

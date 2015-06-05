@@ -1,7 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Name: LeagueStandings.java
+ * Date: June 5th, 2015
+ * Version: v0.1
+ * Author: Ryan Protheroe
+ * Description: Displays team standings and writes east league standings to seperate xml file
  */
 package edu.hdsb.gwss.protheroe.ics3u.u7;
 
@@ -14,10 +16,6 @@ import nu.xom.Document;
 import nu.xom.Element;
 import nu.xom.Elements;
 
-/**
- *
- * @author 1protheroery
- */
 public class LeagueStandings {
 
     public static void main(String[] args) {

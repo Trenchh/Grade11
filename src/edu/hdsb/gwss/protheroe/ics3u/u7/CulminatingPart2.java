@@ -1,6 +1,6 @@
 /*
  * Name: CulminatingPart1.java
- * Date: June 6th, 2015
+ * Date: June 2nd, 2015
  * Version: v0.1
  * Author: Ryan Protheroe
  * Description: Displays order taken from CulminatingPart1

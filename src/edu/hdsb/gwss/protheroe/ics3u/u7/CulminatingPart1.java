@@ -193,7 +193,7 @@ public class CulminatingPart1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        if ((int) quantityInput.getValue() > 0) {
+        if ((int) quantityInput.getValue() > 0 && Integer.parseInt(priceInput.getText()) > -1) {
 
             Element food = new Element("type");
             Element type = new Element(ELEMENT_TYPE);

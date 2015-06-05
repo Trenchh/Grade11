@@ -1,2 +1,14 @@
 <?xml version="1.0"?>
-<americanLeagueEastTeams><team><type>Baltimore</type><division>East</division><record>96-66</record></team><team><type>NY Yankees</type><division>East</division><record>84-78</record></team><team><type>Toronto</type><division>East</division><record>83-79</record></team></americanLeagueEastTeams>
+<americanLeagueEastTeams>&lt;team&gt;
+		&lt;name&gt;Baltimore&lt;/name&gt;
+		&lt;division&gt;East&lt;/division&gt;
+		&lt;record&gt;96-66&lt;/record&gt;
+	&lt;/team&gt;&lt;team&gt;
+		&lt;name&gt;NY Yankees&lt;/name&gt;
+		&lt;division&gt;East&lt;/division&gt;
+		&lt;record&gt;84-78&lt;/record&gt;
+	&lt;/team&gt;&lt;team&gt;
+		&lt;name&gt;Toronto&lt;/name&gt;
+		&lt;division&gt;East&lt;/division&gt;
+		&lt;record&gt;83-79&lt;/record&gt;
+	&lt;/team&gt;</americanLeagueEastTeams>

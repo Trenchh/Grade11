@@ -50,26 +50,7 @@ public class LeagueStandings {
                     System.out.format("%-10s %7s \n", team, record);
 
                     //Part 2
-                    Element eastTeam = new Element("team");
-                    Element eastName = new Element("type");
-                    eastName.appendChild(team);
-                    Element eastDivision = new Element("division");
-                    eastDivision.appendChild("East");
-                    Element eastRecord = new Element("record");
-                    eastRecord.appendChild(record);
-
-                    eastTeam.appendChild(eastName);
-                    eastTeam.appendChild(eastDivision);
-                    eastTeam.appendChild(eastRecord);
-                    eastRoot.appendChild(eastTeam);
-
-                    try {
-                        BufferedWriter output = new BufferedWriter(new FileWriter("AL.EAST.STANDINGS.xml"));
-                        output.write(eastDocument.toXML());
-                        output.close();
-                    } catch (IOException ex) {
-                        System.err.println(ex);
-                    }
+                    eastRoot.appendChild(standings.get(i).toXML());
                 }
             }
 
@@ -100,6 +81,15 @@ public class LeagueStandings {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+        
+        //Part2
+        try {
+            BufferedWriter output = new BufferedWriter(new FileWriter("AL.EAST.STANDINGS.xml"));
+            output.write(eastDocument.toXML());
+            output.close();
+        } catch (IOException ex) {
+            System.err.println(ex);
         }
     }
 }

@@ -20,6 +20,7 @@ import nu.xom.Elements;
  */
 public class CulminatingPart2 extends javax.swing.JFrame {
 
+    CulminatingPart1 childWindow;
     CulminatingPart1 opener;
 
     public CulminatingPart2(CulminatingPart1 opener) {
@@ -201,16 +202,15 @@ public class CulminatingPart2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void switchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchButtonActionPerformed
-        opener.setVisible(true);
+        childWindow = new CulminatingPart1(this);
+        childWindow.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_switchButtonActionPerformed
 
     private void importButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importButtonActionPerformed
         // Money format
         NumberFormat money = NumberFormat.getCurrencyInstance();
-
         File file = new File("culminating.xml");
-
         Builder builder = new Builder();
         Document menuDocument;
         Element menuRoot;
@@ -220,17 +220,20 @@ public class CulminatingPart2 extends javax.swing.JFrame {
             menuRoot = menuDocument.getRootElement();
             Elements food = menuRoot.getChildElements();
 
-            for (int counter = 0; counter < food.size(); counter++) {
+            String hamburgerPrint = "";
+            String saladPrint = "";
+            String desertPrint = "";
+            String friesPrint = "";
+            String drinkPrint = "";
+            String breakfastPrint = "";
+            double total = 0;
 
+            for (int counter = 0; counter < food.size(); counter++) {
                 type = food.get(counter).getFirstChildElement("type").getValue();
                 name = food.get(counter).getFirstChildElement("name").getValue();
                 price = Double.parseDouble(food.get(counter).getFirstChildElement("price").getValue());
                 quantity = Integer.parseInt(food.get(counter).getFirstChildElement("quantity").getValue());
-                if (type.equals("Hamburger") || type.equals("Salad") || type.equals("Breakfast")) {
-                    size = "";
-                } else {
-                    size = food.get(counter).getFirstChildElement("size").getValue();
-                }
+                size = food.get(counter).getFirstChildElement("size").getValue();
                 total = total + (price * quantity);
                 print = size + " " + name + " x " + quantity + "/ " + money.format(price) + "\n";
                 totalDisplay.setText("Total: " + money.format(total));
@@ -301,7 +304,6 @@ public class CulminatingPart2 extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
     private javax.swing.JTextArea breakfastDisplay;
@@ -330,15 +332,6 @@ public class CulminatingPart2 extends javax.swing.JFrame {
     String size = "";
     String print = "";
     String name = "";
-
-    String hamburgerPrint = "";
-    String saladPrint = "";
-    String desertPrint = "";
-    String friesPrint = "";
-    String drinkPrint = "";
-    String breakfastPrint = "";
-
     int quantity = 0;
     double price = 0;
-    double total = 0;
 }

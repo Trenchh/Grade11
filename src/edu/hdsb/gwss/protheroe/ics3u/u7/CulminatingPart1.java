@@ -148,7 +148,7 @@ public class CulminatingPart1 extends javax.swing.JFrame {
         clearButton.setBounds(140, 360, 80, 29);
 
         typeBox.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
-        typeBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Hamburger", "Fries", "Salad", "Breakfast", "Drink", "Desert" }));
+        typeBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Hamburger", "Fries", "Salad", "Breakfast", "Drink", "Dessert" }));
         typeBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 typeBoxActionPerformed(evt);
@@ -193,7 +193,8 @@ public class CulminatingPart1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        if ((int) quantityInput.getValue() > 0) {
+        if ((int) quantityInput.getValue() > 0 && Integer.parseInt(priceInput.getText()) > -1) {
+            errorHeader.setText("");
 
             Element food = new Element("type");
             Element type = new Element(ELEMENT_TYPE);

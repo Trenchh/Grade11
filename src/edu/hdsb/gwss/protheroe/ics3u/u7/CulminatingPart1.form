@@ -217,7 +217,7 @@
             <StringItem index="2" value="Salad"/>
             <StringItem index="3" value="Breakfast"/>
             <StringItem index="4" value="Drink"/>
-            <StringItem index="5" value="Desert"/>
+            <StringItem index="5" value="Dessert"/>
           </StringArray>
         </Property>
       </Properties>

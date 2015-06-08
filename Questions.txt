@@ -1,0 +1,106 @@
+<gameQuestions>
+	<questions>
+		<question>What does RAMM stand for?</question>
+		<correct>Remote Access Memory Module</correct>
+		<other1>Remote Access Memory Map</other1>
+		<other2>Rested Apple Meme Mother</other2>
+		<other3>Rinked Access Mail Module</other3>
+	</questions>
+	<questions>
+		<question>What does GUI stand for?</question>
+		<correct>Graphical User Interface</correct>
+		<other1>Github User Import</other1>
+		<other2>Graphical Untethered Import</other2>
+		<other3>Gentle Universe Ink</other3>
+	</questions>
+	<questions>
+		<question>How do you declare a constant variable?</question>
+		<correct>final __ RANDOM_VARIABLE;</correct>
+		<other1>permanent __ RANDOM_VARIABLE;</other1>
+		<other2>final __ randomVariable;</other2>
+		<other3>constant __ randomVariable;</other3>
+	</questions>
+	<questions>
+		<question>How many cases can a switch case have?</question>
+		<correct>unlimited</correct>
+		<other1>10 or less</other1>
+		<other2>100 or less</other2>
+		<other3>pizza</other3>
+	</questions>
+	<questions>
+		<question>What is the correct format of a header?</question>
+		<correct>Name, Date, Version, Author, Description</correct>
+		<other1>Author, Name, Version, Date, Description</other1>
+		<other2>Description, Name, Author, Date, Version</other2>
+		<other3>Date, Name, Version, Author, Description</other3>
+	</questions>
+	<questions>
+		<question>Which one would generate a number from 1-10?</question>
+		<correct>(int) (Math.random() * 10) + 1;</correct>
+		<other1>(int) (Math.random() * 9) + 1;</other1>
+		<other2>(int) (Math.random() * 10);</other2>
+		<other3>(int) (Math.random() * 8) + 2;</other3>
+	</questions>
+	<questions>
+		<question>What does "break;" do?</question>
+		<correct>Breaks a loop</correct>
+		<other1>Breaks the program</other1>
+		<other2>Snaps your monitor in half</other2>
+		<other3>Gives you a 15 minute break</other3>
+	</questions>
+	<questions>
+		<question>Is Mr.Muir the best teacher ever?</question>
+		<correct>Yes</correct>
+		<other1>Perhaps</other1>
+		<other2>No</other2>
+		<other3>Not in a million years</other3>
+	</questions>
+	<questions>
+		<question>What is GitHub?</question>
+		<correct>A git repository hosting service</correct>
+		<other1>A social media site</other1>
+		<other2>A place that Git's hang out at</other2>
+		<other3>A place where codes go after they die</other3>
+	</questions>
+	<questions>
+		<question>What does System.out.println do?</question>
+		<correct>Prints a message to the user</correct>
+		<other1>Writes to a file</other1>
+		<other2>Takes user input</other2>
+		<other3>Prints a straight line</other3>
+	</questions>
+	<questions>
+		<question>What's the proper format of the main method?</question>
+		<correct>public static void main(String[] args)</correct>
+		<other1>public static void main()</other1>
+		<other2>public static void main(args)</other2>
+		<other3>public void main(args)</other3>
+	</questions>
+	<questions>
+		<question>What does IDE stand for?</question>
+		<correct>Integrated Development Environment</correct>
+		<other1>Internet Development Environment</other1>
+		<other2>Internal Development Environment</other2>
+		<other3>Informational Development Environment</other3>
+	</questions>
+	<questions>
+		<question>How many tests have we had in this course?</question>
+		<correct>6</correct>
+		<other1>5</other1>
+		<other2>8</other2>
+		<other3>7</other3>
+	</questions>
+	<questions>
+		<question>What does the OS do?</question>
+		<correct>Manages all of the software and hardware on the computer</correct>
+		<other1>Boots up computer and that's it</other1>
+		<other2>Nothing, its just there</other2>
+		<other3>Only the user interface</other3>
+	</questions>
+	<questions>
+		<question></question>
+		<correct></correct>
+		<other1></other1>
+		<other2></other2>
+		<other3></other3>
+	</questions>

@@ -1,5 +1,5 @@
 /*
- * Name: CulminatingPart1.java
+ * Name: CulminatingPart2.java
  * Date: June 2nd, 2015
  * Version: v0.1
  * Author: Ryan Protheroe

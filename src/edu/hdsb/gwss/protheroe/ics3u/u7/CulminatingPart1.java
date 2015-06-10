@@ -205,7 +205,7 @@ public class CulminatingPart1 extends javax.swing.JFrame {
             if (typeBox.getSelectedItem().toString().equals("Fries") || typeBox.getSelectedItem().toString().equals("Drink") || typeBox.getSelectedItem().toString().equals("Desert")) {
                 size.appendChild(sizeBox.getSelectedItem().toString());
             } else {
-                size.appendChild("");
+                size.appendChild("");     
             }
             Element price = new Element("price");
             price.appendChild("" + priceInput.getText());

@@ -3,18 +3,34 @@
  */
 package edu.hdsb.gwss.protheroe.ics3u.performanceTask;
 
+import java.io.File;
+import nu.xom.Builder;
+import nu.xom.Document;
+import nu.xom.Element;
+import nu.xom.Elements;
+
 /**
  *
  * @author muirwa
  */
 public class Quiz extends javax.swing.JFrame {
 
-    private int score = 0;    
+    private int score = 0;
+    Document document;
+    Element root;
 
     /**
      * Creates new form Quiz
      */
     public Quiz() {
+        File file = new File("Questions.xml");
+        try {
+            Builder builder = new Builder();
+            document = builder.build(file);
+            root = document.getRootElement();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         initComponents();
     }
 
@@ -152,7 +168,38 @@ public class Quiz extends javax.swing.JFrame {
     }//GEN-LAST:event_displayResults
 
     private void nextQuestion(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextQuestion
+
+        int[] randomize = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
+        int random = (int) (Math.random() * n);
+        int index = randomize[random];
         
+        for(int p = 0; p < 14 ; p++) {
+        System.out.print(randomize[p] + ", ");
+        }
+        
+        System.out.println();
+        
+        Elements questions = root.getChildElements();
+        String correct;
+        i++;
+        
+        if (i < 10) {
+            System.out.println(index);
+            questionHeader.setText("Question #" + (i));
+            questionDisplay.setText(questions.get(index).getFirstChildElement("question").getValue());
+            correct = questions.get(index).getFirstChildElement("correct").getValue();
+            a.setText(correct);
+            b.setText(questions.get(index).getFirstChildElement("other1").getValue());
+            c.setText(questions.get(index).getFirstChildElement("other2").getValue());
+            d.setText(questions.get(index).getFirstChildElement("other3").getValue());
+
+        }
+        
+        int tmp = randomize[index];
+        randomize[index] = randomize[n];
+        randomize[n] = tmp;
+        n--;
+
     }//GEN-LAST:event_nextQuestion
 
     private void submitAnswer(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitAnswer
@@ -176,4 +223,6 @@ public class Quiz extends javax.swing.JFrame {
     private javax.swing.JLabel scoreDisplay;
     private javax.swing.JButton submitAnswer;
     // End of variables declaration//GEN-END:variables
+int i = 0;
+int n = 13;
 }

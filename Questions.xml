@@ -97,10 +97,4 @@
 		<other2>Nothing, its just there</other2>
 		<other3>Only the user interface</other3>
 	</questions>
-	<questions>
-		<question></question>
-		<correct></correct>
-		<other1></other1>
-		<other2></other2>
-		<other3></other3>
-	</questions>
+</gameQuestions>

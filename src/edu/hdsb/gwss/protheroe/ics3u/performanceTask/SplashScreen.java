@@ -2,7 +2,7 @@
  * HEADER
  */
 package edu.hdsb.gwss.protheroe.ics3u.performanceTask;
-
+   
 /**
  */
 public class SplashScreen extends javax.swing.JFrame {

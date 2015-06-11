@@ -9,7 +9,7 @@ package edu.hdsb.gwss.protheroe.ics3u.performanceTask;
  */
 public class Quiz extends javax.swing.JFrame {
 
-    private int score = 0;
+    private int score = 0;    
 
     /**
      * Creates new form Quiz
@@ -152,7 +152,7 @@ public class Quiz extends javax.swing.JFrame {
     }//GEN-LAST:event_displayResults
 
     private void nextQuestion(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextQuestion
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_nextQuestion
 
     private void submitAnswer(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitAnswer

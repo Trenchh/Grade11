@@ -3,6 +3,7 @@
  */
 package edu.hdsb.gwss.protheroe.ics3u.performanceTask;
 
+import static edu.hdsb.gwss.protheroe.util.ArrayHelper.swap;
 import java.io.File;
 import nu.xom.Builder;
 import nu.xom.Document;
@@ -16,8 +17,14 @@ import nu.xom.Elements;
 public class Quiz extends javax.swing.JFrame {
 
     private int score = 0;
+    String scoreFormat;
     Document document;
     Element root;
+    int[] randomize = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
+    int i = 0;
+    int n = 13;
+    String correct;
+    String checked;
 
     /**
      * Creates new form Quiz
@@ -97,22 +104,22 @@ public class Quiz extends javax.swing.JFrame {
         a.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
         a.setText("Answer");
         getContentPane().add(a);
-        a.setBounds(50, 110, 402, 35);
+        a.setBounds(70, 110, 402, 35);
 
         b.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
         b.setText("Answer");
         getContentPane().add(b);
-        b.setBounds(50, 160, 402, 35);
+        b.setBounds(70, 160, 402, 35);
 
         c.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
         c.setText("Answer");
         getContentPane().add(c);
-        c.setBounds(50, 210, 402, 35);
+        c.setBounds(70, 210, 402, 35);
 
         d.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
         d.setText("Answer");
         getContentPane().add(d);
-        d.setBounds(50, 260, 400, 35);
+        d.setBounds(70, 260, 400, 35);
 
         rightOrWrong.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
         rightOrWrong.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -122,6 +129,7 @@ public class Quiz extends javax.swing.JFrame {
 
         submitAnswer.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
         submitAnswer.setText("Submit Answer");
+        submitAnswer.setMinimumSize(new java.awt.Dimension(400, 500));
         submitAnswer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitAnswer(evt);
@@ -133,22 +141,22 @@ public class Quiz extends javax.swing.JFrame {
         dLabel.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
         dLabel.setText("D");
         getContentPane().add(dLabel);
-        dLabel.setBounds(40, 260, 20, 30);
+        dLabel.setBounds(60, 260, 20, 30);
 
         aLabel.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
         aLabel.setText("A");
         getContentPane().add(aLabel);
-        aLabel.setBounds(40, 110, 20, 30);
+        aLabel.setBounds(60, 110, 20, 30);
 
         bLabel.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
         bLabel.setText("B");
         getContentPane().add(bLabel);
-        bLabel.setBounds(40, 160, 20, 30);
+        bLabel.setBounds(60, 160, 20, 30);
 
         cLabel.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
         cLabel.setText("C");
         getContentPane().add(cLabel);
-        cLabel.setBounds(40, 210, 20, 30);
+        cLabel.setBounds(60, 210, 20, 30);
 
         scoreDisplay.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
         scoreDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -168,42 +176,91 @@ public class Quiz extends javax.swing.JFrame {
     }//GEN-LAST:event_displayResults
 
     private void nextQuestion(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextQuestion
-
-        int[] randomize = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
         int random = (int) (Math.random() * n);
+        System.out.println(random);
         int index = randomize[random];
-        
-        for(int p = 0; p < 14 ; p++) {
-        System.out.print(randomize[p] + ", ");
-        }
-        
-        System.out.println();
-        
+
+//        for (int p = 0; p < 14; p++) {
+//            System.out.print(randomize[p] + ", ");
+//        }
+//        System.out.println();
         Elements questions = root.getChildElements();
-        String correct;
         i++;
-        
-        if (i < 10) {
-            System.out.println(index);
+
+        if (i < 11) {
+            random = (int) (Math.random() * 4);
+            displayResults.setEnabled(false);
+            nextQuestion.setEnabled(false);
+            submitAnswer.setEnabled(true);
+//            System.out.println(index);
             questionHeader.setText("Question #" + (i));
             questionDisplay.setText(questions.get(index).getFirstChildElement("question").getValue());
             correct = questions.get(index).getFirstChildElement("correct").getValue();
-            a.setText(correct);
-            b.setText(questions.get(index).getFirstChildElement("other1").getValue());
-            c.setText(questions.get(index).getFirstChildElement("other2").getValue());
-            d.setText(questions.get(index).getFirstChildElement("other3").getValue());
 
+            switch (random) {
+                case 1:
+                    b.setText(correct);
+                    a.setText(questions.get(index).getFirstChildElement("other1").getValue());
+                    c.setText(questions.get(index).getFirstChildElement("other2").getValue());
+                    d.setText(questions.get(index).getFirstChildElement("other3").getValue());
+                    break;
+                case 2:
+                    d.setText(correct);
+                    a.setText(questions.get(index).getFirstChildElement("other1").getValue());
+                    c.setText(questions.get(index).getFirstChildElement("other2").getValue());
+                    b.setText(questions.get(index).getFirstChildElement("other3").getValue());
+                    break;
+                case 3:
+                    c.setText(correct);
+                    d.setText(questions.get(index).getFirstChildElement("other1").getValue());
+                    a.setText(questions.get(index).getFirstChildElement("other2").getValue());
+                    b.setText(questions.get(index).getFirstChildElement("other3").getValue());
+                    break;
+                case 4:
+                    a.setText(correct);
+                    b.setText(questions.get(index).getFirstChildElement("other1").getValue());
+                    d.setText(questions.get(index).getFirstChildElement("other2").getValue());
+                    c.setText(questions.get(index).getFirstChildElement("other3").getValue());
+                    break;
+            }
+
+            swap(randomize, index, n);
+            n--;
+            rightOrWrong.setText("");
         }
-        
-        int tmp = randomize[index];
-        randomize[index] = randomize[n];
-        randomize[n] = tmp;
-        n--;
 
     }//GEN-LAST:event_nextQuestion
 
     private void submitAnswer(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitAnswer
-        // TODO add your handling code here:
+
+        if (a.isSelected()) {
+            checked = a.getText();
+        } else if (b.isSelected()) {
+            checked = b.getText();
+        } else if (c.isSelected()) {
+            checked = c.getText();
+        } else if (d.isSelected()) {
+            checked = d.getText();
+        }
+
+        if (checked.equals(correct)) {
+            rightOrWrong.setText("CORRECT");
+            score = score + 1;
+            scoreFormat = (Integer.toString(score)) + "/" + i;
+        } else {
+            rightOrWrong.setText("WRONG, the correct answer was " + correct);
+            scoreFormat = (Integer.toString(score)) + "/" + i;
+        }
+        if (i == 10) {
+            displayResults.setEnabled(true);
+            nextQuestion.setEnabled(false);
+            submitAnswer.setEnabled(false);
+        } else {
+            scoreDisplay.setText(scoreFormat);
+            nextQuestion.setEnabled(true);
+            submitAnswer.setEnabled(false);
+        }
+
     }//GEN-LAST:event_submitAnswer
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -223,6 +280,4 @@ public class Quiz extends javax.swing.JFrame {
     private javax.swing.JLabel scoreDisplay;
     private javax.swing.JButton submitAnswer;
     // End of variables declaration//GEN-END:variables
-int i = 0;
-int n = 13;
 }

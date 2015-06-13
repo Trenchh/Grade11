@@ -32,19 +32,30 @@ public class QuizResults extends javax.swing.JFrame {
         scoreDisplay = new javax.swing.JLabel();
         endMessage = new javax.swing.JLabel();
         exitButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         resultsHeader.setFont(new java.awt.Font("Haettenschweiler", 0, 48)); // NOI18N
+        resultsHeader.setForeground(new java.awt.Color(255, 255, 255));
         resultsHeader.setText("How well did you do?");
+        getContentPane().add(resultsHeader);
+        resultsHeader.setBounds(96, 31, 308, 47);
 
         scoreDisplay.setFont(new java.awt.Font("Haettenschweiler", 0, 48)); // NOI18N
+        scoreDisplay.setForeground(new java.awt.Color(255, 255, 255));
         scoreDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         scoreDisplay.setText("Score");
+        getContentPane().add(scoreDisplay);
+        scoreDisplay.setBounds(124, 96, 245, 186);
 
         endMessage.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
+        endMessage.setForeground(new java.awt.Color(255, 255, 255));
         endMessage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         endMessage.setText("Message");
+        getContentPane().add(endMessage);
+        endMessage.setBounds(41, 288, 413, 55);
 
         exitButton.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
         exitButton.setText("Leave");
@@ -53,40 +64,13 @@ public class QuizResults extends javax.swing.JFrame {
                 leaveQuiz(evt);
             }
         });
+        getContentPane().add(exitButton);
+        exitButton.setBounds(183, 349, 122, 35);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(124, 124, 124)
-                        .addComponent(scoreDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(endMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(183, 183, 183)
-                        .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(96, 96, 96)
-                        .addComponent(resultsHeader)))
-                .addContainerGap(46, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(resultsHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(scoreDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(endMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(exitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/protheroe/ics3u/performanceTask/QuizShowStart.jpg"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 500, 400);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -133,6 +117,7 @@ public class QuizResults extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel endMessage;
     private javax.swing.JButton exitButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel resultsHeader;
     private javax.swing.JLabel scoreDisplay;
     // End of variables declaration//GEN-END:variables

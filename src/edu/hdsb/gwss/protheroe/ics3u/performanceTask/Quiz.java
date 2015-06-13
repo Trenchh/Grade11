@@ -80,6 +80,7 @@ public class Quiz extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         questionHeader.setFont(new java.awt.Font("Haettenschweiler", 0, 48)); // NOI18N
+        questionHeader.setForeground(new java.awt.Color(255, 255, 255));
         questionHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         questionHeader.setText("Question #1");
         getContentPane().add(questionHeader);
@@ -112,18 +113,22 @@ public class Quiz extends javax.swing.JFrame {
         questionDisplay.setBounds(0, 60, 500, 37);
 
         a.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
+        a.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(a);
         a.setBounds(70, 110, 402, 35);
 
         b.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
+        b.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(b);
         b.setBounds(70, 160, 402, 35);
 
         c.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
+        c.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(c);
         c.setBounds(70, 210, 402, 35);
 
         d.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
+        d.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(d);
         d.setBounds(70, 260, 400, 35);
 
@@ -144,21 +149,25 @@ public class Quiz extends javax.swing.JFrame {
         submitAnswer.setBounds(163, 354, 171, 35);
 
         dLabel.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
+        dLabel.setForeground(new java.awt.Color(255, 255, 255));
         dLabel.setText("D");
         getContentPane().add(dLabel);
         dLabel.setBounds(60, 260, 20, 30);
 
         aLabel.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
+        aLabel.setForeground(new java.awt.Color(255, 255, 255));
         aLabel.setText("A");
         getContentPane().add(aLabel);
         aLabel.setBounds(60, 110, 20, 30);
 
         bLabel.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
+        bLabel.setForeground(new java.awt.Color(255, 255, 255));
         bLabel.setText("B");
         getContentPane().add(bLabel);
         bLabel.setBounds(60, 160, 20, 30);
 
         cLabel.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
+        cLabel.setForeground(new java.awt.Color(255, 255, 255));
         cLabel.setText("C");
         getContentPane().add(cLabel);
         cLabel.setBounds(60, 210, 20, 30);

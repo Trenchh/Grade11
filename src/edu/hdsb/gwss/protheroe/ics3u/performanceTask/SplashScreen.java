@@ -27,11 +27,16 @@ public class SplashScreen extends javax.swing.JFrame {
         startButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         rulesAndInstruction = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         splashHeader.setFont(new java.awt.Font("Haettenschweiler", 0, 48)); // NOI18N
+        splashHeader.setForeground(new java.awt.Color(255, 255, 255));
         splashHeader.setText("Welcome to \"The Quiz\"");
+        getContentPane().add(splashHeader);
+        splashHeader.setBounds(81, 33, 337, 47);
 
         startButton.setFont(new java.awt.Font("Haettenschweiler", 0, 48)); // NOI18N
         startButton.setText("Start");
@@ -40,6 +45,8 @@ public class SplashScreen extends javax.swing.JFrame {
                 startQuiz(evt);
             }
         });
+        getContentPane().add(startButton);
+        startButton.setBounds(135, 291, 221, 79);
 
         rulesAndInstruction.setColumns(20);
         rulesAndInstruction.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
@@ -47,33 +54,12 @@ public class SplashScreen extends javax.swing.JFrame {
         rulesAndInstruction.setText("Rules/Instructions  \n1. NO LOOKING ON THE INTERNET \n2. Click start to begin the 10 multiple choice question quiz\n3. Press submit answer once you've selectd your answer\n4. Now let's see if you can survive the quiz");
         jScrollPane1.setViewportView(rulesAndInstruction);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(135, 135, 135)
-                        .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(splashHeader))))
-                .addContainerGap(82, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(splashHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
-        );
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(81, 98, 337, 175);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/protheroe/ics3u/performanceTask/QuizShowStart.jpg"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 500, 400);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -120,6 +106,7 @@ public class SplashScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea rulesAndInstruction;
     private javax.swing.JLabel splashHeader;

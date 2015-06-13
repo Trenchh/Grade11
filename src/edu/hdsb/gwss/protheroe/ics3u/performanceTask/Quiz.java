@@ -21,7 +21,7 @@ public class Quiz extends javax.swing.JFrame {
     Document document;
     Element root;
     int[] randomize = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
-    int i = 0;
+    int i = 1;
     int n = 13;
     String correct;
     String checked;
@@ -30,15 +30,23 @@ public class Quiz extends javax.swing.JFrame {
      * Creates new form Quiz
      */
     public Quiz() {
+        initComponents();
+
         File file = new File("Questions.xml");
+
+        displayResults.setEnabled(false);
+        nextQuestion.setText("Question 1");
+        nextQuestion.setEnabled(true);
+        submitAnswer.setEnabled(false);
+
         try {
             Builder builder = new Builder();
             document = builder.build(file);
             root = document.getRootElement();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-        initComponents();
     }
 
     /**
@@ -65,15 +73,17 @@ public class Quiz extends javax.swing.JFrame {
         bLabel = new javax.swing.JLabel();
         cLabel = new javax.swing.JLabel();
         scoreDisplay = new javax.swing.JLabel();
+        bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(500, 400));
         getContentPane().setLayout(null);
 
         questionHeader.setFont(new java.awt.Font("Haettenschweiler", 0, 48)); // NOI18N
         questionHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         questionHeader.setText("Question #1");
         getContentPane().add(questionHeader);
-        questionHeader.setBounds(129, 11, 229, 47);
+        questionHeader.setBounds(0, 10, 500, 47);
 
         displayResults.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
         displayResults.setText("Display Results");
@@ -96,36 +106,31 @@ public class Quiz extends javax.swing.JFrame {
         nextQuestion.setBounds(340, 354, 150, 35);
 
         questionDisplay.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
+        questionDisplay.setForeground(new java.awt.Color(255, 255, 255));
         questionDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        questionDisplay.setText("Question");
         getContentPane().add(questionDisplay);
-        questionDisplay.setBounds(40, 64, 422, 37);
+        questionDisplay.setBounds(0, 60, 500, 37);
 
-        a.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
-        a.setText("Answer");
+        a.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
         getContentPane().add(a);
         a.setBounds(70, 110, 402, 35);
 
-        b.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
-        b.setText("Answer");
+        b.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
         getContentPane().add(b);
         b.setBounds(70, 160, 402, 35);
 
-        c.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
-        c.setText("Answer");
+        c.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
         getContentPane().add(c);
         c.setBounds(70, 210, 402, 35);
 
-        d.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
-        d.setText("Answer");
+        d.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
         getContentPane().add(d);
         d.setBounds(70, 260, 400, 35);
 
         rightOrWrong.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
         rightOrWrong.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        rightOrWrong.setText("Right or Wrong");
         getContentPane().add(rightOrWrong);
-        rightOrWrong.setBounds(60, 300, 380, 37);
+        rightOrWrong.setBounds(0, 297, 500, 50);
 
         submitAnswer.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
         submitAnswer.setText("Submit Answer");
@@ -160,39 +165,33 @@ public class Quiz extends javax.swing.JFrame {
 
         scoreDisplay.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
         scoreDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        scoreDisplay.setText("Score");
         getContentPane().add(scoreDisplay);
-        scoreDisplay.setBounds(420, 10, 70, 30);
+        scoreDisplay.setBounds(430, 10, 60, 40);
+
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/protheroe/ics3u/performanceTask/QuizShow.jpg"))); // NOI18N
+        getContentPane().add(bg);
+        bg.setBounds(0, 0, 500, 400);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void displayResults(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayResults
-
         new QuizResults(score).setVisible(true);
         this.setVisible(false);
         this.dispose();
-
     }//GEN-LAST:event_displayResults
 
     private void nextQuestion(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextQuestion
+        nextQuestion.setText("Next Question");
         int random = (int) (Math.random() * n);
-        System.out.println(random);
-        int index = randomize[random];
-
-//        for (int p = 0; p < 14; p++) {
-//            System.out.print(randomize[p] + ", ");
-//        }
-//        System.out.println();
+        int index = randomize[random]; 
         Elements questions = root.getChildElements();
-        i++;
-
         if (i < 11) {
-            random = (int) (Math.random() * 4);
+            swap(randomize, random, n);
+            random = (int) (Math.random() * 4) + 1;
             displayResults.setEnabled(false);
             nextQuestion.setEnabled(false);
             submitAnswer.setEnabled(true);
-//            System.out.println(index);
             questionHeader.setText("Question #" + (i));
             questionDisplay.setText(questions.get(index).getFirstChildElement("question").getValue());
             correct = questions.get(index).getFirstChildElement("correct").getValue();
@@ -223,16 +222,12 @@ public class Quiz extends javax.swing.JFrame {
                     c.setText(questions.get(index).getFirstChildElement("other3").getValue());
                     break;
             }
-
-            swap(randomize, index, n);
             n--;
             rightOrWrong.setText("");
         }
-
     }//GEN-LAST:event_nextQuestion
 
     private void submitAnswer(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitAnswer
-
         if (a.isSelected()) {
             checked = a.getText();
         } else if (b.isSelected()) {
@@ -256,18 +251,18 @@ public class Quiz extends javax.swing.JFrame {
             nextQuestion.setEnabled(false);
             submitAnswer.setEnabled(false);
         } else {
-            scoreDisplay.setText(scoreFormat);
             nextQuestion.setEnabled(true);
             submitAnswer.setEnabled(false);
         }
-
+        scoreDisplay.setText(scoreFormat);
+        i++;
     }//GEN-LAST:event_submitAnswer
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton a;
     private javax.swing.JLabel aLabel;
     private javax.swing.JRadioButton b;
     private javax.swing.JLabel bLabel;
+    private javax.swing.JLabel bg;
     private javax.swing.JRadioButton c;
     private javax.swing.JLabel cLabel;
     private javax.swing.JRadioButton d;

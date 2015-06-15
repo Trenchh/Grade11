@@ -1,6 +1,11 @@
 /*
- * HEADER
+ * Name: SplashScreen.java
+ * Date: June 8th, 2015
+ * Version: v0.1
+ * Author: Ryan Protheroe
+ * Description: Beginning screen that brings user to quiz
  */
+
 package edu.hdsb.gwss.protheroe.ics3u.performanceTask;
 
 /**
@@ -51,11 +56,11 @@ public class SplashScreen extends javax.swing.JFrame {
         rulesAndInstruction.setColumns(20);
         rulesAndInstruction.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
         rulesAndInstruction.setRows(5);
-        rulesAndInstruction.setText("Rules/Instructions  \n1. NO LOOKING ON THE INTERNET \n2. Click start to begin the 10 multiple choice question quiz\n3. Press submit answer once you've selectd your answer\n4. Now let's see if you can survive the quiz");
+        rulesAndInstruction.setText("Rules/Instructions  \n1. NO LOOKING ON THE INTERNET \n2. NO TALKING\n3. NO CELL PHONES\n4. Click start to begin the 10 multiple choice question quiz\n5. Now let's see if you can survive the quiz");
         jScrollPane1.setViewportView(rulesAndInstruction);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(81, 98, 337, 175);
+        jScrollPane1.setBounds(8, 98, 480, 175);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/protheroe/ics3u/performanceTask/QuizShowStart.jpg"))); // NOI18N
         getContentPane().add(jLabel1);

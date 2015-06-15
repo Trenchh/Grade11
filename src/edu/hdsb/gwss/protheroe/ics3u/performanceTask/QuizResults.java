@@ -1,8 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */  
+ * Name: QuizResults.java
+ * Date: June 8th, 2015
+ * Version: v0.1
+ * Author: Ryan Protheroe
+ * Description: Displays end message based off score from quiz
+ */
 package edu.hdsb.gwss.protheroe.ics3u.performanceTask;
 
 /**
@@ -15,8 +17,22 @@ public class QuizResults extends javax.swing.JFrame {
     /**
      * Creates new form QuizResults
      */
-    public QuizResults( int score ) {
+    public QuizResults( int score) {
         initComponents();
+        scoreDisplay.setText("" + score + "/" + 10);
+        
+        //Displays message based off score
+        if(score == 10) {
+            endMessage.setText("BOI YOU STYLIN!!!!");
+        } else if(score > 8) {
+            endMessage.setText("Nice");
+        } else if(score > 5) {
+            endMessage.setText("Meh, you could’ve done better");
+        } else if(score > 2) {
+            endMessage.setText("Study harder next time");
+        }else if(score >= 0) {
+            endMessage.setText("ARE YOU EVEN IN THIS CLASS?!?!");
+        }
     }
 
     /**
@@ -28,6 +44,7 @@ public class QuizResults extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         resultsHeader = new javax.swing.JLabel();
         scoreDisplay = new javax.swing.JLabel();
         endMessage = new javax.swing.JLabel();
@@ -43,19 +60,19 @@ public class QuizResults extends javax.swing.JFrame {
         getContentPane().add(resultsHeader);
         resultsHeader.setBounds(96, 31, 308, 47);
 
-        scoreDisplay.setFont(new java.awt.Font("Haettenschweiler", 0, 48)); // NOI18N
+        scoreDisplay.setFont(new java.awt.Font("Haettenschweiler", 0, 60)); // NOI18N
         scoreDisplay.setForeground(new java.awt.Color(255, 255, 255));
         scoreDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         scoreDisplay.setText("Score");
         getContentPane().add(scoreDisplay);
         scoreDisplay.setBounds(124, 96, 245, 186);
 
-        endMessage.setFont(new java.awt.Font("Haettenschweiler", 0, 18)); // NOI18N
+        endMessage.setFont(new java.awt.Font("Haettenschweiler", 0, 36)); // NOI18N
         endMessage.setForeground(new java.awt.Color(255, 255, 255));
         endMessage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         endMessage.setText("Message");
         getContentPane().add(endMessage);
-        endMessage.setBounds(41, 288, 413, 55);
+        endMessage.setBounds(11, 288, 480, 55);
 
         exitButton.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
         exitButton.setText("Leave");
@@ -76,7 +93,7 @@ public class QuizResults extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void leaveQuiz(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leaveQuiz
-        
+        System.exit(0);
     }//GEN-LAST:event_leaveQuiz
 
     /**
@@ -115,6 +132,7 @@ public class QuizResults extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel endMessage;
     private javax.swing.JButton exitButton;
     private javax.swing.JLabel jLabel1;

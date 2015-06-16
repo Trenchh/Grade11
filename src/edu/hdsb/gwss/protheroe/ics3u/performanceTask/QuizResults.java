@@ -3,7 +3,7 @@
  * Date: June 8th, 2015
  * Version: v0.1
  * Author: Ryan Protheroe
- * Description: Displays end message based off score from quiz
+ * Description: Displays score and end message based off score from quiz
  */
 package edu.hdsb.gwss.protheroe.ics3u.performanceTask;
 
@@ -13,24 +13,23 @@ package edu.hdsb.gwss.protheroe.ics3u.performanceTask;
  */
 public class QuizResults extends javax.swing.JFrame {
 
-    
     /**
      * Creates new form QuizResults
      */
-    public QuizResults( int score) {
+    public QuizResults(int score) {
         initComponents();
         scoreDisplay.setText("" + score + "/" + 10);
-        
+
         //Displays message based off score
-        if(score == 10) {
+        if (score == 10) {
             endMessage.setText("BOI YOU STYLIN!!!!");
-        } else if(score > 8) {
+        } else if (score > 8) {
             endMessage.setText("Nice");
-        } else if(score > 5) {
+        } else if (score > 5) {
             endMessage.setText("Meh, you could’ve done better");
-        } else if(score > 2) {
+        } else if (score > 2) {
             endMessage.setText("Study harder next time");
-        }else if(score >= 0) {
+        } else if (score >= 0) {
             endMessage.setText("ARE YOU EVEN IN THIS CLASS?!?!");
         }
     }
@@ -49,9 +48,10 @@ public class QuizResults extends javax.swing.JFrame {
         scoreDisplay = new javax.swing.JLabel();
         endMessage = new javax.swing.JLabel();
         exitButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        endBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(550, 450));
         getContentPane().setLayout(null);
 
         resultsHeader.setFont(new java.awt.Font("Haettenschweiler", 0, 48)); // NOI18N
@@ -84,10 +84,10 @@ public class QuizResults extends javax.swing.JFrame {
         getContentPane().add(exitButton);
         exitButton.setBounds(183, 349, 122, 35);
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/protheroe/ics3u/performanceTask/QuizShowStart.jpg"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 500, 400);
+        endBackground.setForeground(new java.awt.Color(255, 255, 255));
+        endBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/protheroe/ics3u/performanceTask/QuizShowStart.jpg"))); // NOI18N
+        getContentPane().add(endBackground);
+        endBackground.setBounds(0, 0, 500, 400);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -99,43 +99,43 @@ public class QuizResults extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main( String args[] ) {
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for ( javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels() ) {
-                if ( "Nimbus".equals( info.getName() ) ) {
-                    javax.swing.UIManager.setLookAndFeel( info.getClassName() );
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch ( ClassNotFoundException ex ) {
-            java.util.logging.Logger.getLogger( QuizResults.class.getName() ).log( java.util.logging.Level.SEVERE, null, ex );
-        } catch ( InstantiationException ex ) {
-            java.util.logging.Logger.getLogger( QuizResults.class.getName() ).log( java.util.logging.Level.SEVERE, null, ex );
-        } catch ( IllegalAccessException ex ) {
-            java.util.logging.Logger.getLogger( QuizResults.class.getName() ).log( java.util.logging.Level.SEVERE, null, ex );
-        } catch ( javax.swing.UnsupportedLookAndFeelException ex ) {
-            java.util.logging.Logger.getLogger( QuizResults.class.getName() ).log( java.util.logging.Level.SEVERE, null, ex );
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(QuizResults.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(QuizResults.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(QuizResults.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(QuizResults.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater( new Runnable() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new QuizResults( 2 ).setVisible( true );
+                new QuizResults(2).setVisible(true);
             }
-        } );
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel endBackground;
     private javax.swing.JLabel endMessage;
     private javax.swing.JButton exitButton;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel resultsHeader;
     private javax.swing.JLabel scoreDisplay;
     // End of variables declaration//GEN-END:variables

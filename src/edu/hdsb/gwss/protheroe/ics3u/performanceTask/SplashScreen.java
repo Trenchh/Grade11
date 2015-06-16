@@ -5,7 +5,6 @@
  * Author: Ryan Protheroe
  * Description: Beginning screen that brings user to quiz
  */
-
 package edu.hdsb.gwss.protheroe.ics3u.performanceTask;
 
 /**
@@ -32,9 +31,10 @@ public class SplashScreen extends javax.swing.JFrame {
         startButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         rulesAndInstruction = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
+        splashBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(550, 450));
         getContentPane().setLayout(null);
 
         splashHeader.setFont(new java.awt.Font("Haettenschweiler", 0, 48)); // NOI18N
@@ -62,9 +62,9 @@ public class SplashScreen extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(8, 98, 480, 175);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/protheroe/ics3u/performanceTask/QuizShowStart.jpg"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 500, 400);
+        splashBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/hdsb/gwss/protheroe/ics3u/performanceTask/QuizShowStart.jpg"))); // NOI18N
+        getContentPane().add(splashBackground);
+        splashBackground.setBounds(0, 0, 500, 400);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -111,9 +111,9 @@ public class SplashScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea rulesAndInstruction;
+    private javax.swing.JLabel splashBackground;
     private javax.swing.JLabel splashHeader;
     private javax.swing.JButton startButton;
     // End of variables declaration//GEN-END:variables

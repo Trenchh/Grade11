@@ -97,4 +97,18 @@
 		<other2>Nothing, its just there</other2>
 		<other3>Only the user interface</other3>
 	</questions>
+	<questions>
+		<question>Which type uses decimals</question>
+		<correct>double</correct>
+		<other1>int</other1>
+		<other2>boolean</other2>
+		<other3>String</other3>
+	</questions>
+	<questions>
+		<question>What's the best excuse for not handing in work</question>
+		<correct>There isn't one</correct>
+		<other1>My hard drive crashed</other1>
+		<other2>My computer rebooted, and I lost everything</other2>
+		<other3>My work vanished! The computer deleted it</other3>
+	</questions>
 </gameQuestions>

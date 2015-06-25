@@ -30,7 +30,7 @@ public class Quiz extends javax.swing.JFrame {
     int n = 15;
     String correct;
     String checked;
-
+ 
     /**
      * Creates new form Quiz
      */

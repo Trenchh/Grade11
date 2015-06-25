@@ -10,7 +10,7 @@ package edu.hdsb.gwss.protheroe.ics3u.u6;
 import edu.hdsb.gwss.protheroe.util.ArrayHelper;
 /**
  *
- * @author 1protheroery
+ * @author 1protheroery  
  */
 public class BubbleSort {
     /**
